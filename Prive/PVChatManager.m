@@ -8,6 +8,9 @@
 
 #import "PVChatManager.h"
 #import "PVBuddy.h"
+#import "CPAConfiguration.h"
+#import "CPAHiddenService.h"
+#import "CPAProxyManager.h"
 
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
 
@@ -15,6 +18,7 @@ static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddie
     NSManagedObjectContext *_managedObjectContext;
     NSPersistentStoreCoordinator *_psc;
     NSManagedObjectModel *_managedModel;
+    CPAProxyManager *_proxyManager;
 }
 
 + (instancetype)defaultManager {
@@ -55,6 +59,17 @@ static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddie
         [_psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:dataStoreURL options:nil error:&error];
         NSAssert(!error, @"Error when adding persistent store to PSC: %@", error);
         _managedObjectContext.persistentStoreCoordinator = _psc;
+        
+        NSString *torrcPath = [[NSBundle mainBundle] pathForResource:@"torrc" ofType:nil];
+        NSString *geoipPath = [[NSBundle mainBundle] pathForResource:@"geoip" ofType:nil];
+        NSString *chatServiceDirPath = [documentsDirectoryPath stringByAppendingPathComponent:@"/chat_service/"];
+        CPAConfiguration *proxyConfiguration = [[CPAConfiguration alloc] initWithTorrcPath:torrcPath geoipPath:geoipPath];
+        
+        CPAHiddenService *chatService = [[CPAHiddenService alloc] initWithDirectoryPath:chatServiceDirPath
+                                                                            virtualPort:11009
+                                                                             targetPort:11009];
+        proxyConfiguration.hiddenServices = @[chatService];
+        _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
     }
     
     return self;
@@ -107,6 +122,20 @@ static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddie
     
     [_managedObjectContext save:&error];
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
+}
+
+#pragma mark - Tor proxy
+
+- (void)createChatServiceDirIfNeeded {
+
+}
+
+- (void)startTorProxy {
+    [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
+        NSLog(@"Tor started at host:port %@:%d",socksHost, socksPort);
+    } failure:^(NSError *error) {
+        NSLog(@"Tor start failure: %@", error);
+    }];
 }
 
 @end

@@ -18,4 +18,6 @@
 - (void)addBuddyWithAddress:(NSString *)address alias:(NSString *)alias info:(NSString *)info;
 - (void)removeBuddyWithAddress:(NSString *)address;
 
+- (void)startTorProxy;
+
 @end

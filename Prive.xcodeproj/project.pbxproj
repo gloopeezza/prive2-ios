@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78C4DC7182B7DA500C6D19C /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC6182B7DA500C6D19C /* geoip */; };
+		F78C4DC9182B7DAA00C6D19C /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC8182B7DAA00C6D19C /* torrc */; };
+		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
+		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
 		F7A91BD6182A6C2A00073051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD5182A6C2A00073051 /* Foundation.framework */; };
 		F7A91BD8182A6C2A00073051 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */; };
 		F7A91BDA182A6C2A00073051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD9182A6C2A00073051 /* UIKit.framework */; };
@@ -27,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F78C4DCD182B7E6800C6D19C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 542FFE4C1800C9B5003B83B7;
+			remoteInfo = CPAProxy;
+		};
 		F7A91BF2182A6C2A00073051 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7A91BCA182A6C2A00073051 /* Project object */;
@@ -34,9 +45,26 @@
 			remoteGlobalIDString = F7A91BD1182A6C2A00073051;
 			remoteInfo = Prive;
 		};
+		F7BFD085182B7CEA001DC10C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 542FFE4D1800C9B5003B83B7;
+			remoteInfo = CPAProxy;
+		};
+		F7BFD087182B7CEA001DC10C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5418E2F41802ACF700C293E4;
+			remoteInfo = CPAProxyTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F78C4DC6182B7DA500C6D19C /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = geoip; path = ../External/CPAProxy/CPAProxyDependencies/geoip; sourceTree = "<group>"; };
+		F78C4DC8182B7DAA00C6D19C /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../External/CPAProxy/CPAProxyDependencies/torrc; sourceTree = "<group>"; };
+		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F7A91BD2182A6C2A00073051 /* Prive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A91BD5182A6C2A00073051 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +89,7 @@
 		F7A91C0F182A6E4800073051 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F7A91C11182A745500073051 /* PVBuddyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVBuddyListViewController.h; sourceTree = "<group>"; };
 		F7A91C12182A745500073051 /* PVBuddyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVBuddyListViewController.m; sourceTree = "<group>"; };
+		F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPAProxy.xcodeproj; path = External/CPAProxy/CPAProxy.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */,
+				F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */,
 				F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */,
 				F7A91BD8182A6C2A00073051 /* CoreGraphics.framework in Frameworks */,
 				F7A91BDA182A6C2A00073051 /* UIKit.framework in Frameworks */,
@@ -94,6 +125,7 @@
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
+				F78C4DCB182B7DCF00C6D19C /* libz.dylib */,
 				F7A91BD3182A6C2A00073051 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +142,7 @@
 		F7A91BD4182A6C2A00073051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */,
 				F7A91C0F182A6E4800073051 /* CoreData.framework */,
 				F7A91BD5182A6C2A00073051 /* Foundation.framework */,
 				F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */,
@@ -135,6 +168,8 @@
 		F7A91BDC182A6C2A00073051 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F78C4DC8182B7DAA00C6D19C /* torrc */,
+				F78C4DC6182B7DA500C6D19C /* geoip */,
 				F7A91BDD182A6C2A00073051 /* Prive-Info.plist */,
 				F7A91BDE182A6C2A00073051 /* InfoPlist.strings */,
 				F7A91BE1182A6C2A00073051 /* main.m */,
@@ -182,6 +217,15 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F7BFD07F182B7CE9001DC10C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFD086182B7CEA001DC10C /* libCPAProxy.a */,
+				F7BFD088182B7CEA001DC10C /* CPAProxyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +240,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F78C4DCE182B7E6800C6D19C /* PBXTargetDependency */,
 			);
 			name = Prive;
 			productName = Prive;
@@ -245,6 +290,12 @@
 			mainGroup = F7A91BC9182A6C2A00073051;
 			productRefGroup = F7A91BD3182A6C2A00073051 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F7BFD07F182B7CE9001DC10C /* Products */;
+					ProjectRef = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F7A91BD1182A6C2A00073051 /* Prive */,
@@ -253,6 +304,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		F7BFD086182B7CEA001DC10C /* libCPAProxy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCPAProxy.a;
+			remoteRef = F7BFD085182B7CEA001DC10C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7BFD088182B7CEA001DC10C /* CPAProxyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CPAProxyTests.xctest;
+			remoteRef = F7BFD087182B7CEA001DC10C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		F7A91BD0182A6C2A00073051 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -260,6 +328,8 @@
 			files = (
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
+				F78C4DC9182B7DAA00C6D19C /* torrc in Resources */,
+				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +368,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F78C4DCE182B7E6800C6D19C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CPAProxy;
+			targetProxy = F78C4DCD182B7E6800C6D19C /* PBXContainerItemProxy */;
+		};
 		F7A91BF3182A6C2A00073051 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F7A91BD1182A6C2A00073051 /* Prive */;
@@ -405,7 +480,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prive/Prive-Prefix.pch";
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -418,7 +495,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prive/Prive-Prefix.pch";
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -484,6 +563,7 @@
 				F7A91C00182A6C2A00073051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7A91C01182A6C2A00073051 /* Build configuration list for PBXNativeTarget "PriveTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +572,7 @@
 				F7A91C03182A6C2A00073051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
