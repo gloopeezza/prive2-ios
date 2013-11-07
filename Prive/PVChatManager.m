@@ -114,14 +114,29 @@ static NSInteger kPVTorLocalServicePort = 11008;
     return count == 1;
 }
 
+- (PVBuddy *)buddyWithAddress:(NSString *)address {
+    NSParameterAssert(address);
+    
+    __block PVBuddy *buddy;
+    
+    [_managedObjectContext performBlockAndWait:^{
+        NSError *error;
+        NSArray *results = [_managedObjectContext executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+        NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
+        buddy = [results lastObject];
+    }];
+    
+    return buddy;
+}
+
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes {
     NSParameterAssert(address);
     
+    if ([self isBuddyAlreadyExistWithAddress:address]) {
+        return;
+    }
+    
     [_managedObjectContext performBlockAndWait:^{
-        if ([self isBuddyAlreadyExistWithAddress:address]) {
-            return;
-        }
-        
         NSEntityDescription *buddyEntityDescription = [NSEntityDescription entityForName:[PVBuddy entityName] inManagedObjectContext:_managedObjectContext];
         PVBuddy *buddy = [[PVBuddy alloc] initWithEntity:buddyEntityDescription insertIntoManagedObjectContext:_managedObjectContext];
         buddy.address = address;
@@ -136,17 +151,22 @@ static NSInteger kPVTorLocalServicePort = 11008;
 
 - (BOOL)removeBuddy:(NSString *)address {
     NSParameterAssert(address);
+    
+    __block NSError *error;
+    
     if (![self isBuddyAlreadyExistWithAddress:address]) {
         return NO;
     }
     
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
-    NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
-    PVBuddy *buddy = [results lastObject];
-    [_managedObjectContext deleteObject:buddy];
+    [_managedObjectContext performBlockAndWait:^{
+        NSArray *results = [_managedObjectContext executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+        NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
+        PVBuddy *buddy = [results lastObject];
+        [_managedObjectContext deleteObject:buddy];
+        
+        [_managedObjectContext save:&error];
+    }];
     
-    [_managedObjectContext save:&error];
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
     
     if (error) return NO;
@@ -246,6 +266,33 @@ static NSInteger kPVTorLocalServicePort = 11008;
 	return local;
 }
 
+- (void)setBuddy:(NSString *)address alias:(NSString *)alias {
+    PVBuddy *buddy = [self buddyWithAddress:address];
+    buddy.alias = alias;
+    
+    NSError *error;
+    [_managedObjectContext save:&error];
+}
+
+- (void)setBuddy:(NSString *)address notes:(NSString *)notes {
+    PVBuddy *buddy = [self buddyWithAddress:address];
+    buddy.info = notes;
+    
+    NSError *error;
+    [_managedObjectContext save:&error];
+}
+
+- (NSString *)getBuddyAlias:(NSString *)address {
+    PVBuddy *buddy = [self buddyWithAddress:address];
+    return buddy.alias;
+}
+
+- (NSString *)getBuddyNotes:(NSString *)address {
+    PVBuddy *buddy = [self buddyWithAddress:address];
+    return buddy.info;
+}
+
+
 #pragma mark - TCCoreManagerDelegate 
 
 - (void)torchatManager:(TCCoreManager *)manager information:(TCInfo *)info {
@@ -266,5 +313,7 @@ static NSInteger kPVTorLocalServicePort = 11008;
 - (void)sendMessage:(NSString *)message toBuddyWithAddress:(NSString *)address {
     [[_coreManager buddyWithAddress:address] sendMessage:message];
 }
+
+
 
 @end
