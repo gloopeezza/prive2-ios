@@ -11,13 +11,16 @@
 #import "CPAConfiguration.h"
 #import "CPAHiddenService.h"
 #import "CPAProxyManager.h"
+#import "TCCoreManager.h"
+#import "TCBuddy.h"
 
+static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
 static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
+static NSInteger kPVTorHiddenServicePort = 11009;
+static NSInteger kPVTorLocalServicePort = 11008;
 
-@interface PVChatManager ()
-
-@property (nonatomic, readonly) NSString *selfAddress;
+@interface PVChatManager () <TCCoreManagerDelegate>
 
 @end
 
@@ -28,6 +31,7 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
     NSManagedObjectModel *_managedModel;
     CPAProxyManager *_proxyManager;
     NSString *_selfAddress;
+    TCCoreManager *_coreManager;
 }
 
 + (instancetype)defaultManager {
@@ -75,10 +79,16 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
         CPAConfiguration *proxyConfiguration = [[CPAConfiguration alloc] initWithTorrcPath:torrcPath geoipPath:geoipPath];
         
         CPAHiddenService *chatService = [[CPAHiddenService alloc] initWithDirectoryPath:chatServiceDirPath
-                                                                            virtualPort:11009
-                                                                             targetPort:11009];
+                                                                            virtualPort:kPVTorHiddenServicePort
+                                                                             targetPort:kPVTorLocalServicePort];
         proxyConfiguration.hiddenServices = @[chatService];
         _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
+        
+        // TCConfig init
+        
+        self.clientPort = kPVTorLocalServicePort;
+        self.profileName = @"Prive2 User";
+        self.profileText = @"Test text";
     }
     
     return self;
@@ -100,7 +110,7 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
     return count == 1;
 }
 
-- (void)addBuddyWithAddress:(NSString *)address alias:(NSString *)alias info:(NSString *)info {
+- (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes {
     NSParameterAssert(address);
     if ([self isBuddyAlreadyExistWithAddress:address]) {
         return;
@@ -110,17 +120,17 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
     PVBuddy *buddy = [[PVBuddy alloc] initWithEntity:buddyEntityDescription insertIntoManagedObjectContext:_managedObjectContext];
     buddy.address = address;
     buddy.alias = alias;
-    buddy.info = info;
+    buddy.info = notes;
     
     NSError *error;
     [_managedObjectContext save:&error];
     NSAssert(!error, @"Error when saving context after inserting new buddy: %@", error);
 }
 
-- (void)removeBuddyWithAddress:(NSString *)address {
+- (BOOL)removeBuddy:(NSString *)address {
     NSParameterAssert(address);
     if (![self isBuddyAlreadyExistWithAddress:address]) {
-        return;
+        return NO;
     }
     
     NSError *error;
@@ -131,20 +141,35 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
     
     [_managedObjectContext save:&error];
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
+    
+    if (error) return NO;
+    return YES;
 }
 
 #pragma mark - Tor proxy
 
-- (void)createChatServiceDirIfNeeded {
-
+- (void)start {
+    [self startTorProxy];
 }
 
 - (void)startTorProxy {
+    __weak id __weak__self = self;
     [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
         NSLog(@"Tor proxy successfully started at %@:%d",socksHost, socksPort);
+        NSLog(@"Hidden service address: %@", [self selfAddress]);
+        [__weak__self startCoreChat];
     } failure:^(NSError *error) {
         NSLog(@"Tor start failure: %@", error);
     }];
+}
+
+- (void)startCoreChat {
+    if (!_coreManager) {
+        __weak id __weak__self = self;
+        _coreManager = [[TCCoreManager alloc] initWithConfiguration:__weak__self];
+        _coreManager.delegate = __weak__self;
+    }
+    [_coreManager start];
 }
 
 - (NSString *)selfAddress {
@@ -160,6 +185,79 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
         _selfAddress = [onionAddress stringByDeletingPathExtension];
     }
     return _selfAddress;
+}
+
+#pragma mark - TCConfig
+
+- (NSString *)torAddress {
+    return _proxyManager.SOCKSHost;
+}
+
+- (NSInteger)torPort {
+    return _proxyManager.SOCKSPort;
+}
+
+- (NSString *)clientName:(tc_config_get)get {
+    return kPVClientName;
+}
+
+- (NSArray *)buddies {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVBuddy entityName]];
+    NSError *error;
+    NSArray *managedBuddies = [_managedObjectContext executeFetchRequest:request error:&error];
+    NSMutableArray *buddies = [[NSMutableArray alloc] initWithCapacity:managedBuddies.count];
+    
+    for (PVBuddy *managedBuddy in managedBuddies) {
+       NSDictionary *buddy = @{TCConfigBuddyAddress: managedBuddy.address,
+                               TCConfigBuddyAlias: managedBuddy.alias ?: @"",
+                               TCConfigBuddyNotes: managedBuddy.info ?: @""};
+        
+        
+        [buddies addObject:buddy];
+    }
+    
+    return buddies;
+}
+
+- (NSString *)clientVersion:(tc_config_get)get {
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
+- (NSString *)localized:(NSString *)key
+{
+	NSString *local = nil;
+	if (!key) {
+		return @"";
+    }
+    
+	local = NSLocalizedString(key, @"");
+	
+	if ([local length] == 0) {
+		return key;
+    }
+	
+	return local;
+}
+
+#pragma mark - TCCoreManagerDelegate 
+
+- (void)torchatManager:(TCCoreManager *)manager information:(TCInfo *)info {
+    NSLog(@"Got info from torchat manager: %@", [info render]);
+}
+
+#pragma mark - Stubs
+
+- (void)setBuddy:(NSString *)address lastProfileAvatar:(UIImage *)lastAvatar {}
+- (void)setBuddy:(NSString *)address lastProfileName:(NSString *)lastName {}
+- (void)setBuddy:(NSString *)address lastProfileText:(NSString *)lastText {}
+- (NSString *)getBuddyLastProfileName:(NSString *)address {return nil;}
+- (NSString *)getBuddyLastProfileText:(NSString *)address {return nil;}
+- (UIImage *)getBuddyLastProfileAvatar:(NSString *)address {return nil;}
+
+#pragma mark - Debug
+
+- (void)sendMessage:(NSString *)message toBuddyWithAddress:(NSString *)address {
+    [[_coreManager buddyWithAddress:address] sendMessage:message];
 }
 
 @end

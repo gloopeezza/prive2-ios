@@ -67,7 +67,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSString *buddyAddress = [alertView textFieldAtIndex:0].text;
-        [[PVChatManager defaultManager] addBuddyWithAddress:buddyAddress alias:@"" info:@""];
+        [[PVChatManager defaultManager] addBuddy:buddyAddress alias:nil notes:nil];
         self.addBuddyAlertView = nil;
     }
 }
@@ -92,10 +92,16 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 #pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PVBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [[PVChatManager defaultManager] sendMessage:@"test" toBuddyWithAddress:buddy.address];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         PVBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [[PVChatManager defaultManager] removeBuddyWithAddress:buddy.address];
+        [[PVChatManager defaultManager] removeBuddy:buddy.address];
     }
 }
 

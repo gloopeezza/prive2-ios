@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F78C4DC7182B7DA500C6D19C /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC6182B7DA500C6D19C /* geoip */; };
-		F78C4DC9182B7DAA00C6D19C /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC8182B7DAA00C6D19C /* torrc */; };
 		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
 		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
 		F78C4E3F182BA9FC00C6D19C /* libPriveDependencies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4E12182BA98500C6D19C /* libPriveDependencies.a */; };
+		F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78C4E46182BB15F00C6D19C /* Localizable.strings */; };
+		F78C4E4E182BC6F600C6D19C /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = F78C4E4D182BC6F600C6D19C /* torrc */; };
 		F7A91BD6182A6C2A00073051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD5182A6C2A00073051 /* Foundation.framework */; };
 		F7A91BD8182A6C2A00073051 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */; };
 		F7A91BDA182A6C2A00073051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD9182A6C2A00073051 /* UIKit.framework */; };
@@ -78,10 +79,11 @@
 
 /* Begin PBXFileReference section */
 		F78C4DC6182B7DA500C6D19C /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = geoip; path = ../External/CPAProxy/CPAProxyDependencies/geoip; sourceTree = "<group>"; };
-		F78C4DC8182B7DAA00C6D19C /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../External/CPAProxy/CPAProxyDependencies/torrc; sourceTree = "<group>"; };
 		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F78C4DD8182BA76400C6D19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PriveDependencies.xcodeproj; path = PriveDependencies/PriveDependencies.xcodeproj; sourceTree = "<group>"; };
+		F78C4E47182BB15F00C6D19C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = External/TorchatMac/TorChat/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		F78C4E4D182BC6F600C6D19C /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = torrc; sourceTree = "<group>"; };
 		F7A91BD2182A6C2A00073051 /* Prive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A91BD5182A6C2A00073051 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -195,8 +197,9 @@
 		F7A91BDC182A6C2A00073051 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F78C4E4D182BC6F600C6D19C /* torrc */,
+				F78C4E46182BB15F00C6D19C /* Localizable.strings */,
 				F78C4DD8182BA76400C6D19C /* README.md */,
-				F78C4DC8182B7DAA00C6D19C /* torrc */,
 				F78C4DC6182B7DA500C6D19C /* geoip */,
 				F7A91BDD182A6C2A00073051 /* Prive-Info.plist */,
 				F7A91BDE182A6C2A00073051 /* InfoPlist.strings */,
@@ -366,9 +369,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
+				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
-				F78C4DC9182B7DAA00C6D19C /* torrc in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +430,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F78C4E46182BB15F00C6D19C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F78C4E47182BB15F00C6D19C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F7A91BDE182A6C2A00073051 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

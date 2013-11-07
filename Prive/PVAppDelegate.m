@@ -26,7 +26,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [[PVChatManager defaultManager] startTorProxy];
+    [[PVChatManager defaultManager] start];
     
     return YES;
 }
