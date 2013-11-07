@@ -19,5 +19,6 @@
 - (void)removeBuddyWithAddress:(NSString *)address;
 
 - (void)startTorProxy;
+- (NSString *)selfAddress;
 
 @end
