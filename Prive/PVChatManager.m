@@ -13,12 +13,21 @@
 #import "CPAProxyManager.h"
 
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
+static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
+
+@interface PVChatManager ()
+
+@property (nonatomic, readonly) NSString *selfAddress;
+
+@end
+
 
 @implementation PVChatManager {
     NSManagedObjectContext *_managedObjectContext;
     NSPersistentStoreCoordinator *_psc;
     NSManagedObjectModel *_managedModel;
     CPAProxyManager *_proxyManager;
+    NSString *_selfAddress;
 }
 
 + (instancetype)defaultManager {
@@ -62,7 +71,7 @@ static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddie
         
         NSString *torrcPath = [[NSBundle mainBundle] pathForResource:@"torrc" ofType:nil];
         NSString *geoipPath = [[NSBundle mainBundle] pathForResource:@"geoip" ofType:nil];
-        NSString *chatServiceDirPath = [documentsDirectoryPath stringByAppendingPathComponent:@"/chat_service/"];
+        NSString *chatServiceDirPath = [documentsDirectoryPath stringByAppendingPathComponent:kPVTorHiddenServiceDirPath];
         CPAConfiguration *proxyConfiguration = [[CPAConfiguration alloc] initWithTorrcPath:torrcPath geoipPath:geoipPath];
         
         CPAHiddenService *chatService = [[CPAHiddenService alloc] initWithDirectoryPath:chatServiceDirPath
@@ -132,10 +141,25 @@ static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddie
 
 - (void)startTorProxy {
     [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
-        NSLog(@"Tor started at host:port %@:%d",socksHost, socksPort);
+        NSLog(@"Tor proxy successfully started at %@:%d",socksHost, socksPort);
     } failure:^(NSError *error) {
         NSLog(@"Tor start failure: %@", error);
     }];
+}
+
+- (NSString *)selfAddress {
+    if (!_selfAddress) {
+        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *chatServiceDirPath = [documentsDirectoryPath stringByAppendingPathComponent:kPVTorHiddenServiceDirPath];
+        NSString *hostNameFilePath = [chatServiceDirPath stringByAppendingPathComponent:@"hostname"];
+        
+        NSError *error;
+        NSString *onionAddress = [NSString stringWithContentsOfFile:hostNameFilePath encoding:NSASCIIStringEncoding error:&error];
+        if (error) return nil;
+        
+        _selfAddress = [onionAddress stringByDeletingPathExtension];
+    }
+    return _selfAddress;
 }
 
 @end

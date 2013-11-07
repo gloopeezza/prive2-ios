@@ -65,6 +65,7 @@
 		F78C4DC6182B7DA500C6D19C /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = geoip; path = ../External/CPAProxy/CPAProxyDependencies/geoip; sourceTree = "<group>"; };
 		F78C4DC8182B7DAA00C6D19C /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../External/CPAProxy/CPAProxyDependencies/torrc; sourceTree = "<group>"; };
 		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F78C4DD8182BA76400C6D19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		F7A91BD2182A6C2A00073051 /* Prive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A91BD5182A6C2A00073051 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,6 +169,7 @@
 		F7A91BDC182A6C2A00073051 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F78C4DD8182BA76400C6D19C /* README.md */,
 				F78C4DC8182B7DAA00C6D19C /* torrc */,
 				F78C4DC6182B7DA500C6D19C /* geoip */,
 				F7A91BDD182A6C2A00073051 /* Prive-Info.plist */,
