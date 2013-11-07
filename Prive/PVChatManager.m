@@ -18,7 +18,7 @@ static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
 static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
 static NSInteger kPVTorHiddenServicePort = 11009;
-static NSInteger kPVTorLocalServicePort = 11008;
+static NSInteger kPVTorLocalServicePort = 11009;
 
 @interface PVChatManager () <TCCoreManagerDelegate>
 
