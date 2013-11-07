@@ -1,3 +1,6 @@
 [submodule "External/CPAProxy"]
 	path = External/CPAProxy
 	url = git@github.com:prive/CPAProxy.git
+[submodule "External/TorchatMac"]
+	path = External/TorchatMac
+	url = git@github.com:prive/torchat-mac.git

@@ -11,6 +11,7 @@
 		F78C4DC9182B7DAA00C6D19C /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC8182B7DAA00C6D19C /* torrc */; };
 		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
 		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
+		F78C4E3F182BA9FC00C6D19C /* libPriveDependencies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4E12182BA98500C6D19C /* libPriveDependencies.a */; };
 		F7A91BD6182A6C2A00073051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD5182A6C2A00073051 /* Foundation.framework */; };
 		F7A91BD8182A6C2A00073051 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */; };
 		F7A91BDA182A6C2A00073051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD9182A6C2A00073051 /* UIKit.framework */; };
@@ -37,6 +38,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 542FFE4C1800C9B5003B83B7;
 			remoteInfo = CPAProxy;
+		};
+		F78C4E11182BA98500C6D19C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F78C4DE3182BA98400C6D19C;
+			remoteInfo = PriveDependencies;
+		};
+		F78C4E40182BAA0300C6D19C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F78C4DE2182BA98400C6D19C;
+			remoteInfo = "PriveDependencies-iOS";
 		};
 		F7A91BF2182A6C2A00073051 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -66,6 +81,7 @@
 		F78C4DC8182B7DAA00C6D19C /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../External/CPAProxy/CPAProxyDependencies/torrc; sourceTree = "<group>"; };
 		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F78C4DD8182BA76400C6D19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PriveDependencies.xcodeproj; path = PriveDependencies/PriveDependencies.xcodeproj; sourceTree = "<group>"; };
 		F7A91BD2182A6C2A00073051 /* Prive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A91BD5182A6C2A00073051 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78C4E3F182BA9FC00C6D19C /* libPriveDependencies.a in Frameworks */,
 				F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */,
 				F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */,
 				F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */,
@@ -120,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F78C4E0D182BA98400C6D19C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F78C4E12182BA98500C6D19C /* libPriveDependencies.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F7A91BC9182A6C2A00073051 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +168,7 @@
 		F7A91BD4182A6C2A00073051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */,
 				F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */,
 				F7A91C0F182A6E4800073051 /* CoreData.framework */,
 				F7A91BD5182A6C2A00073051 /* Foundation.framework */,
@@ -242,6 +268,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F78C4E41182BAA0300C6D19C /* PBXTargetDependency */,
 				F78C4DCE182B7E6800C6D19C /* PBXTargetDependency */,
 			);
 			name = Prive;
@@ -297,6 +324,10 @@
 					ProductGroup = F7BFD07F182B7CE9001DC10C /* Products */;
 					ProjectRef = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
 				},
+				{
+					ProductGroup = F78C4E0D182BA98400C6D19C /* Products */;
+					ProjectRef = F78C4E0C182BA98400C6D19C /* PriveDependencies.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -307,6 +338,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		F78C4E12182BA98500C6D19C /* libPriveDependencies.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPriveDependencies.a;
+			remoteRef = F78C4E11182BA98500C6D19C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F7BFD086182B7CEA001DC10C /* libCPAProxy.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -374,6 +412,11 @@
 			isa = PBXTargetDependency;
 			name = CPAProxy;
 			targetProxy = F78C4DCD182B7E6800C6D19C /* PBXContainerItemProxy */;
+		};
+		F78C4E41182BAA0300C6D19C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PriveDependencies-iOS";
+			targetProxy = F78C4E40182BAA0300C6D19C /* PBXContainerItemProxy */;
 		};
 		F7A91BF3182A6C2A00073051 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -484,7 +527,7 @@
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -499,7 +542,7 @@
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

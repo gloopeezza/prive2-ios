@@ -8,6 +8,7 @@
 
 #import "PVAppDelegate.h"
 #import "PVBuddyListViewController.h"
+#import "PVChatManager.h"
 
 @implementation PVAppDelegate
 
@@ -24,6 +25,9 @@
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[PVChatManager defaultManager] startTorProxy];
+    
     return YES;
 }
 
