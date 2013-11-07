@@ -7,13 +7,21 @@
 //
 
 #import "PVAppDelegate.h"
+#import "PVBuddyListViewController.h"
 
 @implementation PVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+    PVBuddyListViewController *buddyListController = [[PVBuddyListViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[navigationController];
+    
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

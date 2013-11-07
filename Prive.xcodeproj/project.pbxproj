@@ -19,6 +19,11 @@
 		F7A91BF1182A6C2A00073051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD9182A6C2A00073051 /* UIKit.framework */; };
 		F7A91BF9182A6C2A00073051 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A91BF7182A6C2A00073051 /* InfoPlist.strings */; };
 		F7A91BFB182A6C2A00073051 /* PriveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91BFA182A6C2A00073051 /* PriveTests.m */; };
+		F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C05182A6D0800073051 /* PVDataModel.xcdatamodeld */; };
+		F7A91C0A182A6D5200073051 /* PVBuddy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C09182A6D5200073051 /* PVBuddy.m */; };
+		F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C0D182A6E0000073051 /* PVChatManager.m */; };
+		F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91C0F182A6E4800073051 /* CoreData.framework */; };
+		F7A91C13182A745500073051 /* PVBuddyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C12182A745500073051 /* PVBuddyListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,14 @@
 		F7A91BF6182A6C2A00073051 /* PriveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PriveTests-Info.plist"; sourceTree = "<group>"; };
 		F7A91BF8182A6C2A00073051 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7A91BFA182A6C2A00073051 /* PriveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriveTests.m; sourceTree = "<group>"; };
+		F7A91C06182A6D0800073051 /* PVDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PVDataModel.xcdatamodel; sourceTree = "<group>"; };
+		F7A91C08182A6D5200073051 /* PVBuddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVBuddy.h; sourceTree = "<group>"; };
+		F7A91C09182A6D5200073051 /* PVBuddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVBuddy.m; sourceTree = "<group>"; };
+		F7A91C0C182A6E0000073051 /* PVChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVChatManager.h; sourceTree = "<group>"; };
+		F7A91C0D182A6E0000073051 /* PVChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVChatManager.m; sourceTree = "<group>"; };
+		F7A91C0F182A6E4800073051 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F7A91C11182A745500073051 /* PVBuddyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVBuddyListViewController.h; sourceTree = "<group>"; };
+		F7A91C12182A745500073051 /* PVBuddyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVBuddyListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */,
 				F7A91BD8182A6C2A00073051 /* CoreGraphics.framework in Frameworks */,
 				F7A91BDA182A6C2A00073051 /* UIKit.framework in Frameworks */,
 				F7A91BD6182A6C2A00073051 /* Foundation.framework in Frameworks */,
@@ -96,6 +110,7 @@
 		F7A91BD4182A6C2A00073051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7A91C0F182A6E4800073051 /* CoreData.framework */,
 				F7A91BD5182A6C2A00073051 /* Foundation.framework */,
 				F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */,
 				F7A91BD9182A6C2A00073051 /* UIKit.framework */,
@@ -107,6 +122,8 @@
 		F7A91BDB182A6C2A00073051 /* Prive */ = {
 			isa = PBXGroup;
 			children = (
+				F7A91C0B182A6DD400073051 /* ViewControllers */,
+				F7A91C04182A6CB200073051 /* Model */,
 				F7A91BE4182A6C2A00073051 /* PVAppDelegate.h */,
 				F7A91BE5182A6C2A00073051 /* PVAppDelegate.m */,
 				F7A91BE7182A6C2A00073051 /* Images.xcassets */,
@@ -142,6 +159,27 @@
 				F7A91BF7182A6C2A00073051 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7A91C04182A6CB200073051 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7A91C05182A6D0800073051 /* PVDataModel.xcdatamodeld */,
+				F7A91C08182A6D5200073051 /* PVBuddy.h */,
+				F7A91C09182A6D5200073051 /* PVBuddy.m */,
+				F7A91C0C182A6E0000073051 /* PVChatManager.h */,
+				F7A91C0D182A6E0000073051 /* PVChatManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F7A91C0B182A6DD400073051 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7A91C11182A745500073051 /* PVBuddyListViewController.h */,
+				F7A91C12182A745500073051 /* PVBuddyListViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +280,10 @@
 			files = (
 				F7A91BE6182A6C2A00073051 /* PVAppDelegate.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
+				F7A91C0A182A6D5200073051 /* PVBuddy.m in Sources */,
+				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,
+				F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */,
+				F7A91C13182A745500073051 /* PVBuddyListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +494,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F7A91C05182A6D0800073051 /* PVDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F7A91C06182A6D0800073051 /* PVDataModel.xcdatamodel */,
+			);
+			currentVersion = F7A91C06182A6D0800073051 /* PVDataModel.xcdatamodel */;
+			path = PVDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F7A91BCA182A6C2A00073051 /* Project object */;
 }
