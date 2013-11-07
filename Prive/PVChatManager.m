@@ -104,27 +104,34 @@ static NSInteger kPVTorLocalServicePort = 11008;
 }
 
 - (BOOL)isBuddyAlreadyExistWithAddress:(NSString *)address {
-    NSError *error;
-    NSInteger count = [_managedObjectContext countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    __block NSError *error;
+    __block NSInteger count;
+    [_managedObjectContext performBlockAndWait:^{
+        count = [_managedObjectContext countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    }];
+    
     NSAssert(!error, @"Error when checking buddy already exist: %@", error);
     return count == 1;
 }
 
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes {
     NSParameterAssert(address);
-    if ([self isBuddyAlreadyExistWithAddress:address]) {
-        return;
-    }
     
-    NSEntityDescription *buddyEntityDescription = [NSEntityDescription entityForName:[PVBuddy entityName] inManagedObjectContext:_managedObjectContext];
-    PVBuddy *buddy = [[PVBuddy alloc] initWithEntity:buddyEntityDescription insertIntoManagedObjectContext:_managedObjectContext];
-    buddy.address = address;
-    buddy.alias = alias;
-    buddy.info = notes;
-    
-    NSError *error;
-    [_managedObjectContext save:&error];
-    NSAssert(!error, @"Error when saving context after inserting new buddy: %@", error);
+    [_managedObjectContext performBlockAndWait:^{
+        if ([self isBuddyAlreadyExistWithAddress:address]) {
+            return;
+        }
+        
+        NSEntityDescription *buddyEntityDescription = [NSEntityDescription entityForName:[PVBuddy entityName] inManagedObjectContext:_managedObjectContext];
+        PVBuddy *buddy = [[PVBuddy alloc] initWithEntity:buddyEntityDescription insertIntoManagedObjectContext:_managedObjectContext];
+        buddy.address = address;
+        buddy.alias = alias;
+        buddy.info = notes;
+        
+        NSError *error;
+        [_managedObjectContext save:&error];
+        NSAssert(!error, @"Error when saving context after inserting new buddy: %@", error);
+    }];
 }
 
 - (BOOL)removeBuddy:(NSString *)address {
@@ -157,7 +164,7 @@ static NSInteger kPVTorLocalServicePort = 11008;
     [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
         NSLog(@"Tor proxy successfully started at %@:%d",socksHost, socksPort);
         NSLog(@"Hidden service address: %@", [self selfAddress]);
-        [__weak__self startCoreChat];
+        [__weak__self performSelector:@selector(startCoreChat) withObject:__weak__self afterDelay:20.0f];
     } failure:^(NSError *error) {
         NSLog(@"Tor start failure: %@", error);
     }];
