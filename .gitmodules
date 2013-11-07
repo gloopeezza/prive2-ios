@@ -1,0 +1,3 @@
+[submodule "External/CPAProxy"]
+	path = External/CPAProxy
+	url = git@github.com:prive/CPAProxy.git
