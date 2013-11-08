@@ -28,6 +28,7 @@
     
     [[PVChatManager defaultManager] start];
     
+    
     return YES;
 }
 
