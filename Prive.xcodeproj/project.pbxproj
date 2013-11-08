@@ -10,7 +10,7 @@
 		F78C4DC7182B7DA500C6D19C /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC6182B7DA500C6D19C /* geoip */; };
 		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
 		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
-		F78C4E3F182BA9FC00C6D19C /* libPriveDependencies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4E12182BA98500C6D19C /* libPriveDependencies.a */; };
+		F78C4E3F182BA9FC00C6D19C /* libPriveDependencies-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4E12182BA98500C6D19C /* libPriveDependencies-iOS.a */; };
 		F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F78C4E46182BB15F00C6D19C /* Localizable.strings */; };
 		F78C4E4E182BC6F600C6D19C /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = F78C4E4D182BC6F600C6D19C /* torrc */; };
 		F7A91BD6182A6C2A00073051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91BD5182A6C2A00073051 /* Foundation.framework */; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78C4E3F182BA9FC00C6D19C /* libPriveDependencies.a in Frameworks */,
+				F78C4E3F182BA9FC00C6D19C /* libPriveDependencies-iOS.a in Frameworks */,
 				F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */,
 				F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */,
 				F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */,
@@ -142,7 +142,7 @@
 		F78C4E0D182BA98400C6D19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F78C4E12182BA98500C6D19C /* libPriveDependencies.a */,
+				F78C4E12182BA98500C6D19C /* libPriveDependencies-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,6 +307,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Prive;
 				TargetAttributes = {
+					F7A91BD1182A6C2A00073051 = {
+						DevelopmentTeam = 7UCSFRSSNF;
+					};
 					F7A91BEC182A6C2A00073051 = {
 						TestTargetID = F7A91BD1182A6C2A00073051;
 					};
@@ -341,10 +344,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F78C4E12182BA98500C6D19C /* libPriveDependencies.a */ = {
+		F78C4E12182BA98500C6D19C /* libPriveDependencies-iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libPriveDependencies.a;
+			path = "libPriveDependencies-iOS.a";
 			remoteRef = F78C4E11182BA98500C6D19C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -534,11 +537,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prive/Prive-Prefix.pch";
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -549,11 +556,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prive/Prive-Prefix.pch";
 				INFOPLIST_FILE = "Prive/Prive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
 				WRAPPER_EXTENSION = app;
 			};
