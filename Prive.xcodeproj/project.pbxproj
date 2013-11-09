@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7487034182CF09000B21A02 /* PVChatDialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7487033182CF09000B21A02 /* PVChatDialogListViewController.m */; };
+		F748704C182CFF9000B21A02 /* PVSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748704B182CFF9000B21A02 /* PVSettingsViewController.m */; };
+		F748704E182CFFB700B21A02 /* PVSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F748704D182CFFB700B21A02 /* PVSettingsViewController.xib */; };
 		F78C4DC7182B7DA500C6D19C /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC6182B7DA500C6D19C /* geoip */; };
 		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
 		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
@@ -78,6 +81,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7487032182CF09000B21A02 /* PVChatDialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVChatDialogListViewController.h; sourceTree = "<group>"; };
+		F7487033182CF09000B21A02 /* PVChatDialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVChatDialogListViewController.m; sourceTree = "<group>"; };
+		F748704A182CFF9000B21A02 /* PVSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSettingsViewController.h; sourceTree = "<group>"; };
+		F748704B182CFF9000B21A02 /* PVSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVSettingsViewController.m; sourceTree = "<group>"; };
+		F748704D182CFFB700B21A02 /* PVSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PVSettingsViewController.xib; sourceTree = "<group>"; };
 		F78C4DC6182B7DA500C6D19C /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = geoip; path = ../External/CPAProxy/CPAProxyDependencies/geoip; sourceTree = "<group>"; };
 		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F78C4DD8182BA76400C6D19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -242,8 +250,13 @@
 		F7A91C0B182A6DD400073051 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F748704D182CFFB700B21A02 /* PVSettingsViewController.xib */,
 				F7A91C11182A745500073051 /* PVBuddyListViewController.h */,
 				F7A91C12182A745500073051 /* PVBuddyListViewController.m */,
+				F7487032182CF09000B21A02 /* PVChatDialogListViewController.h */,
+				F7487033182CF09000B21A02 /* PVChatDialogListViewController.m */,
+				F748704A182CFF9000B21A02 /* PVSettingsViewController.h */,
+				F748704B182CFF9000B21A02 /* PVSettingsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -375,6 +388,7 @@
 				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
+				F748704E182CFFB700B21A02 /* PVSettingsViewController.xib in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 			);
@@ -398,8 +412,10 @@
 				F7A91BE6182A6C2A00073051 /* PVAppDelegate.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
 				F7A91C0A182A6D5200073051 /* PVBuddy.m in Sources */,
+				F748704C182CFF9000B21A02 /* PVSettingsViewController.m in Sources */,
 				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,
 				F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */,
+				F7487034182CF09000B21A02 /* PVChatDialogListViewController.m in Sources */,
 				F7A91C13182A745500073051 /* PVBuddyListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +562,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -565,7 +581,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

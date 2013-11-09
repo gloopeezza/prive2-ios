@@ -4,8 +4,20 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVDialog" inverseName="buddy" inverseEntity="PVDialog" syncable="YES"/>
+    </entity>
+    <entity name="PVDialog" syncable="YES">
+        <relationship name="buddy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVBuddy" inverseName="dialog" inverseEntity="PVBuddy" syncable="YES"/>
+        <relationship name="messages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVMessage" inverseName="dialog" inverseEntity="PVMessage" syncable="YES"/>
+    </entity>
+    <entity name="PVMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVDialog" inverseName="messages" inverseEntity="PVDialog" syncable="YES"/>
     </entity>
     <elements>
         <element name="PVBuddy" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVMessage" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVDialog" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

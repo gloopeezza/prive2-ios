@@ -21,6 +21,15 @@
 		F78C4E3C182BA9CA00C6D19C /* TCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C4E2D182BA9CA00C6D19C /* TCParser.m */; };
 		F78C4E3D182BA9CA00C6D19C /* TCSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C4E2F182BA9CA00C6D19C /* TCSocket.m */; };
 		F78C4E3E182BA9CA00C6D19C /* TCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C4E31182BA9CA00C6D19C /* TCTools.m */; };
+		F797E45E182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E44C182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m */; };
+		F797E45F182E3D3F003964FD /* SSFilterableFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E44F182E3D3F003964FD /* SSFilterableFetchedResultsController.m */; };
+		F797E460182E3D3F003964FD /* SSFilteredResultsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E451182E3D3F003964FD /* SSFilteredResultsFilter.m */; };
+		F797E461182E3D3F003964FD /* SSFilteredResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E453182E3D3F003964FD /* SSFilteredResultsSection.m */; };
+		F797E462182E3D3F003964FD /* SSManagedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E455182E3D3F003964FD /* SSManagedCollectionViewController.m */; };
+		F797E463182E3D3F003964FD /* SSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E457182E3D3F003964FD /* SSManagedObject.m */; };
+		F797E464182E3D3F003964FD /* SSManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E459182E3D3F003964FD /* SSManagedTableViewController.m */; };
+		F797E465182E3D3F003964FD /* SSManagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E45B182E3D3F003964FD /* SSManagedViewController.m */; };
+		F797E466182E3D3F003964FD /* SSRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E45D182E3D3F003964FD /* SSRemoteManagedObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +78,25 @@
 		F78C4E2F182BA9CA00C6D19C /* TCSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCSocket.m; path = ../../External/TorchatMac/TorChat/Sources/Core/TCSocket.m; sourceTree = "<group>"; };
 		F78C4E30182BA9CA00C6D19C /* TCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCTools.h; path = ../../External/TorchatMac/TorChat/Sources/Core/TCTools.h; sourceTree = "<group>"; };
 		F78C4E31182BA9CA00C6D19C /* TCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCTools.m; path = ../../External/TorchatMac/TorChat/Sources/Core/TCTools.m; sourceTree = "<group>"; };
+		F797E44B182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+SSDataKitAdditions.h"; sourceTree = "<group>"; };
+		F797E44C182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+SSDataKitAdditions.m"; sourceTree = "<group>"; };
+		F797E44D182E3D3F003964FD /* SSDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDataKit.h; sourceTree = "<group>"; };
+		F797E44E182E3D3F003964FD /* SSFilterableFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFilterableFetchedResultsController.h; sourceTree = "<group>"; };
+		F797E44F182E3D3F003964FD /* SSFilterableFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFilterableFetchedResultsController.m; sourceTree = "<group>"; };
+		F797E450182E3D3F003964FD /* SSFilteredResultsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFilteredResultsFilter.h; sourceTree = "<group>"; };
+		F797E451182E3D3F003964FD /* SSFilteredResultsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFilteredResultsFilter.m; sourceTree = "<group>"; };
+		F797E452182E3D3F003964FD /* SSFilteredResultsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFilteredResultsSection.h; sourceTree = "<group>"; };
+		F797E453182E3D3F003964FD /* SSFilteredResultsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFilteredResultsSection.m; sourceTree = "<group>"; };
+		F797E454182E3D3F003964FD /* SSManagedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSManagedCollectionViewController.h; sourceTree = "<group>"; };
+		F797E455182E3D3F003964FD /* SSManagedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedCollectionViewController.m; sourceTree = "<group>"; };
+		F797E456182E3D3F003964FD /* SSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSManagedObject.h; sourceTree = "<group>"; };
+		F797E457182E3D3F003964FD /* SSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedObject.m; sourceTree = "<group>"; };
+		F797E458182E3D3F003964FD /* SSManagedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSManagedTableViewController.h; sourceTree = "<group>"; };
+		F797E459182E3D3F003964FD /* SSManagedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedTableViewController.m; sourceTree = "<group>"; };
+		F797E45A182E3D3F003964FD /* SSManagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSManagedViewController.h; sourceTree = "<group>"; };
+		F797E45B182E3D3F003964FD /* SSManagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedViewController.m; sourceTree = "<group>"; };
+		F797E45C182E3D3F003964FD /* SSRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRemoteManagedObject.h; sourceTree = "<group>"; };
+		F797E45D182E3D3F003964FD /* SSRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRemoteManagedObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +141,7 @@
 		F78C4DE8182BA98400C6D19C /* PriveDependencies */ = {
 			isa = PBXGroup;
 			children = (
+				F797E44A182E3D3F003964FD /* SSDataKit */,
 				F78C4E15182BA9BF00C6D19C /* TorchatMac */,
 				F78C4DE9182BA98400C6D19C /* Supporting Files */,
 			);
@@ -160,6 +189,33 @@
 				F78C4E31182BA9CA00C6D19C /* TCTools.m */,
 			);
 			name = TorchatMac;
+			sourceTree = "<group>";
+		};
+		F797E44A182E3D3F003964FD /* SSDataKit */ = {
+			isa = PBXGroup;
+			children = (
+				F797E44B182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.h */,
+				F797E44C182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m */,
+				F797E44D182E3D3F003964FD /* SSDataKit.h */,
+				F797E44E182E3D3F003964FD /* SSFilterableFetchedResultsController.h */,
+				F797E44F182E3D3F003964FD /* SSFilterableFetchedResultsController.m */,
+				F797E450182E3D3F003964FD /* SSFilteredResultsFilter.h */,
+				F797E451182E3D3F003964FD /* SSFilteredResultsFilter.m */,
+				F797E452182E3D3F003964FD /* SSFilteredResultsSection.h */,
+				F797E453182E3D3F003964FD /* SSFilteredResultsSection.m */,
+				F797E454182E3D3F003964FD /* SSManagedCollectionViewController.h */,
+				F797E455182E3D3F003964FD /* SSManagedCollectionViewController.m */,
+				F797E456182E3D3F003964FD /* SSManagedObject.h */,
+				F797E457182E3D3F003964FD /* SSManagedObject.m */,
+				F797E458182E3D3F003964FD /* SSManagedTableViewController.h */,
+				F797E459182E3D3F003964FD /* SSManagedTableViewController.m */,
+				F797E45A182E3D3F003964FD /* SSManagedViewController.h */,
+				F797E45B182E3D3F003964FD /* SSManagedViewController.m */,
+				F797E45C182E3D3F003964FD /* SSRemoteManagedObject.h */,
+				F797E45D182E3D3F003964FD /* SSRemoteManagedObject.m */,
+			);
+			name = SSDataKit;
+			path = ../../External/SSDataKit/SSDataKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,18 +270,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78C4E3E182BA9CA00C6D19C /* TCTools.m in Sources */,
+				F797E460182E3D3F003964FD /* SSFilteredResultsFilter.m in Sources */,
 				F78C4E39182BA9CA00C6D19C /* TCFileSend.m in Sources */,
+				F797E45F182E3D3F003964FD /* SSFilterableFetchedResultsController.m in Sources */,
+				F797E466182E3D3F003964FD /* SSRemoteManagedObject.m in Sources */,
 				F78C4E32182BA9CA00C6D19C /* NSArray+TCTools.m in Sources */,
 				F78C4E37182BA9CA00C6D19C /* TCCoreManager.m in Sources */,
 				F78C4E3C182BA9CA00C6D19C /* TCParser.m in Sources */,
+				F797E463182E3D3F003964FD /* SSManagedObject.m in Sources */,
 				F78C4E38182BA9CA00C6D19C /* TCFileReceive.m in Sources */,
 				F78C4E3A182BA9CA00C6D19C /* TCImage.m in Sources */,
 				F78C4E36182BA9CA00C6D19C /* TCConnection.m in Sources */,
+				F797E45E182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m in Sources */,
 				F78C4E3B182BA9CA00C6D19C /* TCInfo.m in Sources */,
 				F78C4E34182BA9CA00C6D19C /* TCBuddy.m in Sources */,
 				F78C4E3D182BA9CA00C6D19C /* TCSocket.m in Sources */,
+				F797E464182E3D3F003964FD /* SSManagedTableViewController.m in Sources */,
+				F797E462182E3D3F003964FD /* SSManagedCollectionViewController.m in Sources */,
 				F78C4E35182BA9CA00C6D19C /* TCBuffer.m in Sources */,
 				F78C4E33182BA9CA00C6D19C /* NSData+TCTools.m in Sources */,
+				F797E465182E3D3F003964FD /* SSManagedViewController.m in Sources */,
+				F797E461182E3D3F003964FD /* SSFilteredResultsSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

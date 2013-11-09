@@ -4,3 +4,6 @@
 [submodule "External/TorchatMac"]
 	path = External/TorchatMac
 	url = git@github.com:prive/torchat-mac.git
+[submodule "External/SSDataKit"]
+	path = External/SSDataKit
+	url = https://github.com/soffes/ssdatakit.git

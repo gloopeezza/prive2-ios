@@ -8,6 +8,7 @@
 
 #import "PVAppDelegate.h"
 #import "PVBuddyListViewController.h"
+#import "PVSettingsViewController.h"
 #import "PVChatManager.h"
 
 @implementation PVAppDelegate
@@ -17,10 +18,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     PVBuddyListViewController *buddyListController = [[PVBuddyListViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
+    UINavigationController *buddyNavigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
+    
+    PVSettingsViewController *settingsController = [[PVSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
+
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[navigationController];
+    tabBarController.viewControllers = @[buddyNavigationController, settingsNavigationController];
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
