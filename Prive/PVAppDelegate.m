@@ -15,9 +15,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[PVChatManager defaultManager] start];
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    PVBuddyListViewController *buddyListController = [[PVBuddyListViewController alloc] init];
+    PVBuddyListViewController *buddyListController = [[PVBuddyListViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *buddyNavigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
     
     PVSettingsViewController *settingsController = [[PVSettingsViewController alloc] initWithNibName:nil bundle:nil];
@@ -30,9 +33,7 @@
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    [[PVChatManager defaultManager] start];
-    
+
     return YES;
 }
 

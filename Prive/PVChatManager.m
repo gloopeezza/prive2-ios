@@ -13,6 +13,7 @@
 #import "CPAProxyManager.h"
 #import "TCCoreManager.h"
 #import "TCBuddy.h"
+#import "SSManagedObject.h"
 
 static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
@@ -26,9 +27,6 @@ static NSInteger kPVTorLocalServicePort = 11009;
 
 
 @implementation PVChatManager {
-    NSManagedObjectContext *_managedObjectContext;
-    NSPersistentStoreCoordinator *_psc;
-    NSManagedObjectModel *_managedModel;
     CPAProxyManager *_proxyManager;
     NSString *_selfAddress;
     TCCoreManager *_coreManager;
@@ -43,35 +41,13 @@ static NSInteger kPVTorLocalServicePort = 11009;
     return defaultManger;
 }
 
-- (NSFetchedResultsController *)createBuddiesFetchedResultController {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVBuddy entityName]];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"alias" ascending:YES]];
-    NSFetchedResultsController *result = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                             managedObjectContext:_managedObjectContext
-                                                                               sectionNameKeyPath:nil
-                                                                                        cacheName:kPVBuddiesFetchedResultControllerCacheName];
-    NSError *error;
-    [result performFetch:&error];
-    NSAssert(!error, @"Error when performing fetch with newly created fetchedResultController: %@", error);
-    
-    return result;
-}
-
 - (id)init {
     self = [super init];
     
     if (self) {
-        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *dataStorePath = [documentsDirectoryPath stringByAppendingPathComponent:@"PVCoreDataStore.sqlite"];
-        NSURL *dataStoreURL = [NSURL fileURLWithPath:dataStorePath];
+        [SSManagedObject mainQueueContext];
         
-        _managedModel = [NSManagedObjectModel mergedModelFromBundles:@[[NSBundle mainBundle]]];
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        _psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_managedModel];
-        NSError *error;
-        [_psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:dataStoreURL options:nil error:&error];
-        NSAssert(!error, @"Error when adding persistent store to PSC: %@", error);
-        _managedObjectContext.persistentStoreCoordinator = _psc;
+        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         
         NSString *torrcPath = [[NSBundle mainBundle] pathForResource:@"torrc" ofType:nil];
         NSString *geoipPath = [[NSBundle mainBundle] pathForResource:@"geoip" ofType:nil];
@@ -106,8 +82,8 @@ static NSInteger kPVTorLocalServicePort = 11009;
 - (BOOL)isBuddyAlreadyExistWithAddress:(NSString *)address {
     __block NSError *error;
     __block NSInteger count;
-    [_managedObjectContext performBlockAndWait:^{
-        count = [_managedObjectContext countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    [[PVBuddy mainQueueContext] performBlockAndWait:^{
+        count = [[PVBuddy mainQueueContext] countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
     }];
     
     NSAssert(!error, @"Error when checking buddy already exist: %@", error);
@@ -119,9 +95,9 @@ static NSInteger kPVTorLocalServicePort = 11009;
     
     __block PVBuddy *buddy;
     
-    [_managedObjectContext performBlockAndWait:^{
+    [[PVBuddy mainQueueContext] performBlockAndWait:^{
         NSError *error;
-        NSArray *results = [_managedObjectContext executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+        NSArray *results = [[PVBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
         NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
         buddy = [results lastObject];
     }];
@@ -136,15 +112,14 @@ static NSInteger kPVTorLocalServicePort = 11009;
         return;
     }
     
-    [_managedObjectContext performBlockAndWait:^{
-        NSEntityDescription *buddyEntityDescription = [NSEntityDescription entityForName:[PVBuddy entityName] inManagedObjectContext:_managedObjectContext];
-        PVBuddy *buddy = [[PVBuddy alloc] initWithEntity:buddyEntityDescription insertIntoManagedObjectContext:_managedObjectContext];
+    [[PVBuddy mainQueueContext] performBlockAndWait:^{
+        PVBuddy *buddy = [[PVBuddy alloc] initWithContext:nil];
         buddy.address = address;
         buddy.alias = alias;
         buddy.info = notes;
         
         NSError *error;
-        [_managedObjectContext save:&error];
+        [buddy save];
         NSAssert(!error, @"Error when saving context after inserting new buddy: %@", error);
     }];
 }
@@ -158,13 +133,12 @@ static NSInteger kPVTorLocalServicePort = 11009;
         return NO;
     }
     
-    [_managedObjectContext performBlockAndWait:^{
-        NSArray *results = [_managedObjectContext executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    [[PVBuddy mainQueueContext] performBlockAndWait:^{
+        NSArray *results = [[PVBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
         NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
         PVBuddy *buddy = [results lastObject];
-        [_managedObjectContext deleteObject:buddy];
-        
-        [_managedObjectContext save:&error];
+        [buddy delete];
+        [[PVBuddy mainQueueContext] save:nil];
     }];
     
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
@@ -231,7 +205,7 @@ static NSInteger kPVTorLocalServicePort = 11009;
 - (NSArray *)buddies {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVBuddy entityName]];
     NSError *error;
-    NSArray *managedBuddies = [_managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *managedBuddies = [[PVBuddy mainQueueContext] executeFetchRequest:request error:&error];
     NSMutableArray *buddies = [[NSMutableArray alloc] initWithCapacity:managedBuddies.count];
     
     for (PVBuddy *managedBuddy in managedBuddies) {
@@ -269,17 +243,13 @@ static NSInteger kPVTorLocalServicePort = 11009;
 - (void)setBuddy:(NSString *)address alias:(NSString *)alias {
     PVBuddy *buddy = [self buddyWithAddress:address];
     buddy.alias = alias;
-    
-    NSError *error;
-    [_managedObjectContext save:&error];
+    [buddy save];
 }
 
 - (void)setBuddy:(NSString *)address notes:(NSString *)notes {
     PVBuddy *buddy = [self buddyWithAddress:address];
     buddy.info = notes;
-    
-    NSError *error;
-    [_managedObjectContext save:&error];
+    [buddy save];
 }
 
 - (NSString *)getBuddyAlias:(NSString *)address {

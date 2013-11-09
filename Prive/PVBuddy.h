@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "SSManagedObject.h"
 
 
-@interface PVBuddy : NSManagedObject
+@interface PVBuddy : SSManagedObject;
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * alias;
 @property (nonatomic, retain) NSString * info;
-
-+ (NSString *)entityName;
 
 @end

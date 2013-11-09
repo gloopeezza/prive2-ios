@@ -15,8 +15,6 @@
 
 + (instancetype)defaultManager;
 
-- (NSFetchedResultsController *)createBuddiesFetchedResultController;
-
 - (void)start;
 
 @property (nonatomic, strong) NSString *selfAddress;

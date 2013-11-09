@@ -12,20 +12,16 @@
 
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
-@interface PVBuddyListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface PVBuddyListViewController () <UIAlertViewDelegate>
 
-@property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, weak) UIAlertView *addBuddyAlertView;
 
 @end
 
-@implementation PVBuddyListViewController {
-    UITableView *_tableView;
-    NSFetchedResultsController *_fetchedResultController;
-}
+@implementation PVBuddyListViewController
 
-- (id)init {
-    self = [super init];
+- (id)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
     if (self) {
         self.title = @"Contacts";
         self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
@@ -33,17 +29,6 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     }
     
     return self;
-}
-
-- (void)loadView {
-    [super loadView];
-    [self.view addSubview:self.tableView];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 #pragma mark - Alert View
@@ -74,17 +59,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 #pragma mark - Table View
 
-- (UITableView *)tableView {
-    if (_tableView) return _tableView;
-    CGRect frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 44.0f);
-    UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    _tableView = tableView;
-    return tableView;
-}
-
-- (void)configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PVBuddy *buddy = (PVBuddy *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = buddy.alias;
     cell.detailTextLabel.text = buddy.address;
@@ -111,71 +86,24 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.fetchedResultsController.sections.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPVBuddyListViewControllerCellReuseIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPVBuddyListViewControllerCellReuseIdentifier];
     }
-
-    [self configureCell:cell indexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
+#pragma mark - SSManagedTableViewController
 
-#pragma mark - NSFetchedResultController
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (!_fetchedResultController) {
-        _fetchedResultController = [[PVChatManager defaultManager] createBuddiesFetchedResultController];
-        _fetchedResultController.delegate = self;
-    }
-    
-    return _fetchedResultController;
+- (Class)entityClass {
+    return [PVBuddy class];
 }
 
-#pragma mark - NSFetchedResultsControllerDelegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    switch (type) {
-        case NSFetchedResultsChangeInsert: {
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-        }
-            
-        case NSFetchedResultsChangeDelete: {
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-        }
-            
-        case NSFetchedResultsChangeUpdate: {
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-        }
-        
-        case NSFetchedResultsChangeMove: {
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+- (NSArray *)sortDescriptors {
+    NSSortDescriptor *sortByAliasDescriptor = [[NSSortDescriptor alloc] initWithKey:@"alias" ascending:YES];
+    return @[sortByAliasDescriptor];
 }
 
 @end

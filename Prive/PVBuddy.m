@@ -15,8 +15,4 @@
 @dynamic alias;
 @dynamic info;
 
-+ (NSString *)entityName {
-    return NSStringFromClass(self);
-}
-
 @end

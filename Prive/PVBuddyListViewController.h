@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSManagedTableViewController.h"
 
-@interface PVBuddyListViewController : UIViewController
-
-@property (nonatomic, weak, readonly) UITableView *tableView;
+@interface PVBuddyListViewController : SSManagedTableViewController
 
 @end
