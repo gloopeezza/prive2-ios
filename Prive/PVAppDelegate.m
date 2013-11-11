@@ -7,28 +7,58 @@
 //
 
 #import "PVAppDelegate.h"
-#import "PVBuddyListViewController.h"
-#import "PVSettingsViewController.h"
+
+#import "UIImage+Appearance.h"
+
 #import "PVChatManager.h"
+#import "PVContactsListViewController.h"
+#import "PVProfileViewController.h"
+#import "PVDialogListViewController.h"
+#import "PVTimelineViewController.h"
 
 @implementation PVAppDelegate
 
+- (void)applyAppearance {
+    UITabBar *tabBar = [UITabBar appearance];
+    [tabBar setBackgroundImage:[UIImage tabbarBackgroundImage]];
+    [tabBar setSelectionIndicatorImage:[UIImage tabbarSelectedItemBackground]];
+    [tabBar setShadowImage:[UIImage clearImage]];
+
+    UITabBarItem *tabBarItem = [UITabBarItem appearance];
+    [tabBarItem setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blackColor],
+                                         UITextAttributeFont: [UIFont systemFontOfSize:10.0f]} forState:UIControlStateSelected];
+    [tabBarItem setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
+                                         UITextAttributeFont: [UIFont systemFontOfSize:10.0f]} forState:UIControlStateNormal];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self applyAppearance];
+    
     [[PVChatManager defaultManager] start];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    PVBuddyListViewController *buddyListController = [[PVBuddyListViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    PVDialogListViewController *chatDialogListController = [[PVDialogListViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *chatDialogsNavigationController = [[UINavigationController alloc] initWithRootViewController:chatDialogListController];
+    
+    PVContactsListViewController *buddyListController = [[PVContactsListViewController alloc] initWithStyle:UITableViewStylePlain];
+    buddyListController.chatDialogsViewController = chatDialogListController;
     UINavigationController *buddyNavigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
     
-    PVSettingsViewController *settingsController = [[PVSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    PVTimelineViewController *timelineController = [[PVTimelineViewController alloc] init];
+    UINavigationController *timelineNavigationController = [[UINavigationController alloc] initWithRootViewController:timelineController];
+    
+    PVProfileViewController *settingsController = [[PVProfileViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[buddyNavigationController, settingsNavigationController];
+    tabBarController.viewControllers = @[buddyNavigationController,
+                                         chatDialogsNavigationController,
+                                         timelineNavigationController,
+                                         settingsNavigationController];
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];

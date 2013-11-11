@@ -1,5 +1,5 @@
 //
-//  PVChatDialogListViewController.h
+//  PVSettingsViewController.h
 //  Prive
 //
 //  Created by Ivan Doroshenko on 11/8/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PVChatDialogListViewController : UIViewController
+@interface PVProfileViewController : UIViewController
 
 @end

@@ -6,25 +6,30 @@
 //  Copyright (c) 2013 Prive. All rights reserved.
 //
 
-#import "PVBuddyListViewController.h"
+#import "PVContactsListViewController.h"
 #import "PVChatManager.h"
-#import "PVBuddy.h"
+#import "PVManagedBuddy.h"
+#import "PVManagedDialog.h"
+#import "PVDialogViewController.h"
+#import "UIImage+Appearance.h"
+#import "PVContactCell.h"
 
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
-@interface PVBuddyListViewController () <UIAlertViewDelegate>
+@interface PVContactsListViewController () <UIAlertViewDelegate>
 
 @property (nonatomic, weak) UIAlertView *addBuddyAlertView;
 
 @end
 
-@implementation PVBuddyListViewController
+@implementation PVContactsListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self.title = @"Contacts";
-        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Contacts" image:nil tag:0];
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-contacts-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-contacts-normal"]];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBuddy:)];
     }
     
@@ -60,22 +65,36 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 #pragma mark - Table View
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    PVBuddy *buddy = (PVBuddy *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = buddy.alias;
-    cell.detailTextLabel.text = buddy.address;
+    PVContactCell *contactCell = (PVContactCell *)cell;
+    
+    PVManagedBuddy *buddy = (PVManagedBuddy *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    contactCell.textLabel.text = buddy.alias;
+    contactCell.detailTextLabel.text = buddy.address;
+    contactCell.online = YES;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PVBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [[PVChatManager defaultManager] sendMessage:@"test" toBuddyWithAddress:buddy.address];
+    PVManagedBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    PVManagedDialog *dialog = buddy.dialog;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (dialog == nil) {
+        buddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
+    }
+    
+    UINavigationController *chatNavigationViewController = self.chatDialogsViewController.navigationController;
+    [chatNavigationViewController popToRootViewControllerAnimated:NO];
+    self.tabBarController.selectedViewController = chatNavigationViewController;
+    
+    PVDialogViewController *dialogController = [[PVDialogViewController alloc] initWithDialog:dialog];
+    [chatNavigationViewController pushViewController:dialogController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        PVBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        PVManagedBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [[PVChatManager defaultManager] removeBuddy:buddy.address];
     }
 }
@@ -86,10 +105,14 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 #pragma mark - UITableViewDataSource
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 45.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPVBuddyListViewControllerCellReuseIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPVBuddyListViewControllerCellReuseIdentifier];
+        cell = [[PVContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPVBuddyListViewControllerCellReuseIdentifier];
     }
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
@@ -98,7 +121,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 #pragma mark - SSManagedTableViewController
 
 - (Class)entityClass {
-    return [PVBuddy class];
+    return [PVManagedBuddy class];
 }
 
 - (NSArray *)sortDescriptors {

@@ -6,25 +6,26 @@
 //  Copyright (c) 2013 Prive. All rights reserved.
 //
 
-#import "PVSettingsViewController.h"
+#import "PVProfileViewController.h"
 #import "PVChatManager.h"
 
-@interface PVSettingsViewController ()
+@interface PVProfileViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel *torchatIdLabel;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 
 @end
 
-@implementation PVSettingsViewController
+@implementation PVProfileViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:0];
-        self.title = @"Settings";
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile-normal"]];
+        self.title = @"My Privé";
     }
     return self;
 }

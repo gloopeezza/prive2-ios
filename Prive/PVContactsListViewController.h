@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SSManagedTableViewController.h"
 
-@interface PVBuddyListViewController : SSManagedTableViewController
+@interface PVContactsListViewController : SSManagedTableViewController
+
+@property (nonatomic, weak) UIViewController *chatDialogsViewController;
 
 @end

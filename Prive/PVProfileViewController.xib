@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PVSettingsViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PVProfileViewController">
             <connections>
                 <outlet property="textField" destination="nIk-8s-sGV" id="QH9-PT-aGW"/>
                 <outlet property="torchatIdLabel" destination="BjE-Zw-LKk" id="oz9-ec-nSa"/>

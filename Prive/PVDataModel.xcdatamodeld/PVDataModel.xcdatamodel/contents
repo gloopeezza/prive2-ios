@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="PVBuddy" representedClassName="PVBuddy" syncable="YES">
+    <entity name="PVManagedBuddy" representedClassName="PVManagedBuddy" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVDialog" inverseName="buddy" inverseEntity="PVDialog" syncable="YES"/>
+        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedDialog" inverseName="buddy" inverseEntity="PVManagedDialog" syncable="YES"/>
     </entity>
-    <entity name="PVDialog" syncable="YES">
-        <relationship name="buddy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVBuddy" inverseName="dialog" inverseEntity="PVBuddy" syncable="YES"/>
-        <relationship name="messages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVMessage" inverseName="dialog" inverseEntity="PVMessage" syncable="YES"/>
-    </entity>
-    <entity name="PVMessage" syncable="YES">
+    <entity name="PVManagedDialog" representedClassName="PVManagedDialog" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="buddy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedBuddy" inverseName="dialog" inverseEntity="PVManagedBuddy" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PVManagedMessage" inverseName="dialog" inverseEntity="PVManagedMessage" syncable="YES"/>
+    </entity>
+    <entity name="PVManagedMessage" representedClassName="PVManagedMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fromAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVDialog" inverseName="messages" inverseEntity="PVDialog" syncable="YES"/>
+        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedDialog" inverseName="messages" inverseEntity="PVManagedDialog" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PVBuddy" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="PVMessage" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="PVDialog" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVManagedBuddy" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVManagedDialog" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVManagedMessage" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

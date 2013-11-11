@@ -7,21 +7,23 @@
 //
 
 #import "PVChatManager.h"
-#import "PVBuddy.h"
 #import "CPAConfiguration.h"
 #import "CPAHiddenService.h"
 #import "CPAProxyManager.h"
 #import "TCCoreManager.h"
 #import "TCBuddy.h"
 #import "SSManagedObject.h"
+#import "PVManagedDialog.h"
+#import "PVManagedBuddy.h"
+#import "PVManagedMessage.h"
 
 static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
 static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
 static NSInteger kPVTorHiddenServicePort = 11009;
-static NSInteger kPVTorLocalServicePort = 11009;
+static NSInteger kPVTorLocalServicePort = 11008;
 
-@interface PVChatManager () <TCCoreManagerDelegate>
+@interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate>
 
 @end
 
@@ -73,34 +75,27 @@ static NSInteger kPVTorLocalServicePort = 11009;
 #pragma mark - Core Data
 
 + (NSFetchRequest *)requestWithAddress:(NSString *)address {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVBuddy entityName]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVManagedBuddy entityName]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"address == %@", address]];
     [request setFetchLimit:1];
     return request;
 }
 
 - (BOOL)isBuddyAlreadyExistWithAddress:(NSString *)address {
-    __block NSError *error;
-    __block NSInteger count;
-    [[PVBuddy mainQueueContext] performBlockAndWait:^{
-        count = [[PVBuddy mainQueueContext] countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
-    }];
+    NSError *error;
+    NSInteger count = [[PVManagedBuddy mainQueueContext] countForFetchRequest:[[self class] requestWithAddress:address] error:&error];
     
     NSAssert(!error, @"Error when checking buddy already exist: %@", error);
     return count == 1;
 }
 
-- (PVBuddy *)buddyWithAddress:(NSString *)address {
+- (PVManagedBuddy *)buddyWithAddress:(NSString *)address {
     NSParameterAssert(address);
     
-    __block PVBuddy *buddy;
-    
-    [[PVBuddy mainQueueContext] performBlockAndWait:^{
-        NSError *error;
-        NSArray *results = [[PVBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
-        NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
-        buddy = [results lastObject];
-    }];
+    NSError *error;
+    NSArray *results = [[PVManagedBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
+    PVManagedBuddy *buddy = [results lastObject];
     
     return buddy;
 }
@@ -112,8 +107,8 @@ static NSInteger kPVTorLocalServicePort = 11009;
         return;
     }
     
-    [[PVBuddy mainQueueContext] performBlockAndWait:^{
-        PVBuddy *buddy = [[PVBuddy alloc] initWithContext:nil];
+    [[PVManagedBuddy mainQueueContext] performBlockAndWait:^{
+        PVManagedBuddy *buddy = [[PVManagedBuddy alloc] initWithContext:nil];
         buddy.address = address;
         buddy.alias = alias;
         buddy.info = notes;
@@ -127,19 +122,17 @@ static NSInteger kPVTorLocalServicePort = 11009;
 - (BOOL)removeBuddy:(NSString *)address {
     NSParameterAssert(address);
     
-    __block NSError *error;
+    NSError *error;
     
     if (![self isBuddyAlreadyExistWithAddress:address]) {
         return NO;
     }
     
-    [[PVBuddy mainQueueContext] performBlockAndWait:^{
-        NSArray *results = [[PVBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
-        NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
-        PVBuddy *buddy = [results lastObject];
-        [buddy delete];
-        [[PVBuddy mainQueueContext] save:nil];
-    }];
+    NSArray *results = [[PVManagedBuddy mainQueueContext] executeFetchRequest:[[self class] requestWithAddress:address] error:&error];
+    NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
+    PVManagedBuddy *buddy = [results lastObject];
+    [buddy delete];
+    [[PVManagedBuddy mainQueueContext] save:nil];
     
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
     
@@ -203,12 +196,12 @@ static NSInteger kPVTorLocalServicePort = 11009;
 }
 
 - (NSArray *)buddies {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVBuddy entityName]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[PVManagedBuddy entityName]];
     NSError *error;
-    NSArray *managedBuddies = [[PVBuddy mainQueueContext] executeFetchRequest:request error:&error];
+    NSArray *managedBuddies = [[PVManagedBuddy mainQueueContext] executeFetchRequest:request error:&error];
     NSMutableArray *buddies = [[NSMutableArray alloc] initWithCapacity:managedBuddies.count];
     
-    for (PVBuddy *managedBuddy in managedBuddies) {
+    for (PVManagedBuddy *managedBuddy in managedBuddies) {
        NSDictionary *buddy = @{TCConfigBuddyAddress: managedBuddy.address,
                                TCConfigBuddyAlias: managedBuddy.alias ?: @"",
                                TCConfigBuddyNotes: managedBuddy.info ?: @""};
@@ -241,24 +234,24 @@ static NSInteger kPVTorLocalServicePort = 11009;
 }
 
 - (void)setBuddy:(NSString *)address alias:(NSString *)alias {
-    PVBuddy *buddy = [self buddyWithAddress:address];
+    PVManagedBuddy *buddy = [self buddyWithAddress:address];
     buddy.alias = alias;
     [buddy save];
 }
 
 - (void)setBuddy:(NSString *)address notes:(NSString *)notes {
-    PVBuddy *buddy = [self buddyWithAddress:address];
+    PVManagedBuddy *buddy = [self buddyWithAddress:address];
     buddy.info = notes;
     [buddy save];
 }
 
 - (NSString *)getBuddyAlias:(NSString *)address {
-    PVBuddy *buddy = [self buddyWithAddress:address];
+    PVManagedBuddy *buddy = [self buddyWithAddress:address];
     return buddy.alias;
 }
 
 - (NSString *)getBuddyNotes:(NSString *)address {
-    PVBuddy *buddy = [self buddyWithAddress:address];
+    PVManagedBuddy *buddy = [self buddyWithAddress:address];
     return buddy.info;
 }
 
@@ -267,6 +260,34 @@ static NSInteger kPVTorLocalServicePort = 11009;
 
 - (void)torchatManager:(TCCoreManager *)manager information:(TCInfo *)info {
     NSLog(@"Got info from torchat manager: %@", [info render]);
+    
+    if (info.infoCode == tccore_notify_buddy_new) {
+        TCBuddy *buddy = info.context;
+        buddy.delegate = self;
+    }
+    
+}
+
+#pragma mark - TCBuddyDelegate
+
+- (void)buddy:(TCBuddy *)buddy event:(const TCInfo *)info {
+    
+    if (info.infoCode == tcbuddy_notify_message) {
+        NSString *messageText = info.context;
+        PVManagedBuddy *pvBuddy = [self buddyWithAddress:buddy.address];
+        
+        if (pvBuddy.dialog == nil) {
+            pvBuddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
+        }
+        
+        [[PVManagedMessage mainQueueContext] performBlock:^{
+            PVManagedMessage *managedMessage = [[PVManagedMessage alloc] initWithContext:nil];
+            managedMessage.text = messageText;
+            managedMessage.date = [NSDate date];
+            managedMessage.dialog = pvBuddy.dialog;
+            [managedMessage save];
+        }];
+    }
 }
 
 #pragma mark - Stubs

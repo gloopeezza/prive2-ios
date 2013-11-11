@@ -10,11 +10,12 @@
 #import <CoreData/CoreData.h>
 #import "SSManagedObject.h"
 
-
-@interface PVBuddy : SSManagedObject;
+@class PVManagedDialog;
+@interface PVManagedBuddy : SSManagedObject;
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * alias;
 @property (nonatomic, retain) NSString * info;
+@property (nonatomic, retain) PVManagedDialog * dialog;
 
 @end
