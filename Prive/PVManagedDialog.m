@@ -7,7 +7,7 @@
 //
 
 #import "PVManagedDialog.h"
-#import "PVManagedBuddy.h"
+#import "PVManagedContact.h"
 #import "PVManagedMessage.h"
 
 

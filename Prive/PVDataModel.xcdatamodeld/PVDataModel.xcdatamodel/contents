@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="PVManagedBuddy" representedClassName="PVManagedBuddy" syncable="YES">
+    <entity name="PVManagedContact" representedClassName="PVManagedContact" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedDialog" inverseName="buddy" inverseEntity="PVManagedDialog" syncable="YES"/>
+        <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PVManagedDialog" inverseName="buddy" inverseEntity="PVManagedDialog" syncable="YES"/>
     </entity>
     <entity name="PVManagedDialog" representedClassName="PVManagedDialog" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="buddy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedBuddy" inverseName="dialog" inverseEntity="PVManagedBuddy" syncable="YES"/>
+        <relationship name="buddy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedContact" inverseName="dialog" inverseEntity="PVManagedContact" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PVManagedMessage" inverseName="dialog" inverseEntity="PVManagedMessage" syncable="YES"/>
     </entity>
     <entity name="PVManagedMessage" representedClassName="PVManagedMessage" syncable="YES">
@@ -18,7 +18,7 @@
         <relationship name="dialog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PVManagedDialog" inverseName="messages" inverseEntity="PVManagedDialog" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PVManagedBuddy" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PVManagedContact" positionX="0" positionY="0" width="0" height="0"/>
         <element name="PVManagedDialog" positionX="0" positionY="0" width="0" height="0"/>
         <element name="PVManagedMessage" positionX="0" positionY="0" width="0" height="0"/>
     </elements>

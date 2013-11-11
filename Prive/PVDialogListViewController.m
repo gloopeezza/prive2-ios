@@ -7,7 +7,7 @@
 //
 
 #import "PVDialogListViewController.h"
-#import "PVManagedBuddy.h"
+#import "PVManagedContact.h"
 #import "PVManagedDialog.h"
 #import "PVDialogViewController.h"
 

@@ -29,7 +29,7 @@
 		F7A91BF9182A6C2A00073051 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7A91BF7182A6C2A00073051 /* InfoPlist.strings */; };
 		F7A91BFB182A6C2A00073051 /* PriveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91BFA182A6C2A00073051 /* PriveTests.m */; };
 		F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C05182A6D0800073051 /* PVDataModel.xcdatamodeld */; };
-		F7A91C0A182A6D5200073051 /* PVManagedBuddy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C09182A6D5200073051 /* PVManagedBuddy.m */; };
+		F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C09182A6D5200073051 /* PVManagedContact.m */; };
 		F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C0D182A6E0000073051 /* PVChatManager.m */; };
 		F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91C0F182A6E4800073051 /* CoreData.framework */; };
 		F7A91C13182A745500073051 /* PVContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C12182A745500073051 /* PVContactsListViewController.m */; };
@@ -131,8 +131,8 @@
 		F7A91BF8182A6C2A00073051 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7A91BFA182A6C2A00073051 /* PriveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriveTests.m; sourceTree = "<group>"; };
 		F7A91C06182A6D0800073051 /* PVDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PVDataModel.xcdatamodel; sourceTree = "<group>"; };
-		F7A91C08182A6D5200073051 /* PVManagedBuddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVManagedBuddy.h; sourceTree = "<group>"; };
-		F7A91C09182A6D5200073051 /* PVManagedBuddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVManagedBuddy.m; sourceTree = "<group>"; };
+		F7A91C08182A6D5200073051 /* PVManagedContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVManagedContact.h; sourceTree = "<group>"; };
+		F7A91C09182A6D5200073051 /* PVManagedContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVManagedContact.m; sourceTree = "<group>"; };
 		F7A91C0C182A6E0000073051 /* PVChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVChatManager.h; sourceTree = "<group>"; };
 		F7A91C0D182A6E0000073051 /* PVChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVChatManager.m; sourceTree = "<group>"; };
 		F7A91C0F182A6E4800073051 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -296,8 +296,8 @@
 				F7AF02871830C3A900F95980 /* PVManagedDialog.m */,
 				F7AF02831830C35800F95980 /* PVManagedMessage.h */,
 				F7AF02841830C35800F95980 /* PVManagedMessage.m */,
-				F7A91C08182A6D5200073051 /* PVManagedBuddy.h */,
-				F7A91C09182A6D5200073051 /* PVManagedBuddy.m */,
+				F7A91C08182A6D5200073051 /* PVManagedContact.h */,
+				F7A91C09182A6D5200073051 /* PVManagedContact.m */,
 				F7A91C0C182A6E0000073051 /* PVChatManager.h */,
 				F7A91C0D182A6E0000073051 /* PVChatManager.m */,
 			);
@@ -549,7 +549,7 @@
 				F7AF02C61830EE8500F95980 /* UIImage+Appearance.m in Sources */,
 				F7AF02851830C35800F95980 /* PVManagedMessage.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
-				F7A91C0A182A6D5200073051 /* PVManagedBuddy.m in Sources */,
+				F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */,
 				F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */,
 				F7AF02F01831037700F95980 /* PVContactCell.m in Sources */,
 				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,

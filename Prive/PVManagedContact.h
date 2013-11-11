@@ -11,7 +11,7 @@
 #import "SSManagedObject.h"
 
 @class PVManagedDialog;
-@interface PVManagedBuddy : SSManagedObject;
+@interface PVManagedContact : SSManagedObject;
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * alias;

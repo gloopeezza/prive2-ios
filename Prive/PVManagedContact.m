@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Prive. All rights reserved.
 //
 
-#import "PVManagedBuddy.h"
+#import "PVManagedContact.h"
 
 
-@implementation PVManagedBuddy
+@implementation PVManagedContact
 
 @dynamic address;
 @dynamic alias;

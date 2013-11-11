@@ -8,7 +8,7 @@
 
 #import "PVContactsListViewController.h"
 #import "PVChatManager.h"
-#import "PVManagedBuddy.h"
+#import "PVManagedContact.h"
 #import "PVManagedDialog.h"
 #import "PVDialogViewController.h"
 #import "UIImage+Appearance.h"
@@ -67,7 +67,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PVContactCell *contactCell = (PVContactCell *)cell;
     
-    PVManagedBuddy *buddy = (PVManagedBuddy *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    PVManagedContact *buddy = (PVManagedContact *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     contactCell.textLabel.text = buddy.alias;
     contactCell.detailTextLabel.text = buddy.address;
     contactCell.online = YES;
@@ -76,7 +76,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PVManagedBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    PVManagedContact *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
     PVManagedDialog *dialog = buddy.dialog;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -94,7 +94,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        PVManagedBuddy *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        PVManagedContact *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [[PVChatManager defaultManager] removeBuddy:buddy.address];
     }
 }
@@ -121,7 +121,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 #pragma mark - SSManagedTableViewController
 
 - (Class)entityClass {
-    return [PVManagedBuddy class];
+    return [PVManagedContact class];
 }
 
 - (NSArray *)sortDescriptors {

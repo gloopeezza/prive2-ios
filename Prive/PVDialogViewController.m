@@ -9,7 +9,7 @@
 #import "PVDialogViewController.h"
 #import "PVManagedDialog.h"
 #import "PVManagedMessage.h"
-#import "PVManagedBuddy.h"
+#import "PVManagedContact.h"
 
 static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kPVDialogViewControllerMessageCellReuseIdentifier";
 

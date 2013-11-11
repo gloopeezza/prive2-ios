@@ -10,11 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "SSManagedObject.h"
 
-@class PVManagedBuddy, PVManagedMessage;
+@class PVManagedContact, PVManagedMessage;
 
 @interface PVManagedDialog : SSManagedObject
 
-@property (nonatomic, retain) PVManagedBuddy *buddy;
+@property (nonatomic, retain) PVManagedContact *buddy;
 @property (nonatomic, retain) NSSet *messages;
 @end
 
