@@ -25,4 +25,6 @@
 - (void)addMessages:(NSSet *)values;
 - (void)removeMessages:(NSSet *)values;
 
+- (void)sendMessage:(NSString *)text;
+
 @end
