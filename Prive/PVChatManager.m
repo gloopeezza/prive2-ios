@@ -7,9 +7,7 @@
 //
 
 #import "PVChatManager.h"
-#import "CPAConfiguration.h"
-#import "CPAHiddenService.h"
-#import "CPAProxyManager.h"
+#import "CPAProxy.h"
 #import "TCCoreManager.h"
 #import "TCBuddy.h"
 #import "SSManagedObject.h"
