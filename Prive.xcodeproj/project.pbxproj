@@ -53,22 +53,6 @@
 		F7AF02881830C3A900F95980 /* PVManagedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02871830C3A900F95980 /* PVManagedDialog.m */; };
 		F7AF02C21830DB5800F95980 /* PVDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02C11830DB5800F95980 /* PVDialogViewController.m */; };
 		F7AF02C61830EE8500F95980 /* UIImage+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02C51830EE8500F95980 /* UIImage+Appearance.m */; };
-		F7AF02DA1830F7F700F95980 /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CA1830F7F700F95980 /* tabbar-contacts-highlighted.png */; };
-		F7AF02DB1830F7F700F95980 /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CB1830F7F700F95980 /* tabbar-contacts-highlighted@2x.png */; };
-		F7AF02DC1830F7F700F95980 /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CC1830F7F700F95980 /* tabbar-contacts-normal.png */; };
-		F7AF02DD1830F7F700F95980 /* tabbar-contacts-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CD1830F7F700F95980 /* tabbar-contacts-normal@2x.png */; };
-		F7AF02DE1830F7F700F95980 /* tabbar-dialogs-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CE1830F7F700F95980 /* tabbar-dialogs-highlighted.png */; };
-		F7AF02DF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02CF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png */; };
-		F7AF02E01830F7F700F95980 /* tabbar-dialogs-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D01830F7F700F95980 /* tabbar-dialogs-normal.png */; };
-		F7AF02E11830F7F700F95980 /* tabbar-dialogs-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D11830F7F700F95980 /* tabbar-dialogs-normal@2x.png */; };
-		F7AF02E21830F7F700F95980 /* tabbar-profile-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D21830F7F700F95980 /* tabbar-profile-highlighted.png */; };
-		F7AF02E31830F7F700F95980 /* tabbar-profile-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D31830F7F700F95980 /* tabbar-profile-highlighted@2x.png */; };
-		F7AF02E41830F7F700F95980 /* tabbar-profile-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D41830F7F700F95980 /* tabbar-profile-normal.png */; };
-		F7AF02E51830F7F700F95980 /* tabbar-profile-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D51830F7F700F95980 /* tabbar-profile-normal@2x.png */; };
-		F7AF02E61830F7F700F95980 /* tabbar-timeline-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D61830F7F700F95980 /* tabbar-timeline-highlighted.png */; };
-		F7AF02E71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png */; };
-		F7AF02E81830F7F700F95980 /* tabbar-timeline-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D81830F7F700F95980 /* tabbar-timeline-normal.png */; };
-		F7AF02E91830F7F700F95980 /* tabbar-timeline-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AF02D91830F7F700F95980 /* tabbar-timeline-normal@2x.png */; };
 		F7AF02EC1830FB7300F95980 /* PVTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02EB1830FB7300F95980 /* PVTimelineViewController.m */; };
 		F7AF02F01831037700F95980 /* PVContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02EF1831037700F95980 /* PVContactCell.m */; };
 		F7AF02F318310C6F00F95980 /* PVIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02F218310C6F00F95980 /* PVIntroViewController.m */; };
@@ -179,22 +163,6 @@
 		F7AF02C11830DB5800F95980 /* PVDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogViewController.m; sourceTree = "<group>"; };
 		F7AF02C41830EE8500F95980 /* UIImage+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Appearance.h"; sourceTree = "<group>"; };
 		F7AF02C51830EE8500F95980 /* UIImage+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Appearance.m"; sourceTree = "<group>"; };
-		F7AF02CA1830F7F700F95980 /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
-		F7AF02CB1830F7F700F95980 /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
-		F7AF02CC1830F7F700F95980 /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-contacts-normal.png"; sourceTree = "<group>"; };
-		F7AF02CD1830F7F700F95980 /* tabbar-contacts-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-contacts-normal@2x.png"; sourceTree = "<group>"; };
-		F7AF02CE1830F7F700F95980 /* tabbar-dialogs-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-dialogs-highlighted.png"; sourceTree = "<group>"; };
-		F7AF02CF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-dialogs-highlighted@2x.png"; sourceTree = "<group>"; };
-		F7AF02D01830F7F700F95980 /* tabbar-dialogs-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-dialogs-normal.png"; sourceTree = "<group>"; };
-		F7AF02D11830F7F700F95980 /* tabbar-dialogs-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-dialogs-normal@2x.png"; sourceTree = "<group>"; };
-		F7AF02D21830F7F700F95980 /* tabbar-profile-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-profile-highlighted.png"; sourceTree = "<group>"; };
-		F7AF02D31830F7F700F95980 /* tabbar-profile-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-profile-highlighted@2x.png"; sourceTree = "<group>"; };
-		F7AF02D41830F7F700F95980 /* tabbar-profile-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-profile-normal.png"; sourceTree = "<group>"; };
-		F7AF02D51830F7F700F95980 /* tabbar-profile-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-profile-normal@2x.png"; sourceTree = "<group>"; };
-		F7AF02D61830F7F700F95980 /* tabbar-timeline-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-timeline-highlighted.png"; sourceTree = "<group>"; };
-		F7AF02D71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-timeline-highlighted@2x.png"; sourceTree = "<group>"; };
-		F7AF02D81830F7F700F95980 /* tabbar-timeline-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-timeline-normal.png"; sourceTree = "<group>"; };
-		F7AF02D91830F7F700F95980 /* tabbar-timeline-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-timeline-normal@2x.png"; sourceTree = "<group>"; };
 		F7AF02EA1830FB7300F95980 /* PVTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVTimelineViewController.h; sourceTree = "<group>"; };
 		F7AF02EB1830FB7300F95980 /* PVTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVTimelineViewController.m; sourceTree = "<group>"; };
 		F7AF02EE1831037700F95980 /* PVContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVContactCell.h; sourceTree = "<group>"; };
@@ -387,22 +355,6 @@
 		F7AF02C91830F62400F95980 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				F7AF02CA1830F7F700F95980 /* tabbar-contacts-highlighted.png */,
-				F7AF02CB1830F7F700F95980 /* tabbar-contacts-highlighted@2x.png */,
-				F7AF02CC1830F7F700F95980 /* tabbar-contacts-normal.png */,
-				F7AF02CD1830F7F700F95980 /* tabbar-contacts-normal@2x.png */,
-				F7AF02CE1830F7F700F95980 /* tabbar-dialogs-highlighted.png */,
-				F7AF02CF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png */,
-				F7AF02D01830F7F700F95980 /* tabbar-dialogs-normal.png */,
-				F7AF02D11830F7F700F95980 /* tabbar-dialogs-normal@2x.png */,
-				F7AF02D21830F7F700F95980 /* tabbar-profile-highlighted.png */,
-				F7AF02D31830F7F700F95980 /* tabbar-profile-highlighted@2x.png */,
-				F7AF02D41830F7F700F95980 /* tabbar-profile-normal.png */,
-				F7AF02D51830F7F700F95980 /* tabbar-profile-normal@2x.png */,
-				F7AF02D61830F7F700F95980 /* tabbar-timeline-highlighted.png */,
-				F7AF02D71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png */,
-				F7AF02D81830F7F700F95980 /* tabbar-timeline-normal.png */,
-				F7AF02D91830F7F700F95980 /* tabbar-timeline-normal@2x.png */,
 				F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */,
 				F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */,
 				F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */,
@@ -556,7 +508,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7AF02E61830F7F700F95980 /* tabbar-timeline-highlighted.png in Resources */,
 				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
 				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
@@ -567,7 +518,6 @@
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
 				F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */,
-				F7AF02DE1830F7F700F95980 /* tabbar-dialogs-highlighted.png in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
 				F70C5E371832058D00BD468C /* tabbar-timeline-highlighted@2x.png in Resources */,
 				F70C5E321832058D00BD468C /* tabbar-profile-highlighted.png in Resources */,
@@ -575,12 +525,6 @@
 				F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */,
 				F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
-				F7AF02DF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png in Resources */,
-				F7AF02E11830F7F700F95980 /* tabbar-dialogs-normal@2x.png in Resources */,
-				F7AF02DC1830F7F700F95980 /* tabbar-contacts-normal.png in Resources */,
-				F7AF02E71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png in Resources */,
-				F7AF02E41830F7F700F95980 /* tabbar-profile-normal.png in Resources */,
-				F7AF02DA1830F7F700F95980 /* tabbar-contacts-highlighted.png in Resources */,
 				F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */,
 				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
 				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
