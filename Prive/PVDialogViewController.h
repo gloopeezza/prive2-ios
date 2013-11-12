@@ -11,10 +11,11 @@
 
 @class PVManagedDialog;
 
-@interface PVDialogViewController : SSManagedTableViewController
+@interface PVDialogViewController : SSManagedTableViewController<HPGrowingTextViewDelegate>
 
 @property (nonatomic, strong, readonly) PVManagedDialog *dialog;
 
 - (id)initWithDialog:(PVManagedDialog *)dialog;
+- (void)sendMessage;
 
 @end

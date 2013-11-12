@@ -17,4 +17,11 @@
 @dynamic fromAddress;
 @dynamic dialog;
 
+- (NSString *)day {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterFullStyle;
+    
+    return [dateFormatter stringFromDate:self.date];
+}
+
 @end

@@ -91,6 +91,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     self.tabBarController.selectedViewController = chatNavigationViewController;
     
     PVDialogViewController *dialogController = [[PVDialogViewController alloc] initWithDialog:dialog];
+    dialogController.hidesBottomBarWhenPushed = YES;
     [chatNavigationViewController pushViewController:dialogController animated:YES];
 }
 

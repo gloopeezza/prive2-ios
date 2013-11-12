@@ -14,6 +14,7 @@
 #import "PVManagedDialog.h"
 #import "PVManagedContact.h"
 #import "PVManagedMessage.h"
+#import "CPAHiddenService.h"
 
 static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";

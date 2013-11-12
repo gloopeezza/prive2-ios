@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E52B24A81832377000B82195 /* PVDialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B24A71832377000B82195 /* PVDialogCell.m */; };
+		E52B24AD183241EE00B82195 /* dialog-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AB183241EE00B82195 /* dialog-background.png */; };
+		E52B24AE183241EE00B82195 /* dialog-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AC183241EE00B82195 /* dialog-background@2x.png */; };
+		E52B24B11832443F00B82195 /* dialog-send-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AF1832443F00B82195 /* dialog-send-button.png */; };
+		E52B24B21832443F00B82195 /* dialog-send-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B01832443F00B82195 /* dialog-send-button@2x.png */; };
+		E52B24B51832453900B82195 /* dialog-text-view.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B31832453900B82195 /* dialog-text-view.png */; };
+		E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B41832453900B82195 /* dialog-text-view@2x.png */; };
+		E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B71832485100B82195 /* dialog-attach-file.png */; };
+		E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B81832485100B82195 /* dialog-attach-file@2x.png */; };
 		F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */; };
 		F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */; };
 		F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */; };
@@ -104,6 +113,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E52B24A61832377000B82195 /* PVDialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDialogCell.h; sourceTree = "<group>"; };
+		E52B24A71832377000B82195 /* PVDialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogCell.m; sourceTree = "<group>"; };
+		E52B24AB183241EE00B82195 /* dialog-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-background.png"; path = "Images/dialog-background.png"; sourceTree = "<group>"; };
+		E52B24AC183241EE00B82195 /* dialog-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-background@2x.png"; path = "Images/dialog-background@2x.png"; sourceTree = "<group>"; };
+		E52B24AF1832443F00B82195 /* dialog-send-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-send-button.png"; path = "Images/dialog-send-button.png"; sourceTree = "<group>"; };
+		E52B24B01832443F00B82195 /* dialog-send-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-send-button@2x.png"; path = "Images/dialog-send-button@2x.png"; sourceTree = "<group>"; };
+		E52B24B31832453900B82195 /* dialog-text-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-text-view.png"; path = "Images/dialog-text-view.png"; sourceTree = "<group>"; };
+		E52B24B41832453900B82195 /* dialog-text-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-text-view@2x.png"; path = "Images/dialog-text-view@2x.png"; sourceTree = "<group>"; };
+		E52B24B71832485100B82195 /* dialog-attach-file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file.png"; path = "Images/dialog-attach-file.png"; sourceTree = "<group>"; };
+		E52B24B81832485100B82195 /* dialog-attach-file@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file@2x.png"; path = "Images/dialog-attach-file@2x.png"; sourceTree = "<group>"; };
 		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
 		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
@@ -200,6 +219,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E52B24A91832380100B82195 /* PVDialogCell */ = {
+			isa = PBXGroup;
+			children = (
+				E52B24A61832377000B82195 /* PVDialogCell.h */,
+				E52B24A71832377000B82195 /* PVDialogCell.m */,
+			);
+			name = PVDialogCell;
+			sourceTree = "<group>";
+		};
+		E52B24AA183241C600B82195 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				E52B24B71832485100B82195 /* dialog-attach-file.png */,
+				E52B24B81832485100B82195 /* dialog-attach-file@2x.png */,
+				E52B24B31832453900B82195 /* dialog-text-view.png */,
+				E52B24B41832453900B82195 /* dialog-text-view@2x.png */,
+				E52B24AF1832443F00B82195 /* dialog-send-button.png */,
+				E52B24B01832443F00B82195 /* dialog-send-button@2x.png */,
+				E52B24AB183241EE00B82195 /* dialog-background.png */,
+				E52B24AC183241EE00B82195 /* dialog-background@2x.png */,
+			);
+			name = Dialog;
+			sourceTree = "<group>";
+		};
 		F78C4E0D182BA98400C6D19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +366,7 @@
 				F7AF02EB1830FB7300F95980 /* PVTimelineViewController.m */,
 				F7AF02F118310C6F00F95980 /* PVIntroViewController.h */,
 				F7AF02F218310C6F00F95980 /* PVIntroViewController.m */,
+				E52B24A91832380100B82195 /* PVDialogCell */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +391,7 @@
 		F7AF02C81830F61700F95980 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E52B24AA183241C600B82195 /* Dialog */,
 				F7AF02C91830F62400F95980 /* TabBar */,
 			);
 			name = Images;
@@ -514,18 +559,26 @@
 				F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */,
 				F70C5E331832058D00BD468C /* tabbar-profile-highlighted@2x.png in Resources */,
 				F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */,
+				E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */,
+				E52B24B21832443F00B82195 /* dialog-send-button@2x.png in Resources */,
 				F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */,
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
+				E52B24AD183241EE00B82195 /* dialog-background.png in Resources */,
+				E52B24AE183241EE00B82195 /* dialog-background@2x.png in Resources */,
 				F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
 				F70C5E371832058D00BD468C /* tabbar-timeline-highlighted@2x.png in Resources */,
 				F70C5E321832058D00BD468C /* tabbar-profile-highlighted.png in Resources */,
+				E52B24B51832453900B82195 /* dialog-text-view.png in Resources */,
 				F70C5E301832058D00BD468C /* tabbar-dialogs-normal.png in Resources */,
 				F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */,
 				F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
+				E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */,
+				E52B24B11832443F00B82195 /* dialog-send-button.png in Resources */,
 				F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */,
+				E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */,
 				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
 				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
 				F70C5E341832058D00BD468C /* tabbar-profile-normal.png in Resources */,
@@ -563,6 +616,7 @@
 				F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */,
 				F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */,
 				F7A91C13182A745500073051 /* PVContactsListViewController.m in Sources */,
+				E52B24A81832377000B82195 /* PVDialogCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
