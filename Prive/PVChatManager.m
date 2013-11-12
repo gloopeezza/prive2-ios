@@ -276,11 +276,11 @@ static NSInteger kPVTorLocalServicePort = 11008;
         NSString *messageText = info.context;
         PVManagedContact *pvBuddy = [self buddyWithAddress:buddy.address];
         
-        if (pvBuddy.dialog == nil) {
-            pvBuddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
-        }
+        [[PVManagedMessage mainQueueContext] performBlockAndWait:^{
+            if (pvBuddy.dialog == nil) {
+                pvBuddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
+            }
         
-        [[PVManagedMessage mainQueueContext] performBlock:^{
             PVManagedMessage *managedMessage = [[PVManagedMessage alloc] initWithContext:nil];
             managedMessage.text = messageText;
             managedMessage.date = [NSDate date];
@@ -293,7 +293,15 @@ static NSInteger kPVTorLocalServicePort = 11008;
 #pragma mark - Stubs
 
 - (void)setBuddy:(NSString *)address lastProfileAvatar:(UIImage *)lastAvatar {}
-- (void)setBuddy:(NSString *)address lastProfileName:(NSString *)lastName {}
+- (void)setBuddy:(NSString *)address lastProfileName:(NSString *)lastName {
+    PVManagedContact *contact = [self buddyWithAddress:address];
+    
+    [[PVManagedContact mainQueueContext] performBlockAndWait:^{
+        contact.alias = lastName;
+        [contact save];
+    }];
+}
+
 - (void)setBuddy:(NSString *)address lastProfileText:(NSString *)lastText {}
 - (NSString *)getBuddyLastProfileName:(NSString *)address {return nil;}
 - (NSString *)getBuddyLastProfileText:(NSString *)address {return nil;}

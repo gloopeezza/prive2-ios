@@ -81,7 +81,9 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (dialog == nil) {
-        buddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
+        dialog = [[PVManagedDialog alloc] initWithContext:nil];
+        buddy.dialog = dialog;
+        [dialog save];
     }
     
     UINavigationController *chatNavigationViewController = self.chatDialogsViewController.navigationController;

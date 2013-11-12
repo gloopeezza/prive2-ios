@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */; };
+		F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */; };
+		F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */; };
+		F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1D1832058D00BD468C /* tabbar-contacts-normal@2x.png */; };
+		F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1E1832058D00BD468C /* tabbar-dialogs-highlighted.png */; };
+		F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png */; };
+		F70C5E301832058D00BD468C /* tabbar-dialogs-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E201832058D00BD468C /* tabbar-dialogs-normal.png */; };
+		F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E211832058D00BD468C /* tabbar-dialogs-normal@2x.png */; };
+		F70C5E321832058D00BD468C /* tabbar-profile-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E221832058D00BD468C /* tabbar-profile-highlighted.png */; };
+		F70C5E331832058D00BD468C /* tabbar-profile-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E231832058D00BD468C /* tabbar-profile-highlighted@2x.png */; };
+		F70C5E341832058D00BD468C /* tabbar-profile-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E241832058D00BD468C /* tabbar-profile-normal.png */; };
+		F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E251832058D00BD468C /* tabbar-profile-normal@2x.png */; };
+		F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E261832058D00BD468C /* tabbar-timeline-highlighted.png */; };
+		F70C5E371832058D00BD468C /* tabbar-timeline-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E271832058D00BD468C /* tabbar-timeline-highlighted@2x.png */; };
+		F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E281832058D00BD468C /* tabbar-timeline-normal.png */; };
+		F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E291832058D00BD468C /* tabbar-timeline-normal@2x.png */; };
 		F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7487033182CF09000B21A02 /* PVDialogListViewController.m */; };
 		F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748704B182CFF9000B21A02 /* PVProfileViewController.m */; };
 		F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F748704D182CFFB700B21A02 /* PVProfileViewController.xib */; };
@@ -104,6 +120,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
+		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
+		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
+		F70C5E1D1832058D00BD468C /* tabbar-contacts-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal@2x.png"; path = "Images/tabbar-contacts-normal@2x.png"; sourceTree = "<group>"; };
+		F70C5E1E1832058D00BD468C /* tabbar-dialogs-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-dialogs-highlighted.png"; path = "Images/tabbar-dialogs-highlighted.png"; sourceTree = "<group>"; };
+		F70C5E1F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-dialogs-highlighted@2x.png"; path = "Images/tabbar-dialogs-highlighted@2x.png"; sourceTree = "<group>"; };
+		F70C5E201832058D00BD468C /* tabbar-dialogs-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-dialogs-normal.png"; path = "Images/tabbar-dialogs-normal.png"; sourceTree = "<group>"; };
+		F70C5E211832058D00BD468C /* tabbar-dialogs-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-dialogs-normal@2x.png"; path = "Images/tabbar-dialogs-normal@2x.png"; sourceTree = "<group>"; };
+		F70C5E221832058D00BD468C /* tabbar-profile-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-highlighted.png"; path = "Images/tabbar-profile-highlighted.png"; sourceTree = "<group>"; };
+		F70C5E231832058D00BD468C /* tabbar-profile-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-highlighted@2x.png"; path = "Images/tabbar-profile-highlighted@2x.png"; sourceTree = "<group>"; };
+		F70C5E241832058D00BD468C /* tabbar-profile-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-normal.png"; path = "Images/tabbar-profile-normal.png"; sourceTree = "<group>"; };
+		F70C5E251832058D00BD468C /* tabbar-profile-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-normal@2x.png"; path = "Images/tabbar-profile-normal@2x.png"; sourceTree = "<group>"; };
+		F70C5E261832058D00BD468C /* tabbar-timeline-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-highlighted.png"; path = "Images/tabbar-timeline-highlighted.png"; sourceTree = "<group>"; };
+		F70C5E271832058D00BD468C /* tabbar-timeline-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-highlighted@2x.png"; path = "Images/tabbar-timeline-highlighted@2x.png"; sourceTree = "<group>"; };
+		F70C5E281832058D00BD468C /* tabbar-timeline-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-normal.png"; path = "Images/tabbar-timeline-normal.png"; sourceTree = "<group>"; };
+		F70C5E291832058D00BD468C /* tabbar-timeline-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-normal@2x.png"; path = "Images/tabbar-timeline-normal@2x.png"; sourceTree = "<group>"; };
 		F7487032182CF09000B21A02 /* PVDialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDialogListViewController.h; sourceTree = "<group>"; };
 		F7487033182CF09000B21A02 /* PVDialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogListViewController.m; sourceTree = "<group>"; };
 		F748704A182CFF9000B21A02 /* PVProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVProfileViewController.h; sourceTree = "<group>"; };
@@ -371,6 +403,22 @@
 				F7AF02D71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png */,
 				F7AF02D81830F7F700F95980 /* tabbar-timeline-normal.png */,
 				F7AF02D91830F7F700F95980 /* tabbar-timeline-normal@2x.png */,
+				F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */,
+				F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */,
+				F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */,
+				F70C5E1D1832058D00BD468C /* tabbar-contacts-normal@2x.png */,
+				F70C5E1E1832058D00BD468C /* tabbar-dialogs-highlighted.png */,
+				F70C5E1F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png */,
+				F70C5E201832058D00BD468C /* tabbar-dialogs-normal.png */,
+				F70C5E211832058D00BD468C /* tabbar-dialogs-normal@2x.png */,
+				F70C5E221832058D00BD468C /* tabbar-profile-highlighted.png */,
+				F70C5E231832058D00BD468C /* tabbar-profile-highlighted@2x.png */,
+				F70C5E241832058D00BD468C /* tabbar-profile-normal.png */,
+				F70C5E251832058D00BD468C /* tabbar-profile-normal@2x.png */,
+				F70C5E261832058D00BD468C /* tabbar-timeline-highlighted.png */,
+				F70C5E271832058D00BD468C /* tabbar-timeline-highlighted@2x.png */,
+				F70C5E281832058D00BD468C /* tabbar-timeline-normal.png */,
+				F70C5E291832058D00BD468C /* tabbar-timeline-normal@2x.png */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -509,20 +557,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7AF02E61830F7F700F95980 /* tabbar-timeline-highlighted.png in Resources */,
+				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
+				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
 				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
-				F7AF02DB1830F7F700F95980 /* tabbar-contacts-highlighted@2x.png in Resources */,
-				F7AF02E81830F7F700F95980 /* tabbar-timeline-normal.png in Resources */,
-				F7AF02E31830F7F700F95980 /* tabbar-profile-highlighted@2x.png in Resources */,
+				F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */,
+				F70C5E331832058D00BD468C /* tabbar-profile-highlighted@2x.png in Resources */,
+				F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */,
+				F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */,
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
-				F7AF02E91830F7F700F95980 /* tabbar-timeline-normal@2x.png in Resources */,
 				F7A91BE0182A6C2A00073051 /* InfoPlist.strings in Resources */,
 				F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */,
 				F7AF02DE1830F7F700F95980 /* tabbar-dialogs-highlighted.png in Resources */,
 				F7A91BE8182A6C2A00073051 /* Images.xcassets in Resources */,
-				F7AF02E21830F7F700F95980 /* tabbar-profile-highlighted.png in Resources */,
-				F7AF02E01830F7F700F95980 /* tabbar-dialogs-normal.png in Resources */,
-				F7AF02DD1830F7F700F95980 /* tabbar-contacts-normal@2x.png in Resources */,
-				F7AF02E51830F7F700F95980 /* tabbar-profile-normal@2x.png in Resources */,
+				F70C5E371832058D00BD468C /* tabbar-timeline-highlighted@2x.png in Resources */,
+				F70C5E321832058D00BD468C /* tabbar-profile-highlighted.png in Resources */,
+				F70C5E301832058D00BD468C /* tabbar-dialogs-normal.png in Resources */,
+				F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */,
+				F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 				F7AF02DF1830F7F700F95980 /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F7AF02E11830F7F700F95980 /* tabbar-dialogs-normal@2x.png in Resources */,
@@ -530,6 +581,11 @@
 				F7AF02E71830F7F700F95980 /* tabbar-timeline-highlighted@2x.png in Resources */,
 				F7AF02E41830F7F700F95980 /* tabbar-profile-normal.png in Resources */,
 				F7AF02DA1830F7F700F95980 /* tabbar-contacts-highlighted.png in Resources */,
+				F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */,
+				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
+				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
+				F70C5E341832058D00BD468C /* tabbar-profile-normal.png in Resources */,
+				F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
