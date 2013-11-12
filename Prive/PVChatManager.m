@@ -284,6 +284,7 @@ static NSInteger kPVTorLocalServicePort = 11008;
             managedMessage.text = messageText;
             managedMessage.date = [NSDate date];
             managedMessage.dialog = pvBuddy.dialog;
+            managedMessage.fromAddress = pvBuddy.address;
             [managedMessage save];
         }];
     }
