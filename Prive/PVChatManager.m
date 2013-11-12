@@ -293,7 +293,15 @@ static NSInteger kPVTorLocalServicePort = 11008;
 #pragma mark - Stubs
 
 - (void)setBuddy:(NSString *)address lastProfileAvatar:(UIImage *)lastAvatar {}
-- (void)setBuddy:(NSString *)address lastProfileName:(NSString *)lastName {}
+- (void)setBuddy:(NSString *)address lastProfileName:(NSString *)lastName {
+    PVManagedContact *contact = [self buddyWithAddress:address];
+    
+    [[PVManagedContact mainQueueContext] performBlockAndWait:^{
+        contact.alias = lastName;
+        [contact save];
+    }];
+}
+
 - (void)setBuddy:(NSString *)address lastProfileText:(NSString *)lastText {}
 - (NSString *)getBuddyLastProfileName:(NSString *)address {return nil;}
 - (NSString *)getBuddyLastProfileText:(NSString *)address {return nil;}
