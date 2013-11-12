@@ -82,6 +82,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     
     if (dialog == nil) {
         buddy.dialog = [[PVManagedDialog alloc] initWithContext:nil];
+        [buddy.dialog save];
     }
     
     UINavigationController *chatNavigationViewController = self.chatDialogsViewController.navigationController;
