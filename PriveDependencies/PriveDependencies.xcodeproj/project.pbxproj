@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E54487A718320BB80071610A /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54487A418320BB80071610A /* HPGrowingTextView.m */; };
+		E54487A818320BB80071610A /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E54487A618320BB80071610A /* HPTextViewInternal.m */; };
 		F78C4DE7182BA98400C6D19C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DE6182BA98400C6D19C /* Foundation.framework */; };
 		F78C4E32182BA9CA00C6D19C /* NSArray+TCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C4E17182BA9CA00C6D19C /* NSArray+TCTools.m */; };
 		F78C4E33182BA9CA00C6D19C /* NSData+TCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C4E19182BA9CA00C6D19C /* NSData+TCTools.m */; };
@@ -45,6 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E54487A318320BB80071610A /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		E54487A418320BB80071610A /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		E54487A518320BB80071610A /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		E54487A618320BB80071610A /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
 		F78C4DE3182BA98400C6D19C /* libPriveDependencies-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPriveDependencies-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78C4DE6182BA98400C6D19C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F78C4DEA182BA98400C6D19C /* PriveDependencies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PriveDependencies-Prefix.pch"; sourceTree = "<group>"; };
@@ -111,6 +117,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E54487A218320BB80071610A /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				E54487A318320BB80071610A /* HPGrowingTextView.h */,
+				E54487A418320BB80071610A /* HPGrowingTextView.m */,
+				E54487A518320BB80071610A /* HPTextViewInternal.h */,
+				E54487A618320BB80071610A /* HPTextViewInternal.m */,
+			);
+			name = GrowingTextView;
+			path = ../../External/GrowingTextView/class;
+			sourceTree = "<group>";
+		};
 		F78C4DDA182BA98400C6D19C = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +159,7 @@
 		F78C4DE8182BA98400C6D19C /* PriveDependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E54487A218320BB80071610A /* GrowingTextView */,
 				F797E44A182E3D3F003964FD /* SSDataKit */,
 				F78C4E15182BA9BF00C6D19C /* TorchatMac */,
 				F78C4DE9182BA98400C6D19C /* Supporting Files */,
@@ -281,7 +300,9 @@
 				F78C4E38182BA9CA00C6D19C /* TCFileReceive.m in Sources */,
 				F78C4E3A182BA9CA00C6D19C /* TCImage.m in Sources */,
 				F78C4E36182BA9CA00C6D19C /* TCConnection.m in Sources */,
+				E54487A818320BB80071610A /* HPTextViewInternal.m in Sources */,
 				F797E45E182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m in Sources */,
+				E54487A718320BB80071610A /* HPGrowingTextView.m in Sources */,
 				F78C4E3B182BA9CA00C6D19C /* TCInfo.m in Sources */,
 				F78C4E34182BA9CA00C6D19C /* TCBuddy.m in Sources */,
 				F78C4E3D182BA9CA00C6D19C /* TCSocket.m in Sources */,

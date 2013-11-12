@@ -7,3 +7,6 @@
 [submodule "External/SSDataKit"]
 	path = External/SSDataKit
 	url = https://github.com/soffes/ssdatakit.git
+[submodule "External/GrowingTextView"]
+	path = External/GrowingTextView
+	url = git@github.com:cielpy/GrowingTextView.git

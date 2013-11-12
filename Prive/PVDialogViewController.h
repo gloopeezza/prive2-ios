@@ -7,6 +7,7 @@
 //
 
 #import "SSManagedTableViewController.h"
+#import "HPGrowingTextView.h"
 
 @class PVManagedDialog;
 
