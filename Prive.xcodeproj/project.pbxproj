@@ -124,9 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E513EE7D1833AFDC00576587 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
-		E513EE7E1833AFEA00576587 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
-		E513EE7F1833AFF400576587 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		E513EE7D1833AFDC00576587 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
+		E513EE7E1833AFEA00576587 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
+		E513EE7F1833AFF400576587 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E518AB80183364A1007EDFBF /* nav-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button.png"; path = "Images/nav-back-button.png"; sourceTree = "<group>"; };
 		E518AB81183364A1007EDFBF /* nav-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button@2x.png"; path = "Images/nav-back-button@2x.png"; sourceTree = "<group>"; };
 		E518AB8418336C35007EDFBF /* nav-add-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-add-button.png"; path = "Images/nav-add-button.png"; sourceTree = "<group>"; };
@@ -291,9 +291,6 @@
 		F7A91BC9182A6C2A00073051 = {
 			isa = PBXGroup;
 			children = (
-				E513EE7F1833AFF400576587 /* icon57.png */,
-				E513EE7E1833AFEA00576587 /* icon114.png */,
-				E513EE7D1833AFDC00576587 /* icon120.png */,
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
@@ -410,6 +407,16 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F7ACF4B31833B23A00222B16 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				E513EE7F1833AFF400576587 /* icon57.png */,
+				E513EE7E1833AFEA00576587 /* icon114.png */,
+				E513EE7D1833AFDC00576587 /* icon120.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		F7AF02C31830EE6100F95980 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +439,7 @@
 		F7AF02C81830F61700F95980 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F7ACF4B31833B23A00222B16 /* Icons */,
 				E518AB7E1833647D007EDFBF /* NavigationBar */,
 				E52B24AA183241C600B82195 /* Dialog */,
 				F7AF02C91830F62400F95980 /* TabBar */,
