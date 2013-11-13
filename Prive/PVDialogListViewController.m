@@ -63,7 +63,8 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     
     PVManagedDialog *dialog = [self.fetchedResultsController objectAtIndexPath:indexPath];
     PVDialogViewController *dialogController = [[PVDialogViewController alloc] initWithDialog:dialog];
-    
+    dialogController.hidesBottomBarWhenPushed = YES;
+
     [self.navigationController pushViewController:dialogController animated:YES];
 }
 

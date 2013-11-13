@@ -14,6 +14,9 @@
 
 static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kPVDialogViewControllerMessageCellReuseIdentifier";
 
+#define kMessageTextWidth 145.0f
+#define kMinHeight 100.0f
+
 @interface PVDialogViewController () {
     PVManagedDialog *_dialog;
     
@@ -54,10 +57,27 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     return request;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(PVDialogCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PVManagedMessage *message = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = message.text;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"From %@", message.dialog.buddy.address];
+    //cell.textLabel.text = message.text;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"From %@", message.dialog.buddy.address];
+
+    if ([message.fromAddress isEqualToString:message.dialog.buddy.address]) {
+        [cell setupCellWithType:PVDialogCellReceived andMessage:message];
+    }else
+        [cell setupCellWithType:PVDialogCellSent andMessage:message];
+    
+    [cell.contentView setNeedsDisplay];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PVManagedMessage *message = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    CGSize size = [message.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:14.0]
+				   constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
+					   lineBreakMode:NSLineBreakByWordWrapping];
+    return MAX(size.height, kMinHeight) ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,8 +87,6 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     if (!cell) {
         cell = [[PVDialogCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPVDialogViewControllerMessageCellReuseIdentifier];
     }
-    
-    [cell setupCellWithType:PVDialogCellSent];
     
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
@@ -88,6 +106,36 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     self.tableView.backgroundColor = UIColor.clearColor;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    UIToolbar *tools = [[UIToolbar alloc]
+                        initWithFrame:CGRectMake(0.0f, 0.0f, 103.0f, 44.01f)]; // 44.01 shifts it up 1px for some reason
+    tools.clearsContextBeforeDrawing = NO;
+    tools.clipsToBounds = NO;
+    tools.tintColor = [UIColor colorWithWhite:0.305f alpha:0.0f]; // closest I could get by eye to black, translucent style.
+    // anyone know how to get it perfect?
+    tools.barStyle = -1; // clear background
+    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:3];
+
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [backButton setTitle:@"" forState:UIControlStateNormal];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"nav-back-button"] forState:UIControlStateNormal];
+    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    backButton.frame = CGRectMake(0.0f, 0.0f, 44.0f, 44.0f);
+    [backButton setContentEdgeInsets:UIEdgeInsetsMake(-5, 0, -5, 0)];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
+    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixed.width = -10;
+    
+    [buttons addObject:fixed];
+    [buttons addObject:backButtonItem];
+    
+    [tools setItems:buttons animated:NO];
+    UIBarButtonItem *twoButtons = [[UIBarButtonItem alloc] initWithCustomView:tools];
+
+    self.navigationItem.leftBarButtonItem = twoButtons;
 }
 
 #pragma mark - Configure Chat Interface
@@ -105,7 +153,6 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
 
 - (void)configureGrowingTextView
 {
-
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -131,18 +178,18 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
 	textView.delegate = self;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
-    textView.placeholder = @"Type to see the textView grow!";
-    
+    textView.text = @" ";
     // textView.text = @"test\n\ntest";
 	// textView.animateHeightChange = NO; //turns off animation
     
     [self.view addSubview:containerView];
 	
-    UIImage *rawEntryBackground = [UIImage imageNamed:@"MessageEntryInputField.png"];
+    /*UIImage *rawEntryBackground = [UIImage imageNamed:@"MessageEntryInputField.png"];
     UIImage *entryBackground = [rawEntryBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
     UIImageView *entryImageView = [[UIImageView alloc] initWithImage:entryBackground];
     entryImageView.frame = CGRectMake(5, 0, 248, 40);
     entryImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    */
     
     UIImage *rawBackground = [UIImage imageNamed:@"dialog-text-view"];
     UIImage *background = [rawBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
@@ -155,7 +202,7 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     // view hierachy
     [containerView addSubview:imageView];
     [containerView addSubview:textView];
-    [containerView addSubview:entryImageView];
+    //[containerView addSubview:entryImageView];
     
     UIImage *sendBtnBackground = [UIImage imageNamed:@"dialog-send-button"];
     
@@ -235,6 +282,16 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     r.size.height -= diff;
     r.origin.y += diff;
 	containerView.frame = r;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self hideKeyboard];
+}
+
+-(void)hideKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 @end

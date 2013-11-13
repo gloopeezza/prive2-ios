@@ -45,16 +45,20 @@
     
     PVDialogListViewController *chatDialogListController = [[PVDialogListViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *chatDialogsNavigationController = [[UINavigationController alloc] initWithRootViewController:chatDialogListController];
+    [chatDialogsNavigationController.navigationBar setBackgroundImage:[UIImage navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
     
     PVContactsListViewController *buddyListController = [[PVContactsListViewController alloc] initWithStyle:UITableViewStylePlain];
     buddyListController.chatDialogsViewController = chatDialogListController;
     UINavigationController *buddyNavigationController = [[UINavigationController alloc] initWithRootViewController:buddyListController];
-    
+    [buddyNavigationController.navigationBar setBackgroundImage:[UIImage navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
+
     PVTimelineViewController *timelineController = [[PVTimelineViewController alloc] init];
     UINavigationController *timelineNavigationController = [[UINavigationController alloc] initWithRootViewController:timelineController];
-    
+    [timelineNavigationController.navigationBar setBackgroundImage:[UIImage navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
+
     PVProfileViewController *settingsController = [[PVProfileViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
+    [settingsNavigationController.navigationBar setBackgroundImage:[UIImage navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
 
     
     _tabBarController = [[UITabBarController alloc] init];

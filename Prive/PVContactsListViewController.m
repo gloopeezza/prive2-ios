@@ -30,7 +30,14 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
         self.title = @"Contacts";
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Contacts" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-contacts-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-contacts-normal"]];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBuddy:)];
+        
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addButton setFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
+        [addButton addTarget:self action:@selector(addBuddy:) forControlEvents:UIControlEventTouchUpInside];
+        [addButton setImage:[UIImage imageNamed:@"nav-add-button"] forState:UIControlStateNormal];
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        
+        self.navigationItem.rightBarButtonItem = barButton;
     }
     
     return self;

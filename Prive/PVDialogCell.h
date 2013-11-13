@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PVManagedMessage.h"
 
 typedef enum  {
     PVDialogCellSent,
@@ -20,6 +21,6 @@ typedef enum  {
 
 @property(nonatomic) PVDialogCellType type;
 
-- (void)setupCellWithType:(PVDialogCellType)type;
+- (void)setupCellWithType:(PVDialogCellType)type andMessage:(PVManagedMessage *)message;
 
 @end
