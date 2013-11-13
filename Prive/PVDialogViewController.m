@@ -92,6 +92,10 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return nil;
+}
+
 #pragma mark - Configure Chat Interface
 
 - (void)configureController
