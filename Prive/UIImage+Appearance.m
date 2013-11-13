@@ -112,18 +112,38 @@
     return image;
 }
 
-+ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor {
++ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor sent:(BOOL)sent{
     NSParameterAssert(height);
     NSParameterAssert(backgroundColor);
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(145, height), NO, [[UIScreen mainScreen] scale]);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
     
-    UIBezierPath *balloon = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0, 0.0, 145.0, height) cornerRadius:height/2];
+    UIBezierPath *tile = [UIBezierPath bezierPath];
+    
+    float x;
+    if (!sent) {
+        x = 0.0;
+        [tile moveToPoint:CGPointMake(130, height/2)];
+        [tile addCurveToPoint:CGPointMake(130+10, height/2+1) controlPoint1:CGPointMake(130+1, height/2+1) controlPoint2:CGPointMake(130+5, height/2+4)];
+        [tile addCurveToPoint:CGPointMake(130-2, height/2+7) controlPoint1:CGPointMake(130+15, height/2-5) controlPoint2:CGPointMake(130+9, height/2+13)];
+
+    }else{
+        x = 8.0;
+        [tile moveToPoint:CGPointMake(9, height/2+3)];
+        [tile addCurveToPoint:CGPointMake(2, height/2+1) controlPoint1:CGPointMake(9, height/2+1) controlPoint2:CGPointMake(6, height/2+4)];
+        [tile addCurveToPoint:CGPointMake(10, height/2+6) controlPoint1:CGPointMake(-3, height/2+-3) controlPoint2:CGPointMake(4, height/2+7)];
+    }
+    UIBezierPath *balloon = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, 0.0, 135.0, height) cornerRadius:height/2];
+    
     [backgroundColor setFill];
     [balloon fill];
+    [tile fill];
 
+    CGContextAddPath(context, tile.CGPath);
     CGContextAddPath(context, balloon.CGPath);
+
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     CGContextRelease(context);
     return image;

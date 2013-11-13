@@ -16,7 +16,7 @@
 + (UIImage *)tabbarSelectedItemBackground;
 + (UIImage *)circleImageWithHeight:(CGFloat)radius borderColor:(UIColor *)borderColor;
 
-+ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor;
++ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor sent:(BOOL)sent;
 + (UIImage *)defaultAvatarWithHeight:(CGFloat)radius borderColor:(UIColor *)color;
 
 @end
