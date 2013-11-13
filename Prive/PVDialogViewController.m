@@ -270,4 +270,15 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     [self.view endEditing:YES];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [super controllerDidChangeContent:controller];
+    
+    NSInteger section = [self numberOfSectionsInTableView:self.tableView] - 1;
+    NSInteger row = [self tableView:self.tableView numberOfRowsInSection:section] - 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
 @end
