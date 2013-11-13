@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E513EE801833B0F900576587 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7F1833AFF400576587 /* icon57.png */; };
+		E513EE811833B0F900576587 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7E1833AFEA00576587 /* icon114.png */; };
+		E513EE821833B0F900576587 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7D1833AFDC00576587 /* icon120.png */; };
 		E518AB82183364A1007EDFBF /* nav-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB80183364A1007EDFBF /* nav-back-button.png */; };
 		E518AB83183364A1007EDFBF /* nav-back-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB81183364A1007EDFBF /* nav-back-button@2x.png */; };
 		E518AB8618336C35007EDFBF /* nav-add-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8418336C35007EDFBF /* nav-add-button.png */; };
@@ -121,6 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E513EE7D1833AFDC00576587 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		E513EE7E1833AFEA00576587 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		E513EE7F1833AFF400576587 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		E518AB80183364A1007EDFBF /* nav-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button.png"; path = "Images/nav-back-button.png"; sourceTree = "<group>"; };
 		E518AB81183364A1007EDFBF /* nav-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button@2x.png"; path = "Images/nav-back-button@2x.png"; sourceTree = "<group>"; };
 		E518AB8418336C35007EDFBF /* nav-add-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-add-button.png"; path = "Images/nav-add-button.png"; sourceTree = "<group>"; };
@@ -285,6 +291,9 @@
 		F7A91BC9182A6C2A00073051 = {
 			isa = PBXGroup;
 			children = (
+				E513EE7F1833AFF400576587 /* icon57.png */,
+				E513EE7E1833AFEA00576587 /* icon114.png */,
+				E513EE7D1833AFDC00576587 /* icon120.png */,
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
@@ -589,6 +598,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E513EE801833B0F900576587 /* icon57.png in Resources */,
+				E513EE811833B0F900576587 /* icon114.png in Resources */,
+				E513EE821833B0F900576587 /* icon120.png in Resources */,
 				E518AB8A18337252007EDFBF /* default-avatar.png in Resources */,
 				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
@@ -795,7 +807,6 @@
 		F7A91BFF182A6C2A00073051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -814,7 +825,6 @@
 		F7A91C00182A6C2A00073051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -43,6 +43,10 @@
         self.textView.editable = NO;
         self.textView.scrollEnabled = NO;
 
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+            [self.textView setContentInset:UIEdgeInsetsMake(-5, -5, 0, 0)];
+        }
+        
         self.backgroundColor = UIColor.clearColor;
         
         self.imageAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 70, 70)];
