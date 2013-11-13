@@ -12,8 +12,10 @@
 #import "PVManagedContact.h"
 #import "PVDialogCell.h"
 #import "UIViewController+PVCustomBackButton.h"
+#import "PVDialogSectionHeaderView.h"
 
 static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kPVDialogViewControllerMessageCellReuseIdentifier";
+static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"kPVDialogViewControllerSectionHeaderReuseIdentifier";
 
 #define kMessageTextWidth 145.0f
 #define kMinHeight 100.0f
@@ -279,6 +281,18 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     NSInteger row = [self tableView:self.tableView numberOfRowsInSection:section] - 1;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+#pragma mark - UITableViewControllerDataSource
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    PVDialogSectionHeaderView *header = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:kPVDialogViewControllerSectionHeaderReuseIdentifier];
+    if (!header) {
+        header = [[PVDialogSectionHeaderView alloc] initWithReuseIdentifier:kPVDialogViewControllerSectionHeaderReuseIdentifier];
+    }
+    
+    header.title = [self tableView:tableView titleForHeaderInSection:section];
+    return header;
 }
 
 @end
