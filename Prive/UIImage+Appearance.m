@@ -64,15 +64,16 @@
     NSParameterAssert(color);
     
     CGFloat width = radius;
-    CGFloat lineWidth = radius / 18.0f;
+    CGFloat lineWidth = floor(radius / 18.0f);
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, width), NO, [[UIScreen mainScreen] scale]);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     [[UIColor whiteColor] setFill];
-    CGRect borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f, lineWidth/2.0f, width - lineWidth, width - lineWidth));
+    CGRect borderRect = CGRectIntegral(CGRectMake(lineWidth, lineWidth, width - lineWidth * 2.0f, width - lineWidth * 2.0f));
     CGContextFillEllipseInRect(context, borderRect);
     
+    borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f, lineWidth/2.0f, width - lineWidth, width - lineWidth));
     [color setStroke];
     CGContextSetLineWidth(context, lineWidth);
     CGContextStrokeEllipseInRect(context, borderRect);
@@ -94,10 +95,11 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     [[UIColor whiteColor] setFill];
-    CGRect borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f, lineWidth/2.0f, width - lineWidth, width - lineWidth));
+    CGRect borderRect = CGRectIntegral(CGRectMake(lineWidth, lineWidth, width - lineWidth * 2.0f, width - lineWidth * 2.0f));
     CGContextFillEllipseInRect(context, borderRect);
     
     [color setStroke];
+    borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f, lineWidth/2.0f, width - lineWidth, width - lineWidth));
     CGContextSetLineWidth(context, lineWidth);
     CGContextStrokeEllipseInRect(context, borderRect);
     

@@ -64,6 +64,7 @@
 		F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C0D182A6E0000073051 /* PVChatManager.m */; };
 		F7A91C10182A6E4800073051 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A91C0F182A6E4800073051 /* CoreData.framework */; };
 		F7A91C13182A745500073051 /* PVContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A91C12182A745500073051 /* PVContactsListViewController.m */; };
+		F7ACF4A01833905500222B16 /* UIViewController+PVCustomBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ACF49F1833905500222B16 /* UIViewController+PVCustomBackButton.m */; };
 		F7AF02851830C35800F95980 /* PVManagedMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02841830C35800F95980 /* PVManagedMessage.m */; };
 		F7AF02881830C3A900F95980 /* PVManagedDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02871830C3A900F95980 /* PVManagedDialog.m */; };
 		F7AF02C21830DB5800F95980 /* PVDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02C11830DB5800F95980 /* PVDialogViewController.m */; };
@@ -186,6 +187,8 @@
 		F7A91C0F182A6E4800073051 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F7A91C11182A745500073051 /* PVContactsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVContactsListViewController.h; sourceTree = "<group>"; };
 		F7A91C12182A745500073051 /* PVContactsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVContactsListViewController.m; sourceTree = "<group>"; };
+		F7ACF49E1833905500222B16 /* UIViewController+PVCustomBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PVCustomBackButton.h"; sourceTree = "<group>"; };
+		F7ACF49F1833905500222B16 /* UIViewController+PVCustomBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PVCustomBackButton.m"; sourceTree = "<group>"; };
 		F7AF02831830C35800F95980 /* PVManagedMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVManagedMessage.h; sourceTree = "<group>"; };
 		F7AF02841830C35800F95980 /* PVManagedMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVManagedMessage.m; sourceTree = "<group>"; };
 		F7AF02861830C3A900F95980 /* PVManagedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVManagedDialog.h; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 			children = (
 				F7AF02C41830EE8500F95980 /* UIImage+Appearance.h */,
 				F7AF02C51830EE8500F95980 /* UIImage+Appearance.m */,
+				F7ACF49E1833905500222B16 /* UIViewController+PVCustomBackButton.h */,
+				F7ACF49F1833905500222B16 /* UIViewController+PVCustomBackButton.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				F7AF02C61830EE8500F95980 /* UIImage+Appearance.m in Sources */,
 				F7AF02851830C35800F95980 /* PVManagedMessage.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
+				F7ACF4A01833905500222B16 /* UIViewController+PVCustomBackButton.m in Sources */,
 				F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */,
 				F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */,
 				F7AF02F01831037700F95980 /* PVContactCell.m in Sources */,

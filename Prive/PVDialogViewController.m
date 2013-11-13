@@ -11,6 +11,7 @@
 #import "PVManagedMessage.h"
 #import "PVManagedContact.h"
 #import "PVDialogCell.h"
+#import "UIViewController+PVCustomBackButton.h"
 
 static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kPVDialogViewControllerMessageCellReuseIdentifier";
 
@@ -35,6 +36,7 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
         _dialog = dialog;
         [self configureController];
         [self configureGrowingTextView];
+        [self pv_configureBackButton];
     }
     
     return self;
@@ -92,6 +94,10 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return nil;
+}
+
 #pragma mark - Configure Chat Interface
 
 - (void)configureController
@@ -106,36 +112,6 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
     self.tableView.backgroundColor = UIColor.clearColor;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    
-    UIToolbar *tools = [[UIToolbar alloc]
-                        initWithFrame:CGRectMake(0.0f, 0.0f, 103.0f, 44.01f)]; // 44.01 shifts it up 1px for some reason
-    tools.clearsContextBeforeDrawing = NO;
-    tools.clipsToBounds = NO;
-    tools.tintColor = [UIColor colorWithWhite:0.305f alpha:0.0f]; // closest I could get by eye to black, translucent style.
-    // anyone know how to get it perfect?
-    tools.barStyle = -1; // clear background
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:3];
-
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [backButton setTitle:@"" forState:UIControlStateNormal];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"nav-back-button"] forState:UIControlStateNormal];
-    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-    backButton.frame = CGRectMake(0.0f, 0.0f, 44.0f, 44.0f);
-    [backButton setContentEdgeInsets:UIEdgeInsetsMake(-5, 0, -5, 0)];
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-
-    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    fixed.width = -10;
-    
-    [buttons addObject:fixed];
-    [buttons addObject:backButtonItem];
-    
-    [tools setItems:buttons animated:NO];
-    UIBarButtonItem *twoButtons = [[UIBarButtonItem alloc] initWithCustomView:tools];
-
-    self.navigationItem.leftBarButtonItem = twoButtons;
 }
 
 #pragma mark - Configure Chat Interface
@@ -292,6 +268,17 @@ static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kP
 -(void)hideKeyboard
 {
     [self.view endEditing:YES];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [super controllerDidChangeContent:controller];
+    
+    NSInteger section = [self numberOfSectionsInTableView:self.tableView] - 1;
+    NSInteger row = [self tableView:self.tableView numberOfRowsInSection:section] - 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 @end
