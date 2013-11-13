@@ -10,19 +10,21 @@
 
 @interface PVDialogSectionHeaderView ()
 
-@property (nonatomic, weak, readonly) UIView *lineView;
+@property (nonatomic, readonly) UIView *lineView;
+@property (nonatomic, readonly) UILabel *dateLabel;
 
 @end
 
 @implementation PVDialogSectionHeaderView {
-    UILabel *_textLabel;
-    __weak UIView *_lineView;
+    UILabel *_dateLabel;
+    UIView *_lineView;
 }
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     
     if (self) {
+        [self.contentView addSubview:self.dateLabel];
         [self.contentView addSubview:self.lineView];
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
@@ -34,34 +36,39 @@
     NSParameterAssert(title);
     _title = [title copy];
     
-    self.textLabel.text = title;
+    self.dateLabel.text = title;
     [self layoutIfNeeded];
 }
 
 - (UIView *)lineView {
-    if (_lineView) return _lineView;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    _lineView = view;
-    return view;
+    if (!_lineView) {
+        _lineView = [[UIView alloc] initWithFrame:CGRectZero];
+        _lineView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    }
+
+    return _lineView;
 }
 
-- (UILabel *)textLabel {
-    if (!_textLabel) {
-        _textLabel = [super textLabel];
-        _textLabel.font = [UIFont systemFontOfSize:10.0f];
-        _textLabel.textColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+- (UILabel *)dateLabel {
+    
+    if (!_dateLabel) {
+        _dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _dateLabel.font = [UIFont systemFontOfSize:10.0f];
+        _dateLabel.textColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     }
-    return _textLabel;
+   
+    return _dateLabel;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [_textLabel sizeToFit];
-    CGRect rect = _textLabel.frame;
+    [_dateLabel sizeToFit];
+    
+    CGRect rect = _dateLabel.frame;
     rect.origin.x = 8;
-    _textLabel.frame = rect;
+    rect.origin.y = 4;
+    _dateLabel.frame = rect;
     
     CGFloat width = CGRectGetWidth(self.contentView.bounds) - 8.0f*3 - CGRectGetWidth(rect);
     CGFloat xoffset = CGRectGetWidth(rect) + 8.0f * 2;

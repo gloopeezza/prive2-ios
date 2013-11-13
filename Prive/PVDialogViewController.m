@@ -285,14 +285,24 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
 
 #pragma mark - UITableViewControllerDataSource
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     PVDialogSectionHeaderView *header = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:kPVDialogViewControllerSectionHeaderReuseIdentifier];
     if (!header) {
         header = [[PVDialogSectionHeaderView alloc] initWithReuseIdentifier:kPVDialogViewControllerSectionHeaderReuseIdentifier];
     }
     
-    header.title = [self tableView:tableView titleForHeaderInSection:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    
+    header.title = [sectionInfo name];
     return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 24.0f;
 }
 
 @end
