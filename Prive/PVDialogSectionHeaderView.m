@@ -23,7 +23,6 @@
     self = [super initWithReuseIdentifier:reuseIdentifier];
     
     if (self) {
-        //[self.contentView addSubview:self.textLabel];
         [self.contentView addSubview:self.lineView];
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
@@ -36,7 +35,7 @@
     _title = [title copy];
     
     self.textLabel.text = title;
-    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (UIView *)lineView {
@@ -59,10 +58,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [self.textLabel sizeToFit];
-    CGRect rect = self.textLabel.frame;
+    [_textLabel sizeToFit];
+    CGRect rect = _textLabel.frame;
     rect.origin.x = 8;
-    self.textLabel.frame = rect;
+    _textLabel.frame = rect;
     
     CGFloat width = CGRectGetWidth(self.contentView.bounds) - 8.0f*3 - CGRectGetWidth(rect);
     CGFloat xoffset = CGRectGetWidth(rect) + 8.0f * 2;
@@ -71,7 +70,7 @@
     CGFloat lineWidth = 1.0f/[[UIScreen mainScreen] scale];
     
     rect = CGRectIntegral(CGRectMake(xoffset , yoffset, width, lineWidth));
-    self.lineView.frame = rect;
+    _lineView.frame = rect;
 }
 
 
