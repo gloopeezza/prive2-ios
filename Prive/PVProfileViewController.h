@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PVProfileViewController : UIViewController
+@interface PVProfileViewController : UIViewController<UITextFieldDelegate>
+
 
 @end

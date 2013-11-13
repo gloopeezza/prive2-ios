@@ -33,6 +33,11 @@
                                          UITextAttributeFont: [UIFont systemFontOfSize:10.0f]} forState:UIControlStateSelected];
     [tabBarItem setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
                                          UITextAttributeFont: [UIFont systemFontOfSize:10.0f]} forState:UIControlStateNormal];
+    
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],UITextAttributeTextColor, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
