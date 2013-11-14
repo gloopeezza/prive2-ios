@@ -48,8 +48,7 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     
     PVManagedDialog *dialog = [self.fetchedResultsController objectAtIndexPath:indexPath];
     contactCell.textLabel.text = dialog.buddy.alias;
-    
-    //contactCell.detailTextLabel.text = dialog.buddy.address;
+    contactCell.detailTextLabel.text = dialog.buddy.address;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
