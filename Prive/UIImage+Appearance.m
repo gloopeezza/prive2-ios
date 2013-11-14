@@ -89,7 +89,7 @@
     NSParameterAssert(color);
     
     CGFloat width = radius;
-    CGFloat lineWidth = radius / 18.0f;
+    CGFloat lineWidth = radius / 24.0f;
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, width), NO, [[UIScreen mainScreen] scale]);
     CGContextRef context = UIGraphicsGetCurrentContext();
