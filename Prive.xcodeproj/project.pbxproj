@@ -28,6 +28,7 @@
 		E5A2F9371834AA8C003B474C /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9311834AA00003B474C /* icon114.png */; };
 		E5A2F9381834AA8C003B474C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F92F1834A9F2003B474C /* icon57.png */; };
 		E5A2F93B1834BB1F003B474C /* NSDateFormatterCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */; };
+		E5A2F93E1834CF90003B474C /* PVContactProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */; };
 		F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */; };
 		F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */; };
 		F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */; };
@@ -150,6 +151,8 @@
 		E5A2F9321834AA19003B474C /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
 		E5A2F9391834BB1F003B474C /* NSDateFormatterCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateFormatterCache.h; sourceTree = "<group>"; };
 		E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterCache.m; sourceTree = "<group>"; };
+		E5A2F93C1834CF90003B474C /* PVContactProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVContactProfileViewController.h; sourceTree = "<group>"; };
+		E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVContactProfileViewController.m; sourceTree = "<group>"; };
 		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
 		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 				F7AF02EB1830FB7300F95980 /* PVTimelineViewController.m */,
 				F7AF02F118310C6F00F95980 /* PVIntroViewController.h */,
 				F7AF02F218310C6F00F95980 /* PVIntroViewController.m */,
+				E5A2F93C1834CF90003B474C /* PVContactProfileViewController.h */,
+				E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				F7AF02881830C3A900F95980 /* PVManagedDialog.m in Sources */,
 				F7AF02C61830EE8500F95980 /* UIImage+Appearance.m in Sources */,
 				F7AF02851830C35800F95980 /* PVManagedMessage.m in Sources */,
+				E5A2F93E1834CF90003B474C /* PVContactProfileViewController.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
 				F7ACF4A01833905500222B16 /* UIViewController+PVCustomBackButton.m in Sources */,
 				F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */,

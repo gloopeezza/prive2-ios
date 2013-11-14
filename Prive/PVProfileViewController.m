@@ -26,13 +26,10 @@
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
             self.edgesForExtendedLayout = UIRectEdgeNone;
         
-        /*UIImageView *avatar = [[UIImageView alloc] initWithImage:[UIImage defaultAvatarWithHeight:100 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]]];
-        [self.view addSubview:avatar];*/
-        
         UIImage *avatarImage = [UIImage defaultAvatarWithHeight:100 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
         UIImageView *avatarImageView = [[UIImageView alloc] initWithImage:avatarImage];
         [avatarImageView setImage:avatarImage];
-        [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 112.5)];
+        [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
         [self.view addSubview:avatarImageView];
         
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];

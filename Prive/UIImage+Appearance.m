@@ -112,7 +112,7 @@
     return image;
 }
 
-+ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor sent:(BOOL)sent{
++ (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor sent:(BOOL)sent {
     NSParameterAssert(height);
     NSParameterAssert(backgroundColor);
     
@@ -151,4 +151,14 @@
     return image;
 }
 
++ (UIImage *)sendMessageButtonImage {
+    UIGraphicsBeginImageContext(CGSizeMake(1.0f, 44.0f));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIColor colorWithRed:0.11f green:0.24f blue:0.45f alpha:1.0f] setFill];
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 1.0f, 44.0f));
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextRelease(context);
+    
+    return image;
+}
 @end

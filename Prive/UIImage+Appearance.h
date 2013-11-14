@@ -19,4 +19,6 @@
 + (UIImage *)balloonImageWithHeight:(CGFloat)height backgroundColor:(UIColor *)backgroundColor sent:(BOOL)sent;
 + (UIImage *)defaultAvatarWithHeight:(CGFloat)radius borderColor:(UIColor *)color;
 
++ (UIImage *)sendMessageButtonImage;
+
 @end

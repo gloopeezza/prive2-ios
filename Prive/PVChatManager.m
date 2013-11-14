@@ -11,7 +11,6 @@
 #import "TCCoreManager.h"
 #import "TCBuddy.h"
 #import "SSManagedObject.h"
-#import "PVManagedDialog.h"
 #import "PVManagedContact.h"
 #import "PVManagedMessage.h"
 #import "CPAHiddenService.h"
@@ -131,6 +130,19 @@ static NSInteger kPVTorLocalServicePort = 11008;
     NSAssert(!error, @"Error when fetching buddy before deletion: %@", error);
     PVManagedContact *buddy = [results lastObject];
     [buddy delete];
+    [[PVManagedContact mainQueueContext] save:nil];
+    
+    NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);
+    
+    if (error) return NO;
+    return YES;
+}
+
+- (BOOL)removeDialog:(PVManagedDialog *)dialog {
+    NSParameterAssert(dialog);
+    
+    NSError *error;
+    [dialog delete];
     [[PVManagedContact mainQueueContext] save:nil];
     
     NSAssert(!error, @"Error when saving context after buddy deletion: %@", error);

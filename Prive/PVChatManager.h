@@ -11,6 +11,8 @@
 
 #import "TCConfig.h"
 
+#import "PVManagedDialog.h"
+
 @interface PVChatManager : NSObject<TCConfig>
 
 + (instancetype)defaultManager;
@@ -37,6 +39,7 @@
 - (NSArray *)buddies;
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes;
 - (BOOL)removeBuddy:(NSString *)address;
+- (BOOL)removeDialog:(PVManagedDialog *)dialog;
 
 - (void)setBuddy:(NSString *)address alias:(NSString *)alias;
 - (void)setBuddy:(NSString *)address notes:(NSString *)notes;

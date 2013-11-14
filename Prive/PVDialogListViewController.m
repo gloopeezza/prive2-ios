@@ -10,6 +10,7 @@
 #import "PVManagedContact.h"
 #import "PVManagedDialog.h"
 #import "PVDialogViewController.h"
+#import "PVChatManager.h"
 
 static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"kPVChatDialogListViewControllerCellReuseIdentifier";
 
@@ -66,6 +67,19 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     dialogController.hidesBottomBarWhenPushed = YES;
 
     [self.navigationController pushViewController:dialogController animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Swipe");
+        PVManagedDialog *dialog = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [dialog delete];
+        [[PVChatManager defaultManager] removeDialog:dialog];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PVContactsListViewController.h"
+#import "PVContactProfileViewController.h"
 #import "PVChatManager.h"
 #import "PVManagedContact.h"
 #import "PVManagedDialog.h"
@@ -84,22 +85,18 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PVManagedContact *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    PVManagedDialog *dialog = buddy.dialog;
+    /*PVManagedDialog *dialog = buddy.dialog;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (dialog == nil) {
         dialog = [[PVManagedDialog alloc] initWithContext:nil];
         buddy.dialog = dialog;
         [dialog save];
-    }
+    }*/
     
-    UINavigationController *chatNavigationViewController = self.chatDialogsViewController.navigationController;
-    [chatNavigationViewController popToRootViewControllerAnimated:NO];
-    self.tabBarController.selectedViewController = chatNavigationViewController;
-    
-    PVDialogViewController *dialogController = [[PVDialogViewController alloc] initWithDialog:dialog];
-    dialogController.hidesBottomBarWhenPushed = YES;
-    [chatNavigationViewController pushViewController:dialogController animated:YES];
+    PVContactProfileViewController *profileController = [PVContactProfileViewController new];
+    [profileController setupControllerWithBuddy:buddy];
+    [self.navigationController pushViewController:profileController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
