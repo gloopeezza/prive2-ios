@@ -21,6 +21,8 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
 static NSInteger kPVTorHiddenServicePort = 11009;
 static NSInteger kPVTorLocalServicePort = 11008;
 
+static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
+
 @interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate>
 
 @end
@@ -63,11 +65,18 @@ static NSInteger kPVTorLocalServicePort = 11008;
         // TCConfig init
         
         self.clientPort = kPVTorLocalServicePort;
-        self.profileName = @"Prive2 User";
-        self.profileText = @"Test text";
+        _profileName = [[NSUserDefaults standardUserDefaults] stringForKey:kPVClientProfileNameKey];;
     }
     
     return self;
+}
+
+- (void)setProfileName:(NSString *)profileName {
+    if ([profileName isEqualToString:_profileName]) return;
+    _profileName = profileName;
+    [[NSUserDefaults standardUserDefaults] setObject:profileName forKey:kPVClientProfileNameKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self setBuddy:[self selfAddress] alias:profileName];
 }
 
 #pragma mark - Core Data

@@ -35,6 +35,8 @@
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile-normal"]];
         self.title = @"My Privé";
+        
+        self.textField.text = [[PVChatManager defaultManager] profileName];
     }
     return self;
 }
@@ -56,9 +58,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField*)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (!textField.text || [textField.text isEqualToString:@""]) return;
+    NSString *newProfileName = textField.text;
+    [[PVChatManager defaultManager] setProfileName:newProfileName];
 }
 
 @end
