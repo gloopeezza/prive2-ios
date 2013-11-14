@@ -135,7 +135,9 @@
         [tile addCurveToPoint:CGPointMake(2, height/2+1) controlPoint1:CGPointMake(9, height/2+1) controlPoint2:CGPointMake(6, height/2+4)];
         [tile addCurveToPoint:CGPointMake(10, height/2+6) controlPoint1:CGPointMake(-3, height/2+-3) controlPoint2:CGPointMake(4, height/2+7)];
     }
-    UIBezierPath *balloon = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, 0.0, 135.0, height) cornerRadius:height/2];
+    
+    float radius = MIN(height/2, 25);
+    UIBezierPath *balloon = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, 0.0, 135.0, height) cornerRadius:radius];
     
     [backgroundColor setFill];
     [balloon fill];

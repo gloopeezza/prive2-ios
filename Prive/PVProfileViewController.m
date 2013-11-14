@@ -35,7 +35,6 @@
         [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 112.5)];
         [self.view addSubview:avatarImageView];
         
-        NSLog(@"SUBVIEWS %@",[self.view subviews]);
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile-normal"]];
         self.title = @"My Privé";

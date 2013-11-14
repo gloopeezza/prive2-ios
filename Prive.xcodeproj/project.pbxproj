@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E513EE801833B0F900576587 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7F1833AFF400576587 /* icon57.png */; };
-		E513EE811833B0F900576587 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7E1833AFEA00576587 /* icon114.png */; };
-		E513EE821833B0F900576587 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE7D1833AFDC00576587 /* icon120.png */; };
 		E513EE861833B39800576587 /* prive-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE841833B39800576587 /* prive-background.png */; };
 		E513EE871833B39800576587 /* prive-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E513EE851833B39800576587 /* prive-background@2x.png */; };
 		E518AB82183364A1007EDFBF /* nav-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB80183364A1007EDFBF /* nav-back-button.png */; };
@@ -27,6 +24,10 @@
 		E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B41832453900B82195 /* dialog-text-view@2x.png */; };
 		E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B71832485100B82195 /* dialog-attach-file.png */; };
 		E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B81832485100B82195 /* dialog-attach-file@2x.png */; };
+		E5A2F9361834AA8C003B474C /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9321834AA19003B474C /* icon120.png */; };
+		E5A2F9371834AA8C003B474C /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9311834AA00003B474C /* icon114.png */; };
+		E5A2F9381834AA8C003B474C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F92F1834A9F2003B474C /* icon57.png */; };
+		E5A2F93B1834BB1F003B474C /* NSDateFormatterCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */; };
 		F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */; };
 		F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */; };
 		F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */; };
@@ -126,14 +127,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E513EE7D1833AFDC00576587 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
-		E513EE7E1833AFEA00576587 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
-		E513EE7F1833AFF400576587 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		E513EE841833B39800576587 /* prive-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prive-background.png"; path = "Images/prive-background.png"; sourceTree = "<group>"; };
 		E513EE851833B39800576587 /* prive-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prive-background@2x.png"; path = "Images/prive-background@2x.png"; sourceTree = "<group>"; };
-		E513EE7D1833AFDC00576587 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
-		E513EE7E1833AFEA00576587 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
-		E513EE7F1833AFF400576587 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E518AB80183364A1007EDFBF /* nav-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button.png"; path = "Images/nav-back-button.png"; sourceTree = "<group>"; };
 		E518AB81183364A1007EDFBF /* nav-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-button@2x.png"; path = "Images/nav-back-button@2x.png"; sourceTree = "<group>"; };
 		E518AB8418336C35007EDFBF /* nav-add-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-add-button.png"; path = "Images/nav-add-button.png"; sourceTree = "<group>"; };
@@ -150,6 +145,11 @@
 		E52B24B41832453900B82195 /* dialog-text-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-text-view@2x.png"; path = "Images/dialog-text-view@2x.png"; sourceTree = "<group>"; };
 		E52B24B71832485100B82195 /* dialog-attach-file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file.png"; path = "Images/dialog-attach-file.png"; sourceTree = "<group>"; };
 		E52B24B81832485100B82195 /* dialog-attach-file@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file@2x.png"; path = "Images/dialog-attach-file@2x.png"; sourceTree = "<group>"; };
+		E5A2F92F1834A9F2003B474C /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
+		E5A2F9311834AA00003B474C /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
+		E5A2F9321834AA19003B474C /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
+		E5A2F9391834BB1F003B474C /* NSDateFormatterCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateFormatterCache.h; sourceTree = "<group>"; };
+		E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterCache.m; sourceTree = "<group>"; };
 		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
 		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
@@ -426,9 +426,9 @@
 		F7ACF4B31833B23A00222B16 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				E513EE7F1833AFF400576587 /* icon57.png */,
-				E513EE7E1833AFEA00576587 /* icon114.png */,
-				E513EE7D1833AFDC00576587 /* icon120.png */,
+				E5A2F9321834AA19003B474C /* icon120.png */,
+				E5A2F9311834AA00003B474C /* icon114.png */,
+				E5A2F92F1834A9F2003B474C /* icon57.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -440,6 +440,8 @@
 				F7AF02C51830EE8500F95980 /* UIImage+Appearance.m */,
 				F7ACF49E1833905500222B16 /* UIViewController+PVCustomBackButton.h */,
 				F7ACF49F1833905500222B16 /* UIViewController+PVCustomBackButton.m */,
+				E5A2F9391834BB1F003B474C /* NSDateFormatterCache.h */,
+				E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -623,9 +625,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E513EE801833B0F900576587 /* icon57.png in Resources */,
-				E513EE811833B0F900576587 /* icon114.png in Resources */,
-				E513EE821833B0F900576587 /* icon120.png in Resources */,
+				E5A2F9361834AA8C003B474C /* icon120.png in Resources */,
+				E5A2F9371834AA8C003B474C /* icon114.png in Resources */,
+				E5A2F9381834AA8C003B474C /* icon57.png in Resources */,
 				E518AB8A18337252007EDFBF /* default-avatar.png in Resources */,
 				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
@@ -698,6 +700,7 @@
 				F7AF02EC1830FB7300F95980 /* PVTimelineViewController.m in Sources */,
 				F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */,
 				F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */,
+				E5A2F93B1834BB1F003B474C /* NSDateFormatterCache.m in Sources */,
 				F7A91C13182A745500073051 /* PVContactsListViewController.m in Sources */,
 				E52B24A81832377000B82195 /* PVDialogCell.m in Sources */,
 			);

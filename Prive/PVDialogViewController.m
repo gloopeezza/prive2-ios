@@ -32,6 +32,9 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
 @implementation PVDialogViewController
 
 - (id)initWithDialog:(PVManagedDialog *)dialog {
+    
+    self.title = dialog.buddy.alias;
+
     self = [super initWithStyle:UITableViewStylePlain];
     
     if (self) {
@@ -63,8 +66,6 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
 
 - (void)configureCell:(PVDialogCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PVManagedMessage *message = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //cell.textLabel.text = message.text;
-    //cell.detailTextLabel.text = [NSString stringWithFormat:@"From %@", message.dialog.buddy.address];
 
     if ([message.fromAddress isEqualToString:message.dialog.buddy.address]) {
         [cell setupCellWithType:PVDialogCellReceived andMessage:message];
@@ -81,7 +82,7 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
     CGSize size = [message.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:14.0]
 				   constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
 					   lineBreakMode:NSLineBreakByWordWrapping];
-    return MAX(size.height, kMinHeight) ;
+    return MAX(size.height + 25.0, kMinHeight) ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,7 +110,7 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 40.0, 0.0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 55.0, 0.0);
     
     self.tableView.backgroundColor = UIColor.clearColor;
     
@@ -149,26 +150,15 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
     
 	textView.minNumberOfLines = 1;
 	textView.maxNumberOfLines = 3;
-    // you can also set the maximum height in points with maxHeight
-    // textView.maxHeight = 200.0f;
-	textView.returnKeyType = UIReturnKeyGo; //just as an example
+	textView.returnKeyType = UIReturnKeyGo;
 	textView.font = [UIFont systemFontOfSize:15.0f];
 	textView.delegate = self;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
     textView.text = @" ";
-    // textView.text = @"test\n\ntest";
-	// textView.animateHeightChange = NO; //turns off animation
     
     [self.view addSubview:containerView];
 	
-    /*UIImage *rawEntryBackground = [UIImage imageNamed:@"MessageEntryInputField.png"];
-    UIImage *entryBackground = [rawEntryBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
-    UIImageView *entryImageView = [[UIImageView alloc] initWithImage:entryBackground];
-    entryImageView.frame = CGRectMake(5, 0, 248, 40);
-    entryImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    */
-    
     UIImage *rawBackground = [UIImage imageNamed:@"dialog-text-view"];
     UIImage *background = [rawBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
@@ -177,10 +167,8 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
     
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    // view hierachy
     [containerView addSubview:imageView];
     [containerView addSubview:textView];
-    //[containerView addSubview:entryImageView];
     
     UIImage *sendBtnBackground = [UIImage imageNamed:@"dialog-send-button"];
     
