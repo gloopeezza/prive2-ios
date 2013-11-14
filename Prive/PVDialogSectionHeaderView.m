@@ -26,6 +26,7 @@
     if (self) {
         [self.contentView addSubview:self.dateLabel];
         [self.contentView addSubview:self.lineView];
+        self.contentView.backgroundColor = [UIColor clearColor];
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     
@@ -55,6 +56,7 @@
         _dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _dateLabel.font = [UIFont systemFontOfSize:10.0f];
         _dateLabel.textColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+        _dateLabel.backgroundColor = [UIColor clearColor];
     }
    
     return _dateLabel;
