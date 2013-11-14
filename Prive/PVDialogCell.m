@@ -58,7 +58,8 @@
         self.backgroundColor = UIColor.clearColor;
         
         self.imageAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 70, 70)];
-
+        self.imageAvatar.contentMode = UIViewContentModeScaleAspectFill;
+        
         self.imageBalloon = [[UIImageView alloc] initWithFrame:CGRectZero];
 
         [self.contentView addSubview:self.imageAvatar];
@@ -107,7 +108,7 @@
         _imageAvatar.center = CGPointMake(40, self.frame.size.height/2);
         [_textView setFrame:CGRectMake(_imageAvatar.frame.size.width + 10.0, 10.0, 145.0, height)];
         [_textView setCenter:CGPointMake(_imageAvatar.frame.size.width + 20.0 + (TEXT_VIEW_WIDTH + 10.0)/2, self.frame.size.height/2 + 4)];
-        _imageAvatar.image = [UIImage defaultAvatarWithHeight:60.0 borderColor:[UIColor colorWithRed:45/255.0 green:114/255.0 blue:21.0/255.0 alpha:0.8]];
+        _imageAvatar.image = [UIImage defaultAvatarWithHeight:70.0 borderColor:[UIColor colorWithRed:45/255.0 green:114/255.0 blue:21.0/255.0 alpha:0.8]];
         if (height > 0) {
             [_imageBalloon setFrame:CGRectMake(0, 0, TEXT_VIEW_WIDTH + 10.0, height)];
             [_imageBalloon setCenter:CGPointMake(_imageAvatar.frame.size.width + 10.0 + (TEXT_VIEW_WIDTH + 10.0)/2, self.frame.size.height/2)];
@@ -118,7 +119,7 @@
         _imageAvatar.center = CGPointMake(self.frame.size.width - 40, self.frame.size.height/2);
         [_textView setFrame:CGRectMake(self.bounds.size.width - _imageAvatar.frame.size.width - 145.0 - 5.0, 10.0, 145.0, height)];
         [_textView setCenter:CGPointMake(self.bounds.size.width - _imageAvatar.frame.size.width - TEXT_VIEW_WIDTH/2 - 20.0 + 10, self.frame.size.height/2 + 4)];
-        _imageAvatar.image = [UIImage defaultAvatarWithHeight:60.0 borderColor:[UIColor colorWithRed:71/255.0 green:98/255.0 blue:115.0/255.0 alpha:0.8]];
+        _imageAvatar.image = [UIImage defaultAvatarWithHeight:70.0 borderColor:[UIColor colorWithRed:71/255.0 green:98/255.0 blue:115.0/255.0 alpha:0.8]];
         if (height > 0) {
             [_imageBalloon setFrame:CGRectMake(self.bounds.size.width - _imageAvatar.frame.size.width - TEXT_VIEW_WIDTH - 10.0, 10.0, 145.0, height)];
             [_imageBalloon setCenter:CGPointMake(self.bounds.size.width - _imageAvatar.frame.size.width - TEXT_VIEW_WIDTH/2 - 20.0, self.frame.size.height/2)];

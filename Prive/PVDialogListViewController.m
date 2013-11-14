@@ -11,6 +11,7 @@
 #import "PVManagedDialog.h"
 #import "PVDialogViewController.h"
 #import "PVChatManager.h"
+#import "PVContactCell.h"
 
 static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"kPVChatDialogListViewControllerCellReuseIdentifier";
 
@@ -41,15 +42,21 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    PVContactCell *contactCell = (PVContactCell *)cell;
+    
+    contactCell.online = YES;
+    
     PVManagedDialog *dialog = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = dialog.buddy.address;
+    contactCell.textLabel.text = dialog.buddy.alias;
+    
+    //contactCell.detailTextLabel.text = dialog.buddy.address;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPVChatDialogListViewControllerCellReuseIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kPVChatDialogListViewControllerCellReuseIdentifier];
+        cell = [[PVContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kPVChatDialogListViewControllerCellReuseIdentifier];
     }
     
     [self configureCell:cell atIndexPath:indexPath];

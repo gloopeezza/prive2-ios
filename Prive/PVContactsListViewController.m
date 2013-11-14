@@ -85,15 +85,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PVManagedContact *buddy = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    /*PVManagedDialog *dialog = buddy.dialog;
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (dialog == nil) {
-        dialog = [[PVManagedDialog alloc] initWithContext:nil];
-        buddy.dialog = dialog;
-        [dialog save];
-    }*/
-    
+
     PVContactProfileViewController *profileController = [PVContactProfileViewController new];
     [profileController setupControllerWithBuddy:buddy];
     [self.navigationController pushViewController:profileController animated:YES];

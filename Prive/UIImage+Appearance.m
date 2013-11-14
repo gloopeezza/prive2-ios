@@ -89,17 +89,19 @@
     NSParameterAssert(color);
     
     CGFloat width = radius;
-    CGFloat lineWidth = radius / 24.0f;
+    CGFloat lineWidth = radius / 18.0f;
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, width), NO, [[UIScreen mainScreen] scale]);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+
     [[UIColor whiteColor] setFill];
     CGRect borderRect = CGRectIntegral(CGRectMake(lineWidth, lineWidth, width - lineWidth * 2.0f, width - lineWidth * 2.0f));
     CGContextFillEllipseInRect(context, borderRect);
     
     [color setStroke];
-    borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f, lineWidth/2.0f, width - lineWidth, width - lineWidth));
+    borderRect = CGRectIntegral(CGRectMake(lineWidth/2.0f + 2, lineWidth/2.0f + 2, width - lineWidth - 4, width - lineWidth - 4));
     CGContextSetLineWidth(context, lineWidth);
     CGContextStrokeEllipseInRect(context, borderRect);
     
