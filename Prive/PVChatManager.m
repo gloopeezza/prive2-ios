@@ -63,9 +63,17 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
         
         // TCConfig init
+
         
         self.clientPort = kPVTorLocalServicePort;
-        _profileName = [[NSUserDefaults standardUserDefaults] stringForKey:kPVClientProfileNameKey];;
+        
+        self.profileText = @"about me";
+        
+        _profileName = [[NSUserDefaults standardUserDefaults] stringForKey:kPVClientProfileNameKey];
+        if (!_profileName) {
+            self.profileName = @"Prive User iOS";
+        }
+        
     }
     
     return self;
@@ -73,10 +81,14 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 - (void)setProfileName:(NSString *)profileName {
     if ([profileName isEqualToString:_profileName]) return;
+    
     _profileName = profileName;
     [[NSUserDefaults standardUserDefaults] setObject:profileName forKey:kPVClientProfileNameKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self setBuddy:[self selfAddress] alias:profileName];
+    
+    if ([self selfAddress]) {
+        [self setBuddy:[self selfAddress] alias:profileName];
+    }
 }
 
 #pragma mark - Core Data
