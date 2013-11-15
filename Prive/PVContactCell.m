@@ -36,7 +36,7 @@
     static UIImage *_border;
     dispatch_once(&onceToken, ^{
         //UIColor *color = [UIColor colorWithRed:0.93f green:0.68f blue:0.65f alpha:1.0f];
-        _border = [UIImage circleImageWithHeight:74.0f borderColor:OFFLINE_COLOR];
+        _border = [UIImage circleImageWithHeight:37.0f borderColor:OFFLINE_COLOR];
     });
     
     return _border;
@@ -91,11 +91,13 @@
 
 - (void)setOnline:(BOOL)online {
     _online = online;
+    
     if (_online) {
         self.borderImageView.image = [[self class] onlineBorder];
     } else {
         self.borderImageView.image = [[self class] offlineBorder];
     }
+    [_borderImageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
 }
 
 - (void)setAvatar:(FICAvatar *)avatar {

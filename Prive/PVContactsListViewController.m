@@ -54,8 +54,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
                                                object:nil];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -66,10 +65,6 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     
     PVContactCell *cell = (PVContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     cell.online = contact.status == PVManagedContactStatusOnline;
-    
-    NSString *status = (contact.status == PVManagedContactStatusOnline) ? @"online" : @"offline";
-    
-    NSLog(@"!!!! Contact %@ status updated to %@", contact.address, status);
 }
 
 #pragma mark - Alert View
@@ -106,7 +101,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     PVManagedContact *buddy = (PVManagedContact *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     contactCell.textLabel.text = buddy.alias;
     contactCell.detailTextLabel.text = buddy.address;
-    contactCell.online = buddy.status;
+    contactCell.online = buddy.status == PVManagedContactStatusOnline;
     
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
@@ -141,7 +136,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 45.0f;
+    return 44.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -33,6 +33,29 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     return self;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onlineStatus:)
+                                                 name:kPVChatManagerContactStatusNotificationName
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) onlineStatus:(NSNotification *) note
+{
+    PVManagedContact *contact = [note.userInfo objectForKey:kPVChatManagerContactStatusNotificationUserInfoContactKey];
+    NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:contact];
+    
+    PVContactCell *cell = (PVContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.online = contact.status == PVManagedContactStatusOnline;
+    
+}
+
 - (Class)entityClass {
     return [PVManagedDialog class];
 }
@@ -49,6 +72,15 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     PVManagedDialog *dialog = [self.fetchedResultsController objectAtIndexPath:indexPath];
     contactCell.textLabel.text = dialog.buddy.alias;
     contactCell.detailTextLabel.text = dialog.buddy.address;
+    contactCell.online = dialog.buddy.status == PVManagedContactStatusOnline;
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
+    
+    FICAvatar *avatar = [FICAvatar new];
+    [avatar setSourceImageURL:imageURL];
+    
+    [contactCell setAvatar:avatar];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

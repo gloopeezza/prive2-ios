@@ -11,8 +11,8 @@
 #import "SSManagedObject.h"
 
 typedef NS_ENUM(NSInteger, PVManagedContactStatus) {
-    PVManagedContactStatusOnline,
-    PVManagedContactStatusOffline
+    PVManagedContactStatusOffline,
+    PVManagedContactStatusOnline
 };
 
 
