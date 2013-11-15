@@ -9,14 +9,14 @@
 #import "PVProfileViewController.h"
 #import "PVChatManager.h"
 #import "UIImage+Appearance.h"
-#import "FICAvatar.h"
+#import "PVAvatar.h"
 #import "FICImageCache.h"
 #import "PVAppDelegate.h"
 #import "PVManagedContact.h"
 
 @interface PVProfileViewController ()
 {
-    FICAvatar *avatar;
+    PVAvatar *avatar;
     UIImageView *avatarImageView;
 }
 
@@ -49,7 +49,7 @@
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
         
-        avatar = [FICAvatar new];
+        avatar = [PVAvatar new];
         [avatar setSourceImageURL:imageURL];
         
         [self.textField bringSubviewToFront:avatarImageView];
@@ -89,7 +89,7 @@
 
 - (void)reloaAvatarImage:(PVManagedContactStatus)status
 {
-    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"FICAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
         NSLog(@"reloadAvatar");
         UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:status?ONLINE_COLOR_SELF:OFFLINE_COLOR];
         UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];

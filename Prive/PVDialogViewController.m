@@ -70,7 +70,7 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
     
-    FICAvatar *avatar = [FICAvatar new];
+    PVAvatar *avatar = [PVAvatar new];
     [avatar setSourceImageURL:imageURL];
     
     if ([message.fromAddress isEqualToString:message.dialog.buddy.address]) {

@@ -20,7 +20,7 @@
 #import "PVManagedContact.h"
 
 #import "FICImageCache.h"
-#import "FICAvatar.h"
+#import "PVAvatar.h"
 
 @interface PVAppDelegate () <FICImageCacheDelegate>
 
@@ -53,22 +53,22 @@
     NSInteger squareImageFormatMaximumCount = 400;
     FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
     
-    FICImageFormat *roundAvatarBig = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameBig
-                                                             family:FICAvatarImageFormatFamily
+    FICImageFormat *roundAvatarBig = [FICImageFormat formatWithName:PVAvatarRoundImageFormatNameBig
+                                                             family:PVAvatarImageFormatFamily
                                                           imageSize:FIDAvatarRoundImageSizeBig
                                                               style:FICImageFormatStyle32BitBGRA
                                                        maximumCount:squareImageFormatMaximumCount
                                                             devices:squareImageFormatDevices];
     
-    FICImageFormat *roundAvatarMedium = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameMedium
-                                                                family:FICAvatarImageFormatFamily
+    FICImageFormat *roundAvatarMedium = [FICImageFormat formatWithName:PVAvatarRoundImageFormatNameMedium
+                                                                family:PVAvatarImageFormatFamily
                                                              imageSize:FIDAvatarRoundImageSizeMedium
                                                                  style:FICImageFormatStyle32BitBGRA
                                                           maximumCount:squareImageFormatMaximumCount
                                                                devices:squareImageFormatDevices];
     
-    FICImageFormat *roundAvatarSmall = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameSmall
-                                                               family:FICAvatarImageFormatFamily
+    FICImageFormat *roundAvatarSmall = [FICImageFormat formatWithName:PVAvatarRoundImageFormatNameSmall
+                                                               family:PVAvatarImageFormatFamily
                                                             imageSize:FIDAvatarRoundImageSizeSmall
                                                                 style:FICImageFormatStyle32BitBGRA
                                                          maximumCount:squareImageFormatMaximumCount
@@ -134,7 +134,7 @@
     // Images typically come from the Internet rather than from the app bundle directly, so this would be the place to fire off a network request to download the image.
     // For the purposes of this demo app, we'll just access images stored locally on disk.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *sourceImage = [(FICAvatar *)entity sourceImage];
+        UIImage *sourceImage = [(PVAvatar *)entity sourceImage];
         dispatch_async(dispatch_get_main_queue(), ^{
             completionBlock(sourceImage);
         });
@@ -142,7 +142,7 @@
 }
 
 - (BOOL)imageCache:(FICImageCache *)imageCache shouldProcessAllFormatsInFamily:(NSString *)formatFamily forEntity:(id<FICEntity>)entity {
-    BOOL shouldProcessAllFormats = [formatFamily isEqualToString:FICAvatarImageFormatFamily];
+    BOOL shouldProcessAllFormats = [formatFamily isEqualToString:PVAvatarImageFormatFamily];
     
     return shouldProcessAllFormats;
 }

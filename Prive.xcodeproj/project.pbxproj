@@ -32,7 +32,6 @@
 		E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B41832453900B82195 /* dialog-text-view@2x.png */; };
 		E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B71832485100B82195 /* dialog-attach-file.png */; };
 		E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B81832485100B82195 /* dialog-attach-file@2x.png */; };
-		E54063EA18361690003BAB55 /* FICAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = E54063E918361690003BAB55 /* FICAvatar.m */; };
 		E5A2F9361834AA8C003B474C /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9321834AA19003B474C /* icon120.png */; };
 		E5A2F9371834AA8C003B474C /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9311834AA00003B474C /* icon114.png */; };
 		E5A2F9381834AA8C003B474C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F92F1834A9F2003B474C /* icon57.png */; };
@@ -57,6 +56,7 @@
 		F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7487033182CF09000B21A02 /* PVDialogListViewController.m */; };
 		F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748704B182CFF9000B21A02 /* PVProfileViewController.m */; };
 		F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F748704D182CFFB700B21A02 /* PVProfileViewController.xib */; };
+		F77A47C71836659000AE3D10 /* PVAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = F77A47C61836659000AE3D10 /* PVAvatar.m */; };
 		F78C4DC7182B7DA500C6D19C /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = F78C4DC6182B7DA500C6D19C /* geoip */; };
 		F78C4DCA182B7DC700C6D19C /* libCPAProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BFD086182B7CEA001DC10C /* libCPAProxy.a */; };
 		F78C4DCC182B7DCF00C6D19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C4DCB182B7DCF00C6D19C /* libz.dylib */; };
@@ -163,8 +163,6 @@
 		E52B24B41832453900B82195 /* dialog-text-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-text-view@2x.png"; path = "Images/dialog-text-view@2x.png"; sourceTree = "<group>"; };
 		E52B24B71832485100B82195 /* dialog-attach-file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file.png"; path = "Images/dialog-attach-file.png"; sourceTree = "<group>"; };
 		E52B24B81832485100B82195 /* dialog-attach-file@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file@2x.png"; path = "Images/dialog-attach-file@2x.png"; sourceTree = "<group>"; };
-		E54063E818361690003BAB55 /* FICAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FICAvatar.h; sourceTree = "<group>"; };
-		E54063E918361690003BAB55 /* FICAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICAvatar.m; sourceTree = "<group>"; };
 		E5A2F92F1834A9F2003B474C /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E5A2F9311834AA00003B474C /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		E5A2F9321834AA19003B474C /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
@@ -193,6 +191,8 @@
 		F748704A182CFF9000B21A02 /* PVProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVProfileViewController.h; sourceTree = "<group>"; };
 		F748704B182CFF9000B21A02 /* PVProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVProfileViewController.m; sourceTree = "<group>"; };
 		F748704D182CFFB700B21A02 /* PVProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PVProfileViewController.xib; sourceTree = "<group>"; };
+		F77A47C51836659000AE3D10 /* PVAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVAvatar.h; sourceTree = "<group>"; };
+		F77A47C61836659000AE3D10 /* PVAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVAvatar.m; sourceTree = "<group>"; };
 		F78C4DC6182B7DA500C6D19C /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = geoip; path = ../External/CPAProxy/CPAProxyDependencies/geoip; sourceTree = "<group>"; };
 		F78C4DCB182B7DCF00C6D19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F78C4DD8182BA76400C6D19C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -333,16 +333,6 @@
 			name = Dialog;
 			sourceTree = "<group>";
 		};
-		E54063E61836165E003BAB55 /* FICModel */ = {
-			isa = PBXGroup;
-			children = (
-				E54063E818361690003BAB55 /* FICAvatar.h */,
-				E54063E918361690003BAB55 /* FICAvatar.m */,
-			);
-			name = FICModel;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		F78C4E0D182BA98400C6D19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				F7A91C05182A6D0800073051 /* PVDataModel.xcdatamodeld */,
+				F77A47C51836659000AE3D10 /* PVAvatar.h */,
+				F77A47C61836659000AE3D10 /* PVAvatar.m */,
 				F7AF02861830C3A900F95980 /* PVManagedDialog.h */,
 				F7AF02871830C3A900F95980 /* PVManagedDialog.m */,
 				F7AF02831830C35800F95980 /* PVManagedMessage.h */,
@@ -446,7 +438,6 @@
 				F7A91C09182A6D5200073051 /* PVManagedContact.m */,
 				F7A91C0C182A6E0000073051 /* PVChatManager.h */,
 				F7A91C0D182A6E0000073051 /* PVChatManager.m */,
-				E54063E61836165E003BAB55 /* FICModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -754,7 +745,7 @@
 				F7ACF4A01833905500222B16 /* UIViewController+PVCustomBackButton.m in Sources */,
 				F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */,
 				F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */,
-				E54063EA18361690003BAB55 /* FICAvatar.m in Sources */,
+				F77A47C71836659000AE3D10 /* PVAvatar.m in Sources */,
 				F7AF02F01831037700F95980 /* PVContactCell.m in Sources */,
 				F7ACF4A418339B4000222B16 /* PVDialogSectionHeaderView.m in Sources */,
 				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,

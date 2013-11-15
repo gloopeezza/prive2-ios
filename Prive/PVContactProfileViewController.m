@@ -11,7 +11,7 @@
 #import "UIImage+Appearance.h"
 #import "PVDialogViewController.h"
 #import "UIImage+Appearance.h"
-#import "FICAvatar.h"
+#import "PVAvatar.h"
 #import "FICImageCache.h"
 #import "PVAppDelegate.h"
 
@@ -60,10 +60,10 @@
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
         
-        FICAvatar *avatar = [FICAvatar new];
+        PVAvatar *avatar = [PVAvatar new];
         [avatar setSourceImageURL:imageURL];
         
-        [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"FICAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+        [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
             NSLog(@"Draw");
             UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
             UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];

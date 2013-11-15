@@ -100,8 +100,8 @@
     [_borderImageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
 }
 
-- (void)setAvatar:(FICAvatar *)avatar {
-    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"FICAvatarRoundImageFormatNameSmall" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+- (void)setAvatar:(PVAvatar *)avatar {
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameSmall" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
         [self.avatarImageView setImage:image];
     }];
 }

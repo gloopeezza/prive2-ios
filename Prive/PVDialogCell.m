@@ -102,8 +102,8 @@
     [self.timeLabel setText:[NSDateFormatterCache stringFromDate:message.date withFormat:@"HH:mm"]];
 }
 
-- (void)setAvatar:(FICAvatar *)avatar {
-    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"FICAvatarRoundImageFormatNameMedium" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+- (void)setAvatar:(PVAvatar *)avatar {
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameMedium" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
         UIImage *borderImage = [UIImage circleImageWithHeight:72 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
         UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:72];
         [self.imageAvatar setImage:avatarImage];

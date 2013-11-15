@@ -77,7 +77,7 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
     
-    FICAvatar *avatar = [FICAvatar new];
+    PVAvatar *avatar = [PVAvatar new];
     [avatar setSourceImageURL:imageURL];
     
     [contactCell setAvatar:avatar];

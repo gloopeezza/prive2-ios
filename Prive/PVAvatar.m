@@ -1,32 +1,32 @@
 //
-//  FICAvatar.m
+//  PVAvatar.m
 //  testFIC
 //
 //  Created by Andrey Tyshlaev on 11/15/13.
 //  Copyright (c) 2013 Andrey Tyshlaev. All rights reserved.
 //
 
-#import "FICAvatar.h"
+#import "PVAvatar.h"
 #import "FICUtilities.h"
 
-NSString *const FICAvatarImageFormatFamily = @"FICAvatarImageFormatFamily";
+NSString *const PVAvatarImageFormatFamily = @"PVAvatarImageFormatFamily";
 
-NSString *const FICAvatarRoundImageFormatNameBig = @"FICAvatarRoundImageFormatNameBig";
-NSString *const FICAvatarRoundImageFormatNameMedium = @"FICAvatarRoundImageFormatNameMedium";
-NSString *const FICAvatarRoundImageFormatNameSmall = @"FICAvatarRoundImageFormatNameSmall";
+NSString *const PVAvatarRoundImageFormatNameBig = @"PVAvatarRoundImageFormatNameBig";
+NSString *const PVAvatarRoundImageFormatNameMedium = @"PVAvatarRoundImageFormatNameMedium";
+NSString *const PVAvatarRoundImageFormatNameSmall = @"PVAvatarRoundImageFormatNameSmall";
 
 CGSize const FIDAvatarRoundImageSizeBig    = {128, 128};
 CGSize const FIDAvatarRoundImageSizeMedium = {68, 68};
 CGSize const FIDAvatarRoundImageSizeSmall  = {32, 32};
 
-@interface FICAvatar () {
+@interface PVAvatar () {
     NSURL *_sourceImageURL;
     NSString *_UUID;
 }
 
 @end
 
-@implementation FICAvatar
+@implementation PVAvatar
 
 #pragma mark - Protocol Implementations
 
