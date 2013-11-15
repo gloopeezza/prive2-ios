@@ -333,9 +333,12 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         
         pvBuddy.status = PVManagedContactStatusOnline;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
-                                                            object:self
-                                                          userInfo:userInfo];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
+                                                                object:self
+                                                              userInfo:userInfo];
+        });
+
     }
     
     if (info.infoCode == tcbuddy_notify_disconnected) { // Offline
@@ -343,9 +346,11 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         
         pvBuddy.status = PVManagedContactStatusOffline;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
-                                                            object:self
-                                                          userInfo:userInfo];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
+                                                                 object:self
+                                                              userInfo:userInfo];
+        });
     }
 }
 
