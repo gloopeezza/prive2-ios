@@ -15,6 +15,14 @@
 		E518AB8718336C35007EDFBF /* nav-add-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8518336C35007EDFBF /* nav-add-button@2x.png */; };
 		E518AB8A18337252007EDFBF /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8818337252007EDFBF /* default-avatar.png */; };
 		E518AB8B18337252007EDFBF /* default-avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8918337252007EDFBF /* default-avatar@2x.png */; };
+		E51B91A7183639FC00761EA6 /* avatar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B919F183639FC00761EA6 /* avatar_0.png */; };
+		E51B91A8183639FC00761EA6 /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A0183639FC00761EA6 /* avatar_1.png */; };
+		E51B91A9183639FC00761EA6 /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A1183639FC00761EA6 /* avatar_2.png */; };
+		E51B91AA183639FC00761EA6 /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A2183639FC00761EA6 /* avatar_3.png */; };
+		E51B91AB183639FC00761EA6 /* avatar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A3183639FC00761EA6 /* avatar_4.png */; };
+		E51B91AC183639FC00761EA6 /* avatar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A4183639FC00761EA6 /* avatar_5.png */; };
+		E51B91AD183639FC00761EA6 /* avatar_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A5183639FC00761EA6 /* avatar_6.png */; };
+		E51B91AE183639FC00761EA6 /* avatar_7.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A6183639FC00761EA6 /* avatar_7.png */; };
 		E52B24A81832377000B82195 /* PVDialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B24A71832377000B82195 /* PVDialogCell.m */; };
 		E52B24AD183241EE00B82195 /* dialog-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AB183241EE00B82195 /* dialog-background.png */; };
 		E52B24AE183241EE00B82195 /* dialog-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AC183241EE00B82195 /* dialog-background@2x.png */; };
@@ -24,6 +32,7 @@
 		E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B41832453900B82195 /* dialog-text-view@2x.png */; };
 		E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B71832485100B82195 /* dialog-attach-file.png */; };
 		E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24B81832485100B82195 /* dialog-attach-file@2x.png */; };
+		E54063EA18361690003BAB55 /* FICAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = E54063E918361690003BAB55 /* FICAvatar.m */; };
 		E5A2F9361834AA8C003B474C /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9321834AA19003B474C /* icon120.png */; };
 		E5A2F9371834AA8C003B474C /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F9311834AA00003B474C /* icon114.png */; };
 		E5A2F9381834AA8C003B474C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F92F1834A9F2003B474C /* icon57.png */; };
@@ -136,6 +145,14 @@
 		E518AB8518336C35007EDFBF /* nav-add-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-add-button@2x.png"; path = "Images/nav-add-button@2x.png"; sourceTree = "<group>"; };
 		E518AB8818337252007EDFBF /* default-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-avatar.png"; path = "Images/default-avatar.png"; sourceTree = "<group>"; };
 		E518AB8918337252007EDFBF /* default-avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-avatar@2x.png"; path = "Images/default-avatar@2x.png"; sourceTree = "<group>"; };
+		E51B919F183639FC00761EA6 /* avatar_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_0.png; path = AvatarImages/avatar_0.png; sourceTree = "<group>"; };
+		E51B91A0183639FC00761EA6 /* avatar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_1.png; path = AvatarImages/avatar_1.png; sourceTree = "<group>"; };
+		E51B91A1183639FC00761EA6 /* avatar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_2.png; path = AvatarImages/avatar_2.png; sourceTree = "<group>"; };
+		E51B91A2183639FC00761EA6 /* avatar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_3.png; path = AvatarImages/avatar_3.png; sourceTree = "<group>"; };
+		E51B91A3183639FC00761EA6 /* avatar_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_4.png; path = AvatarImages/avatar_4.png; sourceTree = "<group>"; };
+		E51B91A4183639FC00761EA6 /* avatar_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_5.png; path = AvatarImages/avatar_5.png; sourceTree = "<group>"; };
+		E51B91A5183639FC00761EA6 /* avatar_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_6.png; path = AvatarImages/avatar_6.png; sourceTree = "<group>"; };
+		E51B91A6183639FC00761EA6 /* avatar_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_7.png; path = AvatarImages/avatar_7.png; sourceTree = "<group>"; };
 		E52B24A61832377000B82195 /* PVDialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDialogCell.h; sourceTree = "<group>"; };
 		E52B24A71832377000B82195 /* PVDialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogCell.m; sourceTree = "<group>"; };
 		E52B24AB183241EE00B82195 /* dialog-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-background.png"; path = "Images/dialog-background.png"; sourceTree = "<group>"; };
@@ -146,6 +163,8 @@
 		E52B24B41832453900B82195 /* dialog-text-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-text-view@2x.png"; path = "Images/dialog-text-view@2x.png"; sourceTree = "<group>"; };
 		E52B24B71832485100B82195 /* dialog-attach-file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file.png"; path = "Images/dialog-attach-file.png"; sourceTree = "<group>"; };
 		E52B24B81832485100B82195 /* dialog-attach-file@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dialog-attach-file@2x.png"; path = "Images/dialog-attach-file@2x.png"; sourceTree = "<group>"; };
+		E54063E818361690003BAB55 /* FICAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FICAvatar.h; sourceTree = "<group>"; };
+		E54063E918361690003BAB55 /* FICAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICAvatar.m; sourceTree = "<group>"; };
 		E5A2F92F1834A9F2003B474C /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E5A2F9311834AA00003B474C /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		E5A2F9321834AA19003B474C /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = ../icon120.png; sourceTree = "<group>"; };
@@ -273,6 +292,21 @@
 			name = NavigationBar;
 			sourceTree = "<group>";
 		};
+		E51B917918361CB800761EA6 /* AvatarImages */ = {
+			isa = PBXGroup;
+			children = (
+				E51B919F183639FC00761EA6 /* avatar_0.png */,
+				E51B91A0183639FC00761EA6 /* avatar_1.png */,
+				E51B91A1183639FC00761EA6 /* avatar_2.png */,
+				E51B91A2183639FC00761EA6 /* avatar_3.png */,
+				E51B91A3183639FC00761EA6 /* avatar_4.png */,
+				E51B91A4183639FC00761EA6 /* avatar_5.png */,
+				E51B91A5183639FC00761EA6 /* avatar_6.png */,
+				E51B91A6183639FC00761EA6 /* avatar_7.png */,
+			);
+			name = AvatarImages;
+			sourceTree = "<group>";
+		};
 		E52B24A91832380100B82195 /* PVDialogCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +331,16 @@
 				E52B24AC183241EE00B82195 /* dialog-background@2x.png */,
 			);
 			name = Dialog;
+			sourceTree = "<group>";
+		};
+		E54063E61836165E003BAB55 /* FICModel */ = {
+			isa = PBXGroup;
+			children = (
+				E54063E818361690003BAB55 /* FICAvatar.h */,
+				E54063E918361690003BAB55 /* FICAvatar.m */,
+			);
+			name = FICModel;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F78C4E0D182BA98400C6D19C /* Products */ = {
@@ -402,6 +446,7 @@
 				F7A91C09182A6D5200073051 /* PVManagedContact.m */,
 				F7A91C0C182A6E0000073051 /* PVChatManager.h */,
 				F7A91C0D182A6E0000073051 /* PVChatManager.m */,
+				E54063E61836165E003BAB55 /* FICModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -454,6 +499,7 @@
 		F7AF02C71830F60700F95980 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E51B917918361CB800761EA6 /* AvatarImages */,
 				F7AF02C81830F61700F95980 /* Images */,
 			);
 			name = Resources;
@@ -634,13 +680,18 @@
 				E5A2F9371834AA8C003B474C /* icon114.png in Resources */,
 				E5A2F9381834AA8C003B474C /* icon57.png in Resources */,
 				E518AB8A18337252007EDFBF /* default-avatar.png in Resources */,
+				E51B91AE183639FC00761EA6 /* avatar_7.png in Resources */,
 				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
 				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
 				F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */,
+				E51B91AA183639FC00761EA6 /* avatar_3.png in Resources */,
+				E51B91AC183639FC00761EA6 /* avatar_5.png in Resources */,
 				F70C5E331832058D00BD468C /* tabbar-profile-highlighted@2x.png in Resources */,
 				F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */,
 				E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */,
+				E51B91A9183639FC00761EA6 /* avatar_2.png in Resources */,
+				E51B91A7183639FC00761EA6 /* avatar_0.png in Resources */,
 				E52B24B21832443F00B82195 /* dialog-send-button@2x.png in Resources */,
 				F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */,
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
@@ -654,17 +705,20 @@
 				E52B24B51832453900B82195 /* dialog-text-view.png in Resources */,
 				E518AB8B18337252007EDFBF /* default-avatar@2x.png in Resources */,
 				F70C5E301832058D00BD468C /* tabbar-dialogs-normal.png in Resources */,
+				E51B91A8183639FC00761EA6 /* avatar_1.png in Resources */,
 				F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */,
 				E518AB8718336C35007EDFBF /* nav-add-button@2x.png in Resources */,
 				F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 				E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */,
 				E518AB82183364A1007EDFBF /* nav-back-button.png in Resources */,
+				E51B91AD183639FC00761EA6 /* avatar_6.png in Resources */,
 				E52B24B11832443F00B82195 /* dialog-send-button.png in Resources */,
 				F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */,
 				E513EE871833B39800576587 /* prive-background@2x.png in Resources */,
 				E518AB8618336C35007EDFBF /* nav-add-button.png in Resources */,
 				E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */,
+				E51B91AB183639FC00761EA6 /* avatar_4.png in Resources */,
 				E513EE861833B39800576587 /* prive-background.png in Resources */,
 				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
 				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
@@ -700,6 +754,7 @@
 				F7ACF4A01833905500222B16 /* UIViewController+PVCustomBackButton.m in Sources */,
 				F7A91C0A182A6D5200073051 /* PVManagedContact.m in Sources */,
 				F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */,
+				E54063EA18361690003BAB55 /* FICAvatar.m in Sources */,
 				F7AF02F01831037700F95980 /* PVContactCell.m in Sources */,
 				F7ACF4A418339B4000222B16 /* PVDialogSectionHeaderView.m in Sources */,
 				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,
@@ -853,7 +908,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -871,7 +926,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -154,7 +154,7 @@
 }
 
 + (UIImage *)sendMessageButtonImage {
-    UIGraphicsBeginImageContext(CGSizeMake(1.0f, 44.0f));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(1.0f, 44.0f), NO, [[UIScreen mainScreen] scale]);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [[UIColor colorWithRed:0.11f green:0.24f blue:0.45f alpha:1.0f] setFill];
     CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 1.0f, 44.0f));
@@ -163,4 +163,15 @@
     
     return image;
 }
+
++ (UIImage *)imageWithAvatar:(UIImage *)avatar borderImage:(UIImage *)borderImage withHeight:(CGFloat)radius {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(radius, radius), NO, [[UIScreen mainScreen] scale]);
+    [borderImage drawInRect:CGRectMake( 0, 0, radius, radius)];
+    float offset = (radius - avatar.size.height)/2;
+    [avatar drawInRect:CGRectMake(offset, offset, avatar.size.width, avatar.size.width)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
+}
+
 @end

@@ -13,4 +13,10 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #define ONLINE_COLOR  [UIColor colorWithRed:0.20 green:0.44 blue:0.42 alpha:1]
+    #define OFFLINE_COLOR [UIColor colorWithRed:0.62 green:0.35 blue:0.43 alpha:1]
+    #define ONLINE_COLOR_SELF [UIColor colorWithRed:0.17 green:0.35 blue:0.50 alpha:1]
 #endif
+
+

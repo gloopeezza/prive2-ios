@@ -19,6 +19,13 @@
 
 #import "PVManagedContact.h"
 
+#import "FICImageCache.h"
+#import "FICAvatar.h"
+
+@interface PVAppDelegate () <FICImageCacheDelegate>
+
+@end
+
 @implementation PVAppDelegate {
     UITabBarController *_tabBarController;
     PVIntroViewController *_introViewController;
@@ -42,9 +49,42 @@
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
 
+- (void)configureFIC {
+    NSInteger squareImageFormatMaximumCount = 400;
+    FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
+    
+    FICImageFormat *roundAvatarBig = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameBig
+                                                             family:FICAvatarImageFormatFamily
+                                                          imageSize:FIDAvatarRoundImageSizeBig
+                                                              style:FICImageFormatStyle32BitBGRA
+                                                       maximumCount:squareImageFormatMaximumCount
+                                                            devices:squareImageFormatDevices];
+    
+    FICImageFormat *roundAvatarMedium = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameMedium
+                                                                family:FICAvatarImageFormatFamily
+                                                             imageSize:FIDAvatarRoundImageSizeMedium
+                                                                 style:FICImageFormatStyle32BitBGRA
+                                                          maximumCount:squareImageFormatMaximumCount
+                                                               devices:squareImageFormatDevices];
+    
+    FICImageFormat *roundAvatarSmall = [FICImageFormat formatWithName:FICAvatarRoundImageFormatNameSmall
+                                                               family:FICAvatarImageFormatFamily
+                                                            imageSize:FIDAvatarRoundImageSizeSmall
+                                                                style:FICImageFormatStyle32BitBGRA
+                                                         maximumCount:squareImageFormatMaximumCount
+                                                              devices:squareImageFormatDevices];
+    
+    NSArray *mutableImageFormats = @[roundAvatarBig, roundAvatarMedium, roundAvatarSmall];
+    
+    FICImageCache *sharedImageCache = [FICImageCache sharedImageCache];
+    [sharedImageCache setDelegate:self];
+    [sharedImageCache setFormats:mutableImageFormats];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self applyAppearance];
+    [self configureFIC];
     
     [[PVChatManager defaultManager] start];
 
@@ -67,7 +107,6 @@
     UINavigationController *settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
     [settingsNavigationController.navigationBar setBackgroundImage:[UIImage navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
 
-    
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.viewControllers = @[buddyNavigationController,
                                          chatDialogsNavigationController,
@@ -77,18 +116,39 @@
     self.window.rootViewController = _tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:kPVChatManagerContactStatusNotificationName object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+    /*[[NSNotificationCenter defaultCenter] addObserverForName:kPVChatManagerContactStatusNotificationName object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         PVManagedContact *contact = [note.userInfo objectForKey:kPVChatManagerContactStatusNotificationUserInfoContactKey];
         
         NSString *status = (contact.status == PVManagedContactStatusOnline) ? @"online" : @"offline";
         
         NSLog(@"*** Contact %@ status updated to %@", contact.address, status);
-        
-    }];
+    }];*/
     
     return YES;
+}
+
+#pragma mark - FICImageCacheDelegate
+
+- (void)imageCache:(FICImageCache *)imageCache wantsSourceImageForEntity:(id<FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageRequestCompletionBlock)completionBlock {
+    // Images typically come from the Internet rather than from the app bundle directly, so this would be the place to fire off a network request to download the image.
+    // For the purposes of this demo app, we'll just access images stored locally on disk.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *sourceImage = [(FICAvatar *)entity sourceImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(sourceImage);
+        });
+    });
+}
+
+- (BOOL)imageCache:(FICImageCache *)imageCache shouldProcessAllFormatsInFamily:(NSString *)formatFamily forEntity:(id<FICEntity>)entity {
+    BOOL shouldProcessAllFormats = [formatFamily isEqualToString:FICAvatarImageFormatFamily];
+    
+    return shouldProcessAllFormats;
+}
+
+- (void)imageCache:(FICImageCache *)imageCache errorDidOccurWithMessage:(NSString *)errorMessage {
+    NSLog(@"%@", errorMessage);
 }
 
 @end

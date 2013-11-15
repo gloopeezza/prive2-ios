@@ -14,6 +14,7 @@
 #import "PVDialogViewController.h"
 #import "UIImage+Appearance.h"
 #import "PVContactCell.h"
+#import "FICAvatar.h"
 
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
@@ -42,6 +43,33 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     }
     
     return self;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onlineStatus:)
+                                                 name:kPVChatManagerContactStatusNotificationName
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) onlineStatus:(NSNotification *) note
+{
+    PVManagedContact *contact = [note.userInfo objectForKey:kPVChatManagerContactStatusNotificationUserInfoContactKey];
+    NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:contact];
+    
+    PVContactCell *cell = (PVContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.online = contact.status == PVManagedContactStatusOnline;
+    
+    NSString *status = (contact.status == PVManagedContactStatusOnline) ? @"online" : @"offline";
+    
+    NSLog(@"!!!! Contact %@ status updated to %@", contact.address, status);
 }
 
 #pragma mark - Alert View
@@ -78,7 +106,15 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     PVManagedContact *buddy = (PVManagedContact *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     contactCell.textLabel.text = buddy.alias;
     contactCell.detailTextLabel.text = buddy.address;
-    contactCell.online = YES;
+    contactCell.online = buddy.status;
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
+    
+    FICAvatar *avatar = [FICAvatar new];
+    [avatar setSourceImageURL:imageURL];
+    
+    [contactCell setAvatar:avatar];
 }
 
 #pragma mark - UITableViewDelegate

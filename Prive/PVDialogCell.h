@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PVManagedMessage.h"
+#import "FICAvatar.h"
 
 typedef enum  {
     PVDialogCellSent,
@@ -21,6 +22,7 @@ typedef enum  {
 
 @property(nonatomic) PVDialogCellType type;
 
-- (void)setupCellWithType:(PVDialogCellType)type andMessage:(PVManagedMessage *)message;
+- (void)setupCellWithType:(PVDialogCellType)typeCell andMessage:(PVManagedMessage *)message;
+- (void)setAvatar:(FICAvatar *)avatar;
 
 @end

@@ -10,3 +10,6 @@
 [submodule "External/GrowingTextView"]
 	path = External/GrowingTextView
 	url = git@github.com:cielpy/GrowingTextView.git
+[submodule "External/FastImageCache"]
+	path = External/FastImageCache
+	url = git@github.com:path/FastImageCache.git

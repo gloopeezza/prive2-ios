@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FICAvatar.h"
 
 @interface PVContactCell : UITableViewCell
 
 @property (nonatomic, assign, getter = isOnline) BOOL online;
+
+- (void)setAvatar:(FICAvatar *)avatar;
 
 @end

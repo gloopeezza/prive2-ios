@@ -10,6 +10,10 @@
 #import "UIViewController+PVCustomBackButton.h"
 #import "UIImage+Appearance.h"
 #import "PVDialogViewController.h"
+#import "UIImage+Appearance.h"
+#import "FICAvatar.h"
+#import "FICImageCache.h"
+#import "PVAppDelegate.h"
 
 @interface PVContactProfileViewController ()
 {
@@ -35,7 +39,6 @@
 
         UIImage *avatarImage = [UIImage defaultAvatarWithHeight:100 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
         UIImageView *avatarImageView = [[UIImageView alloc] initWithImage:avatarImage];
-        [avatarImageView setImage:avatarImage];
         [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
         
         _torAdressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, backgroundAvatar.frame.size.height + 10.0, 280.0, 30.0)];
@@ -53,6 +56,20 @@
         [self.view addSubview:avatarImageView];
         [self.view addSubview:_torAdressLabel];
         [self.view addSubview:sendMessageButton];
+        
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
+        
+        FICAvatar *avatar = [FICAvatar new];
+        [avatar setSourceImageURL:imageURL];
+        
+        [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"FICAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+            NSLog(@"Draw");
+            UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
+            UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];
+            [avatarImageView setImage:avatarImage];
+        }];
+        
     }
     return self;
 }

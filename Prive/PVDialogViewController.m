@@ -67,11 +67,18 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
 - (void)configureCell:(PVDialogCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PVManagedMessage *message = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
+    
+    FICAvatar *avatar = [FICAvatar new];
+    [avatar setSourceImageURL:imageURL];
+    
     if ([message.fromAddress isEqualToString:message.dialog.buddy.address]) {
         [cell setupCellWithType:PVDialogCellReceived andMessage:message];
     }else
         [cell setupCellWithType:PVDialogCellSent andMessage:message];
     
+    [cell setAvatar:avatar];
     [cell.contentView setNeedsDisplay];
 }
 

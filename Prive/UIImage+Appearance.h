@@ -20,5 +20,6 @@
 + (UIImage *)defaultAvatarWithHeight:(CGFloat)radius borderColor:(UIColor *)color;
 
 + (UIImage *)sendMessageButtonImage;
++ (UIImage *)imageWithAvatar:(UIImage *)avatar borderImage:(UIImage *)borderImage withHeight:(CGFloat)radius;
 
 @end
