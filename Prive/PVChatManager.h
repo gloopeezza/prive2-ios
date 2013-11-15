@@ -13,6 +13,9 @@
 
 #import "PVManagedDialog.h"
 
+extern NSString * const kPVChatManagerContactStatusNotificationName;
+extern NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey;
+
 @interface PVChatManager : NSObject<TCConfig>
 
 + (instancetype)defaultManager;

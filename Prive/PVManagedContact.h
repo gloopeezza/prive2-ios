@@ -10,6 +10,12 @@
 #import <CoreData/CoreData.h>
 #import "SSManagedObject.h"
 
+typedef NS_ENUM(NSInteger, PVManagedContactStatus) {
+    PVManagedContactStatusOnline,
+    PVManagedContactStatusOffline
+};
+
+
 @class PVManagedDialog;
 @interface PVManagedContact : SSManagedObject;
 
@@ -17,5 +23,7 @@
 @property (nonatomic, retain) NSString * alias;
 @property (nonatomic, retain) NSString * info;
 @property (nonatomic, retain) PVManagedDialog * dialog;
+
+@property (nonatomic, assign) PVManagedContactStatus status;
 
 @end

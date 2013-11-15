@@ -21,6 +21,9 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
 static NSInteger kPVTorHiddenServicePort = 11009;
 static NSInteger kPVTorLocalServicePort = 11008;
 
+NSString * const kPVChatManagerContactStatusNotificationName = @"kPVChatManagerContactStatusNotificationName";
+NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey = @"kPVChatManagerContactStatusNotificationUserInfoContactKey";
+
 static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 @interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate>
@@ -303,10 +306,13 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 #pragma mark - TCBuddyDelegate
 
 - (void)buddy:(TCBuddy *)buddy event:(const TCInfo *)info {
+    PVManagedContact *pvBuddy = [self buddyWithAddress:buddy.address];
+    if (!pvBuddy) {
+        NSLog(@"*** Got buddy event %@, but PVManagedContact is nil for that buddy", [info render]);
+    }
     
     if (info.infoCode == tcbuddy_notify_message) {
         NSString *messageText = info.context;
-        PVManagedContact *pvBuddy = [self buddyWithAddress:buddy.address];
         
         [[PVManagedMessage mainQueueContext] performBlockAndWait:^{
             if (pvBuddy.dialog == nil) {
@@ -320,6 +326,26 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
             managedMessage.fromAddress = pvBuddy.address;
             [managedMessage save];
         }];
+    }
+    
+    if (info.infoCode == tcbuddy_notify_identified) { // Online
+        NSDictionary *userInfo = @{kPVChatManagerContactStatusNotificationUserInfoContactKey: pvBuddy};
+        
+        pvBuddy.status = PVManagedContactStatusOnline;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
+                                                            object:self
+                                                          userInfo:userInfo];
+    }
+    
+    if (info.infoCode == tcbuddy_notify_disconnected) { // Offline
+        NSDictionary *userInfo = @{kPVChatManagerContactStatusNotificationUserInfoContactKey: pvBuddy};
+        
+        pvBuddy.status = PVManagedContactStatusOffline;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerContactStatusNotificationName
+                                                            object:self
+                                                          userInfo:userInfo];
     }
 }
 

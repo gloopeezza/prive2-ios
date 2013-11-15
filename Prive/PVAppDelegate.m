@@ -17,6 +17,8 @@
 #import "PVTimelineViewController.h"
 #import "PVIntroViewController.h"
 
+#import "PVManagedContact.h"
+
 @implementation PVAppDelegate {
     UITabBarController *_tabBarController;
     PVIntroViewController *_introViewController;
@@ -76,6 +78,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:kPVChatManagerContactStatusNotificationName object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        PVManagedContact *contact = [note.userInfo objectForKey:kPVChatManagerContactStatusNotificationUserInfoContactKey];
+        
+        NSString *status = (contact.status == PVManagedContactStatusOnline) ? @"online" : @"offline";
+        
+        NSLog(@"*** Contact %@ status updated to %@", contact.address, status);
+        
+    }];
+    
     return YES;
 }
 

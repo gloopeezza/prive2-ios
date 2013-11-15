@@ -16,4 +16,6 @@
 @dynamic info;
 @dynamic dialog;
 
+@synthesize status;
+
 @end
