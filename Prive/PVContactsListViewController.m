@@ -90,7 +90,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSString *buddyAddress = [alertView textFieldAtIndex:0].text;
-        [[PVChatManager defaultManager] addBuddy:buddyAddress alias:nil notes:nil];
+        [[PVChatManager defaultManager] addBuddyWithAddress:buddyAddress name:nil];
         self.addBuddyAlertView = nil;
     }
 }

@@ -43,6 +43,8 @@ extern NSString * const kPVChatManagerDidConnectedNotificationName;
 
 @property (nonatomic, assign, readonly) BOOL connectedToTor;
 
+- (void)addBuddyWithAddress:(NSString *)address name:(NSString *)name;
+
 - (NSArray *)buddies;
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes;
 - (BOOL)removeBuddy:(NSString *)address;

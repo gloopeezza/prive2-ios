@@ -132,6 +132,10 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
     return buddy;
 }
 
+- (void)addBuddyWithAddress:(NSString *)address name:(NSString *)name {
+    [_coreManager addBuddy:name address:address];
+}
+
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes {
     NSParameterAssert(address);
     
