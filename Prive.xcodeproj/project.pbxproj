@@ -37,6 +37,9 @@
 		E5A2F9381834AA8C003B474C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2F92F1834A9F2003B474C /* icon57.png */; };
 		E5A2F93B1834BB1F003B474C /* NSDateFormatterCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */; };
 		E5A2F93E1834CF90003B474C /* PVContactProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */; };
+		E5D8C8A31837817F00407980 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D8C8A2183780FA00407980 /* Default-568h@2x.png */; };
+		E5D8C8A41837817F00407980 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D8C8A1183780EB00407980 /* Default~iphone.png */; };
+		E5D8C8A51837817F00407980 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D8C8A0183780DD00407980 /* Default.png */; };
 		F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */; };
 		F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */; };
 		F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */; };
@@ -170,6 +173,9 @@
 		E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterCache.m; sourceTree = "<group>"; };
 		E5A2F93C1834CF90003B474C /* PVContactProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVContactProfileViewController.h; sourceTree = "<group>"; };
 		E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVContactProfileViewController.m; sourceTree = "<group>"; };
+		E5D8C8A0183780DD00407980 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E5D8C8A1183780EB00407980 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		E5D8C8A2183780FA00407980 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
 		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
@@ -344,6 +350,9 @@
 		F7A91BC9182A6C2A00073051 = {
 			isa = PBXGroup;
 			children = (
+				E5D8C8A2183780FA00407980 /* Default-568h@2x.png */,
+				E5D8C8A1183780EB00407980 /* Default~iphone.png */,
+				E5D8C8A0183780DD00407980 /* Default.png */,
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
@@ -667,6 +676,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D8C8A31837817F00407980 /* Default-568h@2x.png in Resources */,
+				E5D8C8A41837817F00407980 /* Default~iphone.png in Resources */,
+				E5D8C8A51837817F00407980 /* Default.png in Resources */,
 				E5A2F9361834AA8C003B474C /* icon120.png in Resources */,
 				E5A2F9371834AA8C003B474C /* icon114.png in Resources */,
 				E5A2F9381834AA8C003B474C /* icon57.png in Resources */,
@@ -889,7 +901,6 @@
 		F7A91BFF182A6C2A00073051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -907,7 +918,6 @@
 		F7A91C00182A6C2A00073051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
