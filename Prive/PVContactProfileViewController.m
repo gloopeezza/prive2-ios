@@ -30,6 +30,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.view.backgroundColor = UIColor.whiteColor;
         [self pv_configureBackButton];
         [self pv_configureChatStatusItem];
         
