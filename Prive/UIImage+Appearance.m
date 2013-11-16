@@ -45,18 +45,18 @@
 }
 
 + (UIImage *)tabbarSelectedItemBackground {
-    UIGraphicsBeginImageContext(CGSizeMake(3.0f, 49.0f));
+    UIGraphicsBeginImageContext(CGSizeMake(80.0f, 49.0f));
     CGContextRef context = UIGraphicsGetCurrentContext();
     [[UIColor colorWithWhite:0.88f alpha:1.0f] setFill];
-    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 3.0f, 1.0f));
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 80.0f, 1.0f));
     
     [[UIColor colorWithWhite:1.0f alpha:1.0f] setFill];
-    CGContextFillRect(context, CGRectMake(0.0f, 1.0f, 3.0f, 48.0f));
+    CGContextFillRect(context, CGRectMake(0.0f, 1.0f, 80.0f, 48.0f));
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     CGContextRelease(context);
     
-    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 1.0f, 0.0f, 1.0f)];
+    return image;
 }
 
 + (UIImage *)circleImageWithHeight:(CGFloat)radius borderColor:(UIColor *)color {
