@@ -130,10 +130,11 @@
 }
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up {
-    int movement = (!up ? 277.0 : (self.view.bounds.size.height - 200.0));
+    int movement = (!up ? 44.0 : - 100.0);
     
     [UIView animateWithDuration:0.25 animations:^{
-        self.textField.frame = CGRectMake(_textField.frame.origin.x, movement, _textField.frame.size.width, _textField.frame.size.height);
+        self.view.frame = CGRectMake(0, movement, self.view.frame.size.width, self.view.frame.size.height);
+        //self.textField.frame = CGRectMake(_textField.frame.origin.x, movement, _textField.frame.size.width, _textField.frame.size.height);
     }];
 }
 @end

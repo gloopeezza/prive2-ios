@@ -72,7 +72,6 @@ static UIImage * _FICDSquareImageFromImage(UIImage *image) {
 
 - (NSString *)UUID {
     if (_UUID == nil) {
-        NSLog(@"String %@",_torchatID);
         CFUUIDBytes UUIDBytes = FICUUIDBytesFromMD5HashOfString(_torchatID);
         _UUID = FICStringWithUUIDBytes(UUIDBytes);
     }
