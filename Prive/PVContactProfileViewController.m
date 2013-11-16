@@ -29,6 +29,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.view.backgroundColor = UIColor.whiteColor;
         [self pv_configureBackButton];
         
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
