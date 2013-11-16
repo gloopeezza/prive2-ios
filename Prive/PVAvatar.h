@@ -21,6 +21,7 @@ extern CGSize const FIDAvatarRoundImageSizeSmall;
 @interface PVAvatar : NSObject <FICEntity>
 
 @property (nonatomic, copy) NSURL *sourceImageURL;
+@property (nonatomic, copy) NSString *torchatID;
 @property (nonatomic, strong, readonly) UIImage *sourceImage;
 
 @end

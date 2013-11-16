@@ -52,9 +52,12 @@
         
         avatar = [PVAvatar new];
         [avatar setSourceImageURL:imageURL];
+        [avatar setTorchatID:[[PVChatManager defaultManager] selfAddress]];
         
         [self reloaAvatarImage:PVManagedContactStatusOffline];
         [self pv_configureChatStatusItem];
+        
+        [_textField setBackground:[UIImage whiteImage]];
     }
     return self;
 }

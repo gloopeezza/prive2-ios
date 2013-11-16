@@ -18,9 +18,13 @@
 
 @interface PVContactProfileViewController ()
 {
+    UILabel *_torAdress;
     UILabel *_torAdressLabel;
+
     PVManagedDialog *_dialog;
     PVManagedContact *_buddy;
+    
+    UIImageView *avatarImageView;
 }
 @end
 
@@ -40,39 +44,33 @@
         UIImageView *backgroundAvatar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"prive-background"]];
         backgroundAvatar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 215);
 
-        UIImage *avatarImage = [UIImage defaultAvatarWithHeight:100 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
-        UIImageView *avatarImageView = [[UIImageView alloc] initWithImage:avatarImage];
-        [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
+        avatarImageView = [[UIImageView alloc] initWithFrame:backgroundAvatar.frame];
+        avatarImageView.contentMode = UIViewContentModeCenter;
         
-        _torAdressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, backgroundAvatar.frame.size.height + 10.0, 280.0, 30.0)];
-        _torAdressLabel.numberOfLines = 2;
+        _torAdress = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 223.0, 280.0, 16.0)];
+        _torAdress.numberOfLines = 1;
+        _torAdress.backgroundColor = UIColor.clearColor;
+        _torAdress.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+        _torAdress.textAlignment = NSTextAlignmentCenter;
+        
+        _torAdressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 237.0, 280.0, 30.0)];
+        _torAdressLabel.numberOfLines = 1;
         _torAdressLabel.backgroundColor = UIColor.clearColor;
-        _torAdressLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
+        _torAdressLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:22];
+        _torAdressLabel.textAlignment = NSTextAlignmentCenter;
+        _torAdressLabel.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:114.0/255.0 alpha:1];
         
         UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        sendMessageButton.frame = CGRectMake(20, backgroundAvatar.frame.size.height + _torAdressLabel.frame.size.height + 15, 280, 44);
+        sendMessageButton.frame = CGRectMake(20, backgroundAvatar.frame.size.height + _torAdressLabel.frame.size.height + 25, 280, 44);
         [sendMessageButton setTitle:NSLocalizedString(@"send_message", @"") forState:UIControlStateNormal];
         [sendMessageButton setBackgroundImage:[UIImage sendMessageButtonImage] forState:UIControlStateNormal];
         [sendMessageButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view addSubview:backgroundAvatar];
         [self.view addSubview:avatarImageView];
+        [self.view addSubview:_torAdress];
         [self.view addSubview:_torAdressLabel];
         [self.view addSubview:sendMessageButton];
-        
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
-        
-        PVAvatar *avatar = [PVAvatar new];
-        [avatar setSourceImageURL:imageURL];
-        
-        [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-            NSLog(@"Draw");
-            UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:[UIColor colorWithRed:0.16 green:0.33 blue:0.49 alpha:1]];
-            UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];
-            [avatarImageView setImage:avatarImage];
-        }];
-        
     }
     return self;
 }
@@ -87,7 +85,20 @@
     _buddy = buddy;
     _dialog = _buddy.dialog;
     self.title = buddy.alias;
-    _torAdressLabel.text = [NSString stringWithFormat:@"%@:\n%@",NSLocalizedString(@"torchat_id", nil),buddy.address];
+    _torAdress.text = [NSString stringWithFormat:@"%@:\n%@",NSLocalizedString(@"torchat_id", nil),buddy.address];
+    _torAdressLabel.text = [NSString stringWithFormat:@"%@",buddy.address];
+    
+    PVAvatar *avatar = [PVAvatar new];
+    [avatar setTorchatID:buddy.address];
+    
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+        
+        UIColor *borderColor = buddy.status?ONLINE_COLOR:OFFLINE_COLOR;
+        
+        UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:borderColor];
+        UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];
+        [avatarImageView setImage:avatarImage];
+    }];
 }
 
 - (void)sendMessage {

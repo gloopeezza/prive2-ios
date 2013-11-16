@@ -76,12 +76,8 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
     contactCell.detailTextLabel.text = dialog.buddy.address;
     contactCell.online = dialog.buddy.status == PVManagedContactStatusOnline;
     
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
-    
     PVAvatar *avatar = [PVAvatar new];
-    [avatar setSourceImageURL:imageURL];
-    
+    [avatar setTorchatID:dialog.buddy.address];
     [contactCell setAvatar:avatar];
 }
 

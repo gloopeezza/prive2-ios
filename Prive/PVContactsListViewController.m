@@ -20,6 +20,9 @@
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
 @interface PVContactsListViewController () <UIAlertViewDelegate>
+{
+    NSArray *imageURLs;
+}
 
 @property (nonatomic, weak) UIAlertView *addBuddyAlertView;
 
@@ -42,6 +45,9 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
         
         self.navigationItem.rightBarButtonItem = barButton;
         [self pv_configureChatStatusItem];
+        
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        imageURLs = [mainBundle URLsForResourcesWithExtension:@"png" subdirectory:@"AvatarImages"];
     }
     
     return self;
@@ -105,11 +111,15 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     contactCell.detailTextLabel.text = buddy.address;
     contactCell.online = buddy.status == PVManagedContactStatusOnline;
     
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
-    
     PVAvatar *avatar = [PVAvatar new];
-    [avatar setSourceImageURL:imageURL];
+
+    if (imageURLs && imageURLs.count > 0 && indexPath.row <= imageURLs.count) {
+        [avatar setSourceImageURL:[imageURLs objectAtIndex:indexPath.row]];
+    }else if(imageURLs && imageURLs.count > 0){
+        [avatar setSourceImageURL:[imageURLs objectAtIndex:0]];
+    }
+    
+    [avatar setTorchatID:buddy.address];
     
     [contactCell setAvatar:avatar];
 }
