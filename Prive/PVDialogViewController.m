@@ -12,6 +12,7 @@
 #import "PVManagedContact.h"
 #import "PVDialogCell.h"
 #import "UIViewController+PVCustomBackButton.h"
+#import "UIViewController+PVChatStatusLeftItem.h"
 #import "PVDialogSectionHeaderView.h"
 
 static NSString * const kPVDialogViewControllerMessageCellReuseIdentifier = @"kPVDialogViewControllerMessageCellReuseIdentifier";
@@ -42,6 +43,7 @@ static NSString * const kPVDialogViewControllerSectionHeaderReuseIdentifier = @"
         [self configureController];
         [self configureGrowingTextView];
         [self pv_configureBackButton];
+        [self pv_configureChatStatusItem];
     }
     
     return self;

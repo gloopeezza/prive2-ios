@@ -13,6 +13,7 @@
 #import "FICImageCache.h"
 #import "PVAppDelegate.h"
 #import "PVManagedContact.h"
+#import "UIViewController+PVChatStatusLeftItem.h"
 
 @interface PVProfileViewController ()
 {
@@ -53,6 +54,7 @@
         [avatar setSourceImageURL:imageURL];
         
         [self reloaAvatarImage:PVManagedContactStatusOffline];
+        [self pv_configureChatStatusItem];
     }
     return self;
 }

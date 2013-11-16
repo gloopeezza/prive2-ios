@@ -15,6 +15,7 @@
 #import "UIImage+Appearance.h"
 #import "PVContactCell.h"
 #import "PVAvatar.h"
+#import "UIViewController+PVChatStatusLeftItem.h"
 
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
@@ -40,6 +41,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
         
         self.navigationItem.rightBarButtonItem = barButton;
+        [self pv_configureChatStatusItem];
     }
     
     return self;

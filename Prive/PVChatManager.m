@@ -23,10 +23,13 @@ static NSInteger kPVTorLocalServicePort = 11008;
 
 NSString * const kPVChatManagerContactStatusNotificationName = @"kPVChatManagerContactStatusNotificationName";
 NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey = @"kPVChatManagerContactStatusNotificationUserInfoContactKey";
+NSString * const kPVChatManagerDidConnectedNotificationName = @"kPVChatManagerDidConnectedNotificationName";
 
 static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 @interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate>
+
+@property (nonatomic, assign, readwrite) BOOL connectedToTor;
 
 @end
 
@@ -65,9 +68,11 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         proxyConfiguration.hiddenServices = @[chatService];
         _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
         
-        __weak id __weak__self = self;
+        __weak typeof(self) __weak__self = self;
         _proxyManager.hiddenServiceBlock = ^{
             [__weak__self startCoreChat];
+            __weak__self.connectedToTor = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerDidConnectedNotificationName object:nil];
         };
         
         // TCConfig init

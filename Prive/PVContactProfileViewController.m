@@ -14,6 +14,7 @@
 #import "PVAvatar.h"
 #import "FICImageCache.h"
 #import "PVAppDelegate.h"
+#import "UIViewController+PVChatStatusLeftItem.h"
 
 @interface PVContactProfileViewController ()
 {
@@ -30,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self pv_configureBackButton];
+        [self pv_configureChatStatusItem];
         
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
             self.edgesForExtendedLayout = UIRectEdgeNone;

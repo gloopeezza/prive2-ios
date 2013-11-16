@@ -12,6 +12,7 @@
 #import "PVDialogViewController.h"
 #import "PVChatManager.h"
 #import "PVContactCell.h"
+#import "UIViewController+PVChatStatusLeftItem.h"
 
 static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"kPVChatDialogListViewControllerCellReuseIdentifier";
 
@@ -28,6 +29,7 @@ static NSString * const kPVChatDialogListViewControllerCellReuseIdentifier = @"k
         self.title = @"Dialogs";
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Dialogs" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-dialogs-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-dialogs-normal"]];
+        [self pv_configureChatStatusItem];
     }
     
     return self;

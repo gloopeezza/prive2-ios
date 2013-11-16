@@ -56,6 +56,9 @@
 		F70C5E371832058D00BD468C /* tabbar-timeline-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E271832058D00BD468C /* tabbar-timeline-highlighted@2x.png */; };
 		F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E281832058D00BD468C /* tabbar-timeline-normal.png */; };
 		F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70C5E291832058D00BD468C /* tabbar-timeline-normal@2x.png */; };
+		F7150ED8183799AB00CBA1FA /* PVChatStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150ED7183799AB00CBA1FA /* PVChatStatusView.m */; };
+		F7150EDB18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150EDA18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m */; };
+		F7150EDE18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150EDD18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m */; };
 		F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7487033182CF09000B21A02 /* PVDialogListViewController.m */; };
 		F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748704B182CFF9000B21A02 /* PVProfileViewController.m */; };
 		F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F748704D182CFFB700B21A02 /* PVProfileViewController.xib */; };
@@ -192,6 +195,12 @@
 		F70C5E271832058D00BD468C /* tabbar-timeline-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-highlighted@2x.png"; path = "Images/tabbar-timeline-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E281832058D00BD468C /* tabbar-timeline-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-normal.png"; path = "Images/tabbar-timeline-normal.png"; sourceTree = "<group>"; };
 		F70C5E291832058D00BD468C /* tabbar-timeline-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-timeline-normal@2x.png"; path = "Images/tabbar-timeline-normal@2x.png"; sourceTree = "<group>"; };
+		F7150ED6183799AB00CBA1FA /* PVChatStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVChatStatusView.h; sourceTree = "<group>"; };
+		F7150ED7183799AB00CBA1FA /* PVChatStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVChatStatusView.m; sourceTree = "<group>"; };
+		F7150ED918379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+PVChatStatusView.h"; sourceTree = "<group>"; };
+		F7150EDA18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+PVChatStatusView.m"; sourceTree = "<group>"; };
+		F7150EDC18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PVChatStatusLeftItem.h"; sourceTree = "<group>"; };
+		F7150EDD18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PVChatStatusLeftItem.m"; sourceTree = "<group>"; };
 		F7487032182CF09000B21A02 /* PVDialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDialogListViewController.h; sourceTree = "<group>"; };
 		F7487033182CF09000B21A02 /* PVDialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogListViewController.m; sourceTree = "<group>"; };
 		F748704A182CFF9000B21A02 /* PVProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVProfileViewController.h; sourceTree = "<group>"; };
@@ -497,8 +506,12 @@
 				F7AF02C51830EE8500F95980 /* UIImage+Appearance.m */,
 				F7ACF49E1833905500222B16 /* UIViewController+PVCustomBackButton.h */,
 				F7ACF49F1833905500222B16 /* UIViewController+PVCustomBackButton.m */,
+				F7150EDC18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.h */,
+				F7150EDD18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m */,
 				E5A2F9391834BB1F003B474C /* NSDateFormatterCache.h */,
 				E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */,
+				F7150ED918379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.h */,
+				F7150EDA18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -556,6 +569,8 @@
 				E52B24A91832380100B82195 /* PVDialogCell */,
 				F7ACF4A218339B4000222B16 /* PVDialogSectionHeaderView.h */,
 				F7ACF4A318339B4000222B16 /* PVDialogSectionHeaderView.m */,
+				F7150ED6183799AB00CBA1FA /* PVChatStatusView.h */,
+				F7150ED7183799AB00CBA1FA /* PVChatStatusView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -758,7 +773,9 @@
 				F7AF02F318310C6F00F95980 /* PVIntroViewController.m in Sources */,
 				F7AF02C21830DB5800F95980 /* PVDialogViewController.m in Sources */,
 				F7AF02881830C3A900F95980 /* PVManagedDialog.m in Sources */,
+				F7150EDB18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m in Sources */,
 				F7AF02C61830EE8500F95980 /* UIImage+Appearance.m in Sources */,
+				F7150EDE18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m in Sources */,
 				F7AF02851830C35800F95980 /* PVManagedMessage.m in Sources */,
 				E5A2F93E1834CF90003B474C /* PVContactProfileViewController.m in Sources */,
 				F7A91BE2182A6C2A00073051 /* main.m in Sources */,
@@ -768,6 +785,7 @@
 				F77A47C71836659000AE3D10 /* PVAvatar.m in Sources */,
 				F7AF02F01831037700F95980 /* PVContactCell.m in Sources */,
 				F7ACF4A418339B4000222B16 /* PVDialogSectionHeaderView.m in Sources */,
+				F7150ED8183799AB00CBA1FA /* PVChatStatusView.m in Sources */,
 				F7A91C0E182A6E0000073051 /* PVChatManager.m in Sources */,
 				F7AF02EC1830FB7300F95980 /* PVTimelineViewController.m in Sources */,
 				F7A91C07182A6D0800073051 /* PVDataModel.xcdatamodeld in Sources */,

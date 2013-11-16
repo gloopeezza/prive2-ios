@@ -16,6 +16,8 @@
 extern NSString * const kPVChatManagerContactStatusNotificationName;
 extern NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey;
 
+extern NSString * const kPVChatManagerDidConnectedNotificationName;
+
 @interface PVChatManager : NSObject<TCConfig>
 
 + (instancetype)defaultManager;
@@ -38,6 +40,8 @@ extern NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKe
 @property (nonatomic, strong) NSArray *buddies;
 @property (nonatomic, strong) NSArray *blockedBuddies;
 @property (nonatomic, assign) tc_config_title modeTitle;
+
+@property (nonatomic, assign, readonly) BOOL connectedToTor;
 
 - (NSArray *)buddies;
 - (void)addBuddy:(NSString *)address alias:(NSString *)alias notes:(NSString *)notes;
