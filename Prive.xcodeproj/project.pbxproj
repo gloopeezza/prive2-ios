@@ -173,9 +173,9 @@
 		E5A2F93A1834BB1F003B474C /* NSDateFormatterCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterCache.m; sourceTree = "<group>"; };
 		E5A2F93C1834CF90003B474C /* PVContactProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVContactProfileViewController.h; sourceTree = "<group>"; };
 		E5A2F93D1834CF90003B474C /* PVContactProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVContactProfileViewController.m; sourceTree = "<group>"; };
-		E5D8C8A0183780DD00407980 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E5D8C8A1183780EB00407980 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
-		E5D8C8A2183780FA00407980 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E5D8C8A0183780DD00407980 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		E5D8C8A1183780EB00407980 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "../Default~iphone.png"; sourceTree = "<group>"; };
+		E5D8C8A2183780FA00407980 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		F70C5E1A1832058D00BD468C /* tabbar-contacts-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted.png"; path = "Images/tabbar-contacts-highlighted.png"; sourceTree = "<group>"; };
 		F70C5E1B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-highlighted@2x.png"; path = "Images/tabbar-contacts-highlighted@2x.png"; sourceTree = "<group>"; };
 		F70C5E1C1832058D00BD468C /* tabbar-contacts-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-contacts-normal.png"; path = "Images/tabbar-contacts-normal.png"; sourceTree = "<group>"; };
@@ -339,6 +339,16 @@
 			name = Dialog;
 			sourceTree = "<group>";
 		};
+		E5D8C8A61837835000407980 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E5D8C8A2183780FA00407980 /* Default-568h@2x.png */,
+				E5D8C8A1183780EB00407980 /* Default~iphone.png */,
+				E5D8C8A0183780DD00407980 /* Default.png */,
+			);
+			name = SplashScreen;
+			sourceTree = "<group>";
+		};
 		F78C4E0D182BA98400C6D19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,9 +360,6 @@
 		F7A91BC9182A6C2A00073051 = {
 			isa = PBXGroup;
 			children = (
-				E5D8C8A2183780FA00407980 /* Default-568h@2x.png */,
-				E5D8C8A1183780EB00407980 /* Default~iphone.png */,
-				E5D8C8A0183780DD00407980 /* Default.png */,
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
@@ -508,6 +515,7 @@
 		F7AF02C81830F61700F95980 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5D8C8A61837835000407980 /* SplashScreen */,
 				E513EE831833B37A00576587 /* My prive */,
 				F7ACF4B31833B23A00222B16 /* Icons */,
 				E518AB7E1833647D007EDFBF /* NavigationBar */,

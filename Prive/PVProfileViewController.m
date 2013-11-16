@@ -38,7 +38,7 @@
 
         avatarImageView = [[UIImageView alloc] initWithImage:avatarImage];
         [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
-        [self.view addSubview:avatarImageView];
+        [self.view insertSubview:avatarImageView belowSubview:self.textField];
         
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile-normal"]];
@@ -51,8 +51,6 @@
         
         avatar = [PVAvatar new];
         [avatar setSourceImageURL:imageURL];
-        
-        [self.textField bringSubviewToFront:avatarImageView];
         
         [self reloaAvatarImage:PVManagedContactStatusOffline];
     }
@@ -90,7 +88,6 @@
 - (void)reloaAvatarImage:(PVManagedContactStatus)status
 {
     [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-        NSLog(@"reloadAvatar");
         UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:status?ONLINE_COLOR_SELF:OFFLINE_COLOR];
         UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];
         [avatarImageView setImage:avatarImage];
@@ -125,22 +122,13 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self animateTextField: textField up: YES];
-    
 }
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
-    int distance = 0.0;
-    const float duration = 0.25f;
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up {
+    int movement = (!up ? 277.0 : (self.view.bounds.size.height - 200.0));
     
-    if (textField == _textField) {
-        distance = 140.0;
-    }
-    
-    int movement = (up ? -distance : distance);
-    [UIView beginAnimations: @"animation" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: duration];
-    self.textField.frame = CGRectOffset(self.textField.frame, 0, movement);
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.textField.frame = CGRectMake(_textField.frame.origin.x, movement, _textField.frame.size.width, _textField.frame.size.height);
+    }];
 }
 @end
