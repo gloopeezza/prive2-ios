@@ -65,6 +65,11 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         proxyConfiguration.hiddenServices = @[chatService];
         _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
         
+        __weak id __weak__self = self;
+        _proxyManager.hiddenServiceBlock = ^{
+            [__weak__self startCoreChat];
+        };
+        
         // TCConfig init
 
         
@@ -182,11 +187,9 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 }
 
 - (void)startTorProxy {
-    __weak id __weak__self = self;
     [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
         NSLog(@"Tor proxy successfully started at %@:%d",socksHost, socksPort);
         NSLog(@"Hidden service address: %@", [self selfAddress]);
-        [__weak__self performSelector:@selector(startCoreChat) withObject:__weak__self afterDelay:20.0f];
     } failure:^(NSError *error) {
         NSLog(@"Tor start failure: %@", error);
     }];
