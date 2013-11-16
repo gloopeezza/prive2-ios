@@ -22,6 +22,7 @@ CGSize const FIDAvatarRoundImageSizeSmall  = {32, 32};
 @interface PVAvatar () {
     NSURL *_sourceImageURL;
     NSString *_UUID;
+    NSString *_torchatID;
 }
 
 @end
@@ -31,6 +32,7 @@ CGSize const FIDAvatarRoundImageSizeSmall  = {32, 32};
 #pragma mark - Protocol Implementations
 
 @synthesize sourceImageURL = _sourceImageURL;
+@synthesize torchatID = _torchatID;
 
 #pragma mark - Property Accessors
 
@@ -70,7 +72,7 @@ static UIImage * _FICDSquareImageFromImage(UIImage *image) {
 
 - (NSString *)UUID {
     if (_UUID == nil) {
-        CFUUIDBytes UUIDBytes = FICUUIDBytesFromMD5HashOfString([_sourceImageURL absoluteString]);
+        CFUUIDBytes UUIDBytes = FICUUIDBytesFromMD5HashOfString(_torchatID);
         _UUID = FICStringWithUUIDBytes(UUIDBytes);
     }
     return _UUID;

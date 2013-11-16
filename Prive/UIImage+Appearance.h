@@ -11,6 +11,7 @@
 @interface UIImage (Appearance)
 
 + (UIImage *)clearImage;
++ (UIImage *)whiteImage;
 + (UIImage *)navigationBarBackgroundImage;
 + (UIImage *)tabbarBackgroundImage;
 + (UIImage *)tabbarSelectedItemBackground;

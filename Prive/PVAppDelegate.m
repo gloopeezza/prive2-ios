@@ -83,6 +83,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    sleep(1);
     [self applyAppearance];
     [self configureFIC];
     

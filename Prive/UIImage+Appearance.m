@@ -174,4 +174,14 @@
     return destImage;
 }
 
++ (UIImage *)whiteImage {
+    UIGraphicsBeginImageContext(CGSizeMake(3.0f, 3.0f));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIColor whiteColor] setFill];
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 3.0f, 3.0f));
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextRelease(context);
+    
+    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(1.0f, 1.0f, 1.0f, 1.0f)];
+}
 @end
