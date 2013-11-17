@@ -46,15 +46,7 @@
         self.title = @"My Privé";
         
         self.textField.text = [[PVChatManager defaultManager] profileName];
-        
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
-        
-        avatar = [PVAvatar new];
-        [avatar setSourceImageURL:imageURL];
-        [avatar setTorchatID:[[PVChatManager defaultManager] selfAddress]];
-        
-        [self reloaAvatarImage:PVManagedContactStatusOffline];
+
         [self pv_configureChatStatusItem];
         
         [_textField setBackground:[UIImage whiteImage]];
@@ -64,6 +56,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
+    
+    avatar = [PVAvatar new];
+    [avatar setSourceImageURL:imageURL];
+    [avatar setTorchatID:[[PVChatManager defaultManager] selfAddress]];
+    
+    [self reloaAvatarImage:PVManagedContactStatusOffline];
     
     self.torchatIdLabel.text = [[PVChatManager defaultManager] selfAddress];
     [[NSNotificationCenter defaultCenter] addObserver:self
