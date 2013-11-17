@@ -4,14 +4,34 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AvatarImagesBundle.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Prive.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PriveAvatars.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F7150EE61837BD1F00CBA1FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7150F0D1837BDD500CBA1FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F7A91BD1182A6C2A00073051</key>
 		<dict>
 			<key>primary</key>

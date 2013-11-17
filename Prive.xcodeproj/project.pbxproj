@@ -15,14 +15,6 @@
 		E518AB8718336C35007EDFBF /* nav-add-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8518336C35007EDFBF /* nav-add-button@2x.png */; };
 		E518AB8A18337252007EDFBF /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8818337252007EDFBF /* default-avatar.png */; };
 		E518AB8B18337252007EDFBF /* default-avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E518AB8918337252007EDFBF /* default-avatar@2x.png */; };
-		E51B91A7183639FC00761EA6 /* avatar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B919F183639FC00761EA6 /* avatar_0.png */; };
-		E51B91A8183639FC00761EA6 /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A0183639FC00761EA6 /* avatar_1.png */; };
-		E51B91A9183639FC00761EA6 /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A1183639FC00761EA6 /* avatar_2.png */; };
-		E51B91AA183639FC00761EA6 /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A2183639FC00761EA6 /* avatar_3.png */; };
-		E51B91AB183639FC00761EA6 /* avatar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A3183639FC00761EA6 /* avatar_4.png */; };
-		E51B91AC183639FC00761EA6 /* avatar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A4183639FC00761EA6 /* avatar_5.png */; };
-		E51B91AD183639FC00761EA6 /* avatar_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A5183639FC00761EA6 /* avatar_6.png */; };
-		E51B91AE183639FC00761EA6 /* avatar_7.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A6183639FC00761EA6 /* avatar_7.png */; };
 		E52B24A81832377000B82195 /* PVDialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B24A71832377000B82195 /* PVDialogCell.m */; };
 		E52B24AD183241EE00B82195 /* dialog-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AB183241EE00B82195 /* dialog-background.png */; };
 		E52B24AE183241EE00B82195 /* dialog-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52B24AC183241EE00B82195 /* dialog-background@2x.png */; };
@@ -59,6 +51,25 @@
 		F7150ED8183799AB00CBA1FA /* PVChatStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150ED7183799AB00CBA1FA /* PVChatStatusView.m */; };
 		F7150EDB18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150EDA18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m */; };
 		F7150EDE18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7150EDD18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m */; };
+		F7150F021837BDAB00CBA1FA /* avatar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B919F183639FC00761EA6 /* avatar_0.png */; };
+		F7150F031837BDAB00CBA1FA /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A0183639FC00761EA6 /* avatar_1.png */; };
+		F7150F041837BDAB00CBA1FA /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A1183639FC00761EA6 /* avatar_2.png */; };
+		F7150F051837BDAB00CBA1FA /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A2183639FC00761EA6 /* avatar_3.png */; };
+		F7150F061837BDAB00CBA1FA /* avatar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A3183639FC00761EA6 /* avatar_4.png */; };
+		F7150F071837BDAB00CBA1FA /* avatar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A4183639FC00761EA6 /* avatar_5.png */; };
+		F7150F081837BDAB00CBA1FA /* avatar_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A5183639FC00761EA6 /* avatar_6.png */; };
+		F7150F091837BDAB00CBA1FA /* avatar_7.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A6183639FC00761EA6 /* avatar_7.png */; };
+		F7150F101837BDD500CBA1FA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7150F0F1837BDD500CBA1FA /* CoreFoundation.framework */; };
+		F7150F161837BDD500CBA1FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7150F141837BDD500CBA1FA /* InfoPlist.strings */; };
+		F7150F1B1837BDDB00CBA1FA /* avatar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B919F183639FC00761EA6 /* avatar_0.png */; };
+		F7150F1C1837BDDB00CBA1FA /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A0183639FC00761EA6 /* avatar_1.png */; };
+		F7150F1D1837BDDB00CBA1FA /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A1183639FC00761EA6 /* avatar_2.png */; };
+		F7150F1E1837BDDB00CBA1FA /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A2183639FC00761EA6 /* avatar_3.png */; };
+		F7150F1F1837BDDB00CBA1FA /* avatar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A3183639FC00761EA6 /* avatar_4.png */; };
+		F7150F201837BDDB00CBA1FA /* avatar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A4183639FC00761EA6 /* avatar_5.png */; };
+		F7150F211837BDDB00CBA1FA /* avatar_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A5183639FC00761EA6 /* avatar_6.png */; };
+		F7150F221837BDDB00CBA1FA /* avatar_7.png in Resources */ = {isa = PBXBuildFile; fileRef = E51B91A6183639FC00761EA6 /* avatar_7.png */; };
+		F7150F231837BDE600CBA1FA /* PriveAvatars.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7150F0E1837BDD500CBA1FA /* PriveAvatars.bundle */; };
 		F7487034182CF09000B21A02 /* PVDialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7487033182CF09000B21A02 /* PVDialogListViewController.m */; };
 		F748704C182CFF9000B21A02 /* PVProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748704B182CFF9000B21A02 /* PVProfileViewController.m */; };
 		F748704E182CFFB700B21A02 /* PVProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F748704D182CFFB700B21A02 /* PVProfileViewController.xib */; };
@@ -98,6 +109,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F7150F241837BE0400CBA1FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7A91BCA182A6C2A00073051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7150F0D1837BDD500CBA1FA;
+			remoteInfo = PriveAvatars;
+		};
 		F78C4DCD182B7E6800C6D19C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */;
@@ -201,6 +219,11 @@
 		F7150EDA18379B2000CBA1FA /* UIBarButtonItem+PVChatStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+PVChatStatusView.m"; sourceTree = "<group>"; };
 		F7150EDC18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PVChatStatusLeftItem.h"; sourceTree = "<group>"; };
 		F7150EDD18379D6F00CBA1FA /* UIViewController+PVChatStatusLeftItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PVChatStatusLeftItem.m"; sourceTree = "<group>"; };
+		F7150F0E1837BDD500CBA1FA /* PriveAvatars.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PriveAvatars.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7150F0F1837BDD500CBA1FA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F7150F131837BDD500CBA1FA /* PriveAvatars-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PriveAvatars-Info.plist"; sourceTree = "<group>"; };
+		F7150F151837BDD500CBA1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7150F171837BDD500CBA1FA /* PriveAvatars-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PriveAvatars-Prefix.pch"; sourceTree = "<group>"; };
 		F7487032182CF09000B21A02 /* PVDialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDialogListViewController.h; sourceTree = "<group>"; };
 		F7487033182CF09000B21A02 /* PVDialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDialogListViewController.m; sourceTree = "<group>"; };
 		F748704A182CFF9000B21A02 /* PVProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVProfileViewController.h; sourceTree = "<group>"; };
@@ -260,6 +283,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F7150F0B1837BDD500CBA1FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7150F101837BDD500CBA1FA /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7A91BCF182A6C2A00073051 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,6 +389,24 @@
 			name = SplashScreen;
 			sourceTree = "<group>";
 		};
+		F7150F111837BDD500CBA1FA /* PriveAvatars */ = {
+			isa = PBXGroup;
+			children = (
+				F7150F121837BDD500CBA1FA /* Supporting Files */,
+			);
+			path = PriveAvatars;
+			sourceTree = "<group>";
+		};
+		F7150F121837BDD500CBA1FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7150F131837BDD500CBA1FA /* PriveAvatars-Info.plist */,
+				F7150F141837BDD500CBA1FA /* InfoPlist.strings */,
+				F7150F171837BDD500CBA1FA /* PriveAvatars-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F78C4E0D182BA98400C6D19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +420,7 @@
 			children = (
 				F7A91BDB182A6C2A00073051 /* Prive */,
 				F7A91BF4182A6C2A00073051 /* PriveTests */,
+				F7150F111837BDD500CBA1FA /* PriveAvatars */,
 				F7A91BD4182A6C2A00073051 /* Frameworks */,
 				F78C4DCB182B7DCF00C6D19C /* libz.dylib */,
 				F7A91BD3182A6C2A00073051 /* Products */,
@@ -382,6 +432,7 @@
 			children = (
 				F7A91BD2182A6C2A00073051 /* Prive.app */,
 				F7A91BED182A6C2A00073051 /* PriveTests.xctest */,
+				F7150F0E1837BDD500CBA1FA /* PriveAvatars.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,6 +447,7 @@
 				F7A91BD7182A6C2A00073051 /* CoreGraphics.framework */,
 				F7A91BD9182A6C2A00073051 /* UIKit.framework */,
 				F7A91BEE182A6C2A00073051 /* XCTest.framework */,
+				F7150F0F1837BDD500CBA1FA /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,6 +639,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F7150F0D1837BDD500CBA1FA /* PriveAvatars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7150F181837BDD500CBA1FA /* Build configuration list for PBXNativeTarget "PriveAvatars" */;
+			buildPhases = (
+				F7150F0A1837BDD500CBA1FA /* Sources */,
+				F7150F0B1837BDD500CBA1FA /* Frameworks */,
+				F7150F0C1837BDD500CBA1FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PriveAvatars;
+			productName = PriveAvatars;
+			productReference = F7150F0E1837BDD500CBA1FA /* PriveAvatars.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F7A91BD1182A6C2A00073051 /* Prive */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7A91BFE182A6C2A00073051 /* Build configuration list for PBXNativeTarget "Prive" */;
@@ -598,6 +667,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F7150F251837BE0400CBA1FA /* PBXTargetDependency */,
 				F78C4E41182BAA0300C6D19C /* PBXTargetDependency */,
 				F78C4DCE182B7E6800C6D19C /* PBXTargetDependency */,
 			);
@@ -666,6 +736,7 @@
 			targets = (
 				F7A91BD1182A6C2A00073051 /* Prive */,
 				F7A91BEC182A6C2A00073051 /* PriveTests */,
+				F7150F0D1837BDD500CBA1FA /* PriveAvatars */,
 			);
 		};
 /* End PBXProject section */
@@ -695,10 +766,35 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F7150F0C1837BDD500CBA1FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7150F1B1837BDDB00CBA1FA /* avatar_0.png in Resources */,
+				F7150F1C1837BDDB00CBA1FA /* avatar_1.png in Resources */,
+				F7150F1D1837BDDB00CBA1FA /* avatar_2.png in Resources */,
+				F7150F1E1837BDDB00CBA1FA /* avatar_3.png in Resources */,
+				F7150F1F1837BDDB00CBA1FA /* avatar_4.png in Resources */,
+				F7150F201837BDDB00CBA1FA /* avatar_5.png in Resources */,
+				F7150F211837BDDB00CBA1FA /* avatar_6.png in Resources */,
+				F7150F221837BDDB00CBA1FA /* avatar_7.png in Resources */,
+				F7150F161837BDD500CBA1FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7A91BD0182A6C2A00073051 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7150F021837BDAB00CBA1FA /* avatar_0.png in Resources */,
+				F7150F031837BDAB00CBA1FA /* avatar_1.png in Resources */,
+				F7150F231837BDE600CBA1FA /* PriveAvatars.bundle in Resources */,
+				F7150F041837BDAB00CBA1FA /* avatar_2.png in Resources */,
+				F7150F051837BDAB00CBA1FA /* avatar_3.png in Resources */,
+				F7150F061837BDAB00CBA1FA /* avatar_4.png in Resources */,
+				F7150F071837BDAB00CBA1FA /* avatar_5.png in Resources */,
+				F7150F081837BDAB00CBA1FA /* avatar_6.png in Resources */,
+				F7150F091837BDAB00CBA1FA /* avatar_7.png in Resources */,
 				E5D8C8A31837817F00407980 /* Default-568h@2x.png in Resources */,
 				E5D8C8A41837817F00407980 /* Default~iphone.png in Resources */,
 				E5D8C8A51837817F00407980 /* Default.png in Resources */,
@@ -706,18 +802,13 @@
 				E5A2F9371834AA8C003B474C /* icon114.png in Resources */,
 				E5A2F9381834AA8C003B474C /* icon57.png in Resources */,
 				E518AB8A18337252007EDFBF /* default-avatar.png in Resources */,
-				E51B91AE183639FC00761EA6 /* avatar_7.png in Resources */,
 				F70C5E2F1832058D00BD468C /* tabbar-dialogs-highlighted@2x.png in Resources */,
 				F70C5E361832058D00BD468C /* tabbar-timeline-highlighted.png in Resources */,
 				F78C4E48182BB15F00C6D19C /* Localizable.strings in Resources */,
 				F70C5E381832058D00BD468C /* tabbar-timeline-normal.png in Resources */,
-				E51B91AA183639FC00761EA6 /* avatar_3.png in Resources */,
-				E51B91AC183639FC00761EA6 /* avatar_5.png in Resources */,
 				F70C5E331832058D00BD468C /* tabbar-profile-highlighted@2x.png in Resources */,
 				F70C5E2B1832058D00BD468C /* tabbar-contacts-highlighted@2x.png in Resources */,
 				E52B24B61832453900B82195 /* dialog-text-view@2x.png in Resources */,
-				E51B91A9183639FC00761EA6 /* avatar_2.png in Resources */,
-				E51B91A7183639FC00761EA6 /* avatar_0.png in Resources */,
 				E52B24B21832443F00B82195 /* dialog-send-button@2x.png in Resources */,
 				F70C5E391832058D00BD468C /* tabbar-timeline-normal@2x.png in Resources */,
 				F78C4E4E182BC6F600C6D19C /* torrc in Resources */,
@@ -731,20 +822,17 @@
 				E52B24B51832453900B82195 /* dialog-text-view.png in Resources */,
 				E518AB8B18337252007EDFBF /* default-avatar@2x.png in Resources */,
 				F70C5E301832058D00BD468C /* tabbar-dialogs-normal.png in Resources */,
-				E51B91A8183639FC00761EA6 /* avatar_1.png in Resources */,
 				F70C5E2D1832058D00BD468C /* tabbar-contacts-normal@2x.png in Resources */,
 				E518AB8718336C35007EDFBF /* nav-add-button@2x.png in Resources */,
 				F70C5E351832058D00BD468C /* tabbar-profile-normal@2x.png in Resources */,
 				F78C4DC7182B7DA500C6D19C /* geoip in Resources */,
 				E52B24B91832485100B82195 /* dialog-attach-file.png in Resources */,
 				E518AB82183364A1007EDFBF /* nav-back-button.png in Resources */,
-				E51B91AD183639FC00761EA6 /* avatar_6.png in Resources */,
 				E52B24B11832443F00B82195 /* dialog-send-button.png in Resources */,
 				F70C5E2E1832058D00BD468C /* tabbar-dialogs-highlighted.png in Resources */,
 				E513EE871833B39800576587 /* prive-background@2x.png in Resources */,
 				E518AB8618336C35007EDFBF /* nav-add-button.png in Resources */,
 				E52B24BA1832485100B82195 /* dialog-attach-file@2x.png in Resources */,
-				E51B91AB183639FC00761EA6 /* avatar_4.png in Resources */,
 				E513EE861833B39800576587 /* prive-background.png in Resources */,
 				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
 				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
@@ -765,6 +853,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F7150F0A1837BDD500CBA1FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7A91BCE182A6C2A00073051 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -807,6 +902,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F7150F251837BE0400CBA1FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7150F0D1837BDD500CBA1FA /* PriveAvatars */;
+			targetProxy = F7150F241837BE0400CBA1FA /* PBXContainerItemProxy */;
+		};
 		F78C4DCE182B7E6800C6D19C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CPAProxy;
@@ -825,6 +925,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F7150F141837BDD500CBA1FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7150F151837BDD500CBA1FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F78C4E46182BB15F00C6D19C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -852,6 +960,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F7150F191837BDD500CBA1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PriveAvatars/PriveAvatars-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PriveAvatars/PriveAvatars-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F7150F1A1837BDD500CBA1FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PriveAvatars/PriveAvatars-Prefix.pch";
+				INFOPLIST_FILE = "PriveAvatars/PriveAvatars-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		F7A91BFC182A6C2A00073051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1003,6 +1154,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F7150F181837BDD500CBA1FA /* Build configuration list for PBXNativeTarget "PriveAvatars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7150F191837BDD500CBA1FA /* Debug */,
+				F7150F1A1837BDD500CBA1FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F7A91BCD182A6C2A00073051 /* Build configuration list for PBXProject "Prive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

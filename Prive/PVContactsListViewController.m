@@ -47,7 +47,7 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
         [self pv_configureChatStatusItem];
         
         NSBundle *mainBundle = [NSBundle mainBundle];
-        imageURLs = [mainBundle URLsForResourcesWithExtension:@"png" subdirectory:@"AvatarImages"];
+        imageURLs = [mainBundle URLsForResourcesWithExtension:@"png" subdirectory:@"PriveAvatars.bundle"];
     }
     
     return self;
