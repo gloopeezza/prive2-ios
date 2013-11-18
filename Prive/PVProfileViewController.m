@@ -14,10 +14,10 @@
 #import "PVAppDelegate.h"
 #import "PVManagedContact.h"
 #import "UIViewController+PVChatStatusLeftItem.h"
-
 @interface PVProfileViewController ()
 {
     PVAvatar *avatar;
+    UIImageView *statusImageView;
     UIImageView *avatarImageView;
 }
 
@@ -35,75 +35,62 @@
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
             self.edgesForExtendedLayout = UIRectEdgeNone;
         
-        UIImage *avatarImage = [UIImage defaultAvatarWithHeight:144 borderColor:OFFLINE_COLOR];
-
-        avatarImageView = [[UIImageView alloc] initWithImage:avatarImage];
-        [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
-        [self.view insertSubview:avatarImageView belowSubview:self.textField];
-        
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My Privé" image:nil tag:0];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-highlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile-normal"]];
         self.title = @"My Privé";
         
-        self.textField.text = [[PVChatManager defaultManager] profileName];
-
         [self pv_configureChatStatusItem];
-        
-        [_textField setBackground:[UIImage whiteImage]];
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didConnectedToTor:)
+                                                 name:kPVChatManagerDidConnectedNotificationName object:nil];
+    
+    statusImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 144.0)];
+    statusImageView.contentMode = UIViewContentModeCenter;
+    [statusImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
+    [self.view addSubview:statusImageView];
+
+    avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 144.0)];
+    avatarImageView.contentMode = UIViewContentModeCenter;
+    [avatarImageView setCenter:CGPointMake(self.view.bounds.size.width/2, 107.5)];
+    [self.view addSubview:avatarImageView];
+    
+    avatar = [PVAvatar new];
+    [avatar setTorchatID:[[PVChatManager defaultManager] selfAddress]];
+    
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+        [avatarImageView setImage:image];
+    }];
+    
+    self.textField.text = [[PVChatManager defaultManager] profileName];
+    [_textField setBackground:[UIImage whiteImage]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *imageURL = [mainBundle URLForResource:@"avatar_0" withExtension:@"png"];
-    
-    avatar = [PVAvatar new];
-    [avatar setSourceImageURL:imageURL];
-    [avatar setTorchatID:[[PVChatManager defaultManager] selfAddress]];
-    
-    [self reloaAvatarImage:PVManagedContactStatusOffline];
-    
+    [self updateStatusImage];
     self.torchatIdLabel.text = [[PVChatManager defaultManager] selfAddress];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onlineStatus:)
-                                                 name:kPVChatManagerContactStatusNotificationName
-                                               object:nil];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) onlineStatus:(NSNotification *) note
-{
-    
-    PVManagedContact *contact = [note.userInfo objectForKey:kPVChatManagerContactStatusNotificationUserInfoContactKey];
-    
-    NSString *status = (contact.status == PVManagedContactStatusOnline) ? @"online" : @"offline";
-    
-    if ([contact.address isEqual:[[PVChatManager defaultManager] selfAddress]]) {
-        [self reloaAvatarImage:contact.status];
-    }
-    
-    NSLog(@"!!!! Contact %@ status updated to %@", contact.address, status);
+- (void)didConnectedToTor:(NSNotification *)note {
+    [self updateStatusImage];
 }
 
-- (void)reloaAvatarImage:(PVManagedContactStatus)status
+- (void)updateStatusImage
 {
-    [[FICImageCache sharedImageCache] retrieveImageForEntity:avatar withFormatName:@"PVAvatarRoundImageFormatNameBig" completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-        UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:status?ONLINE_COLOR_SELF:OFFLINE_COLOR];
-        UIImage *avatarImage = [UIImage imageWithAvatar:image borderImage:borderImage withHeight:144];
-        [avatarImageView setImage:avatarImage];
-    }];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
+    UIImage *borderImage = [UIImage circleImageWithHeight:144 borderColor:[[PVChatManager defaultManager] connectedToTor]?ONLINE_COLOR_SELF:OFFLINE_COLOR];
+    [statusImageView setImage:borderImage];
 }
 
 - (void)didReceiveMemoryWarning
