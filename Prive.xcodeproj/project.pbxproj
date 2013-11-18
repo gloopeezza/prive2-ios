@@ -1087,7 +1087,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\" \"$(SRCROOT)/External/CocoaAsyncSocket/RunLoop\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1104,7 +1104,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/CPAProxy/CPAProxy\" \"$(SRCROOT)/External/TorchatMac/TorChat/Sources/Core\" \"$(SRCROOT)/External/SSDataKit/SSDataKit\" \"$(SRCROOT)/External/GrowingTextView/class\" \"$(SRCROOT)/External/FastImageCache/FastImageCache\" \"$(SRCROOT)/External/CocoaAsyncSocket/RunLoop\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

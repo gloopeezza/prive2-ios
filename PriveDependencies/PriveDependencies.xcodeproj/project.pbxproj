@@ -38,6 +38,8 @@
 		F797E464182E3D3F003964FD /* SSManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E459182E3D3F003964FD /* SSManagedTableViewController.m */; };
 		F797E465182E3D3F003964FD /* SSManagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E45B182E3D3F003964FD /* SSManagedViewController.m */; };
 		F797E466182E3D3F003964FD /* SSRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F797E45D182E3D3F003964FD /* SSRemoteManagedObject.m */; };
+		F7D31E9E183A5882006700A6 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D31E9B183A5882006700A6 /* AsyncSocket.m */; };
+		F7D31E9F183A5882006700A6 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D31E9D183A5882006700A6 /* AsyncUdpSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +126,10 @@
 		F797E45B182E3D3F003964FD /* SSManagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSManagedViewController.m; sourceTree = "<group>"; };
 		F797E45C182E3D3F003964FD /* SSRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRemoteManagedObject.h; sourceTree = "<group>"; };
 		F797E45D182E3D3F003964FD /* SSRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRemoteManagedObject.m; sourceTree = "<group>"; };
+		F7D31E9A183A5882006700A6 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = ../../External/CocoaAsyncSocket/RunLoop/AsyncSocket.h; sourceTree = "<group>"; };
+		F7D31E9B183A5882006700A6 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../../External/CocoaAsyncSocket/RunLoop/AsyncSocket.m; sourceTree = "<group>"; };
+		F7D31E9C183A5882006700A6 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = ../../External/CocoaAsyncSocket/RunLoop/AsyncUdpSocket.h; sourceTree = "<group>"; };
+		F7D31E9D183A5882006700A6 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = ../../External/CocoaAsyncSocket/RunLoop/AsyncUdpSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +209,7 @@
 		F78C4DE8182BA98400C6D19C /* PriveDependencies */ = {
 			isa = PBXGroup;
 			children = (
+				F7D31E99183A5877006700A6 /* CocoaAsyncSocket */,
 				F77A47C8183665BE00AE3D10 /* FastImageCache */,
 				E54487A218320BB80071610A /* GrowingTextView */,
 				F797E44A182E3D3F003964FD /* SSDataKit */,
@@ -282,6 +289,17 @@
 			path = ../../External/SSDataKit/SSDataKit;
 			sourceTree = "<group>";
 		};
+		F7D31E99183A5877006700A6 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				F7D31E9A183A5882006700A6 /* AsyncSocket.h */,
+				F7D31E9B183A5882006700A6 /* AsyncSocket.m */,
+				F7D31E9C183A5882006700A6 /* AsyncUdpSocket.h */,
+				F7D31E9D183A5882006700A6 /* AsyncUdpSocket.m */,
+			);
+			name = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +365,7 @@
 				F78C4E38182BA9CA00C6D19C /* TCFileReceive.m in Sources */,
 				F78C4E3A182BA9CA00C6D19C /* TCImage.m in Sources */,
 				F77A47DA183665BE00AE3D10 /* FICImageTable.m in Sources */,
+				F7D31E9E183A5882006700A6 /* AsyncSocket.m in Sources */,
 				F78C4E36182BA9CA00C6D19C /* TCConnection.m in Sources */,
 				E54487A818320BB80071610A /* HPTextViewInternal.m in Sources */,
 				F797E45E182E3D3F003964FD /* NSManagedObjectContext+SSDataKitAdditions.m in Sources */,
@@ -359,6 +378,7 @@
 				F77A47DB183665BE00AE3D10 /* FICImageTableChunk.m in Sources */,
 				F797E462182E3D3F003964FD /* SSManagedCollectionViewController.m in Sources */,
 				F77A47D9183665BE00AE3D10 /* FICImageFormat.m in Sources */,
+				F7D31E9F183A5882006700A6 /* AsyncUdpSocket.m in Sources */,
 				F78C4E35182BA9CA00C6D19C /* TCBuffer.m in Sources */,
 				F78C4E33182BA9CA00C6D19C /* NSData+TCTools.m in Sources */,
 				F797E465182E3D3F003964FD /* SSManagedViewController.m in Sources */,

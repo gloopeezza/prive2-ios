@@ -13,3 +13,6 @@
 [submodule "External/FastImageCache"]
 	path = External/FastImageCache
 	url = git@github.com:path/FastImageCache.git
+[submodule "External/CocoaAsyncSocket"]
+	path = External/CocoaAsyncSocket
+	url = https://github.com/robbiehanson/CocoaAsyncSocket.git

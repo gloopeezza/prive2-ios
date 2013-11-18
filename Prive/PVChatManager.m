@@ -14,6 +14,8 @@
 #import "PVManagedContact.h"
 #import "PVManagedMessage.h"
 #import "CPAHiddenService.h"
+#import "AsyncSocket.h"
+
 
 static NSString * const kPVClientName = @"Prive iOS";
 static NSString * const kPVBuddiesFetchedResultControllerCacheName = @"kPVBuddiesFetchedResultControllerCacheName";
@@ -27,9 +29,11 @@ NSString * const kPVChatManagerDidConnectedNotificationName = @"kPVChatManagerDi
 
 static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
-@interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate>
+@interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate, AsyncSocketDelegate>
 
 @property (nonatomic, assign, readwrite) BOOL connectedToTor;
+
+@property (atomic, assign) BOOL dummySocketStarted;
 
 @end
 
@@ -38,6 +42,7 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
     CPAProxyManager *_proxyManager;
     NSString *_selfAddress;
     TCCoreManager *_coreManager;
+    AsyncSocket *_dummySocket;
 }
 
 + (instancetype)defaultManager {
@@ -69,14 +74,18 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         _proxyManager = [[CPAProxyManager alloc] initWithConfiguration:proxyConfiguration];
         
         __weak typeof(self) __weak__self = self;
-        _proxyManager.hiddenServiceBlock = ^{
+        
+        _proxyManager.didConnectedToIntroBlock = ^{
+            [__weak__self startDummySocket];
+        };
+        
+        _proxyManager.didConnectedToRendezvousBlock = ^{
             [__weak__self startCoreChat];
             __weak__self.connectedToTor = YES;
             [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerDidConnectedNotificationName object:nil];
         };
         
         // TCConfig init
-
         
         self.clientPort = kPVTorLocalServicePort;
         
@@ -86,6 +95,8 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         if (!_profileName) {
             self.profileName = @"Prive User iOS";
         }
+        
+        
         
     }
     
@@ -102,6 +113,28 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
     if ([self selfAddress]) {
         [self setBuddy:[self selfAddress] alias:profileName];
     }
+}
+
+#pragma mark - AsyncSocketDelegate 
+
+- (BOOL)onSocketWillConnect:(AsyncSocket *)sock {
+    
+    
+    NSDictionary *proxySettings = @{(__bridge NSString *)kCFStreamPropertySOCKSProxyHost : @"127.0.0.1",
+                                    (__bridge NSString *)kCFStreamPropertySOCKSProxyPort : @(_proxyManager.SOCKSPort)};
+    
+    
+    
+    CFWriteStreamSetProperty(sock.getCFWriteStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
+    CFReadStreamSetProperty(sock.getCFReadStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
+    
+    return YES;
+}
+
+- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err {
+    NSLog(@"---- Dummy socket will disconnect with error: %@", err);
+    self.dummySocketStarted = NO;
+    [self startDummySocket];
 }
 
 #pragma mark - Core Data
@@ -193,6 +226,23 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 - (void)start {
     [self startTorProxy];
+}
+
+- (void)startDummySocket {
+    self.dummySocketStarted = YES;
+    NSLog(@"---- Starting dummy socket. Let God bless this socket!");
+    
+    _dummySocket = [[AsyncSocket alloc] initWithDelegate:self];
+    
+    NSString *selfAddress = [[self selfAddress] stringByAppendingString:@".onion"];
+    
+    NSError *error;
+    [_dummySocket connectToHost:selfAddress onPort:kPVTorHiddenServicePort error:&error];
+    
+    if (error) {
+        NSLog(@"---- Error when starting dummy socket: %@",error);
+        self.dummySocketStarted = NO;
+    }
 }
 
 - (void)startTorProxy {
