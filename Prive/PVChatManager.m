@@ -14,7 +14,6 @@
 #import "PVManagedContact.h"
 #import "PVManagedMessage.h"
 #import "CPAHiddenService.h"
-#import "AsyncSocket.h"
 
 
 static NSString * const kPVClientName = @"Prive iOS";
@@ -31,7 +30,7 @@ NSString * const kPVChatManagerDidConnectedNotificationName = @"kPVChatManagerDi
 
 static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
-@interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate, AsyncSocketDelegate>
+@interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate, NSStreamDelegate>
 
 @property (atomic, assign, readwrite) BOOL connectedToTor;
 
@@ -46,7 +45,9 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
     CPAProxyManager *_proxyManager;
     NSString *_selfAddress;
     TCCoreManager *_coreManager;
-    AsyncSocket *_dummySocket;
+   
+    NSInputStream *_inputStream;
+    NSOutputStream *_outputStream;
 }
 
 + (instancetype)defaultManager {
@@ -80,12 +81,21 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         __weak typeof(self) __weak__self = self;
         
         _proxyManager.didConnectedToIntroBlock = ^{
-            [__weak__self startDummySocket];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+               [__weak__self startDummySocket];
+            });
+            
             __weak__self.connectionStatus = PVChatManagerConnectionStatusTypeConnectingToRendezvousPoint;
             [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerConnectionStatusChangeNotificationName object:nil];
         };
         
         _proxyManager.didConnectedToRendezvousBlock = ^{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [__weak__self stopDummySocket];
+            });
+            
             [__weak__self startCoreChat];
             __weak__self.connectedToTor = YES;
             __weak__self.connectionStatus = PVChatManagerConnectionStatusTypeDone;
@@ -123,27 +133,17 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
     }
 }
 
-#pragma mark - AsyncSocketDelegate 
+#pragma mark - NSStreamDelegate;
 
-- (BOOL)onSocketWillConnect:(AsyncSocket *)sock {
-    
-    
-    NSDictionary *proxySettings = @{(__bridge NSString *)kCFStreamPropertySOCKSProxyHost : @"127.0.0.1",
-                                    (__bridge NSString *)kCFStreamPropertySOCKSProxyPort : @(_proxyManager.SOCKSPort)};
-    
-    
-    
-    CFWriteStreamSetProperty(sock.getCFWriteStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
-    CFReadStreamSetProperty(sock.getCFReadStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
-    
-    return YES;
+
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
+    NSLog(@"---- Stream event: %d", eventCode);
+    if (eventCode == NSStreamEventEndEncountered) {
+        self.dummySocketStarted = NO;
+        [self startDummySocket];
+    }
 }
 
-- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err {
-    NSLog(@"---- Dummy socket will disconnect with error: %@", err);
-    self.dummySocketStarted = NO;
-    [self startDummySocket];
-}
 
 #pragma mark - Core Data
 
@@ -237,20 +237,47 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 }
 
 - (void)startDummySocket {
+    if (self.dummySocketStarted) return;
+    
     self.dummySocketStarted = YES;
     NSLog(@"---- Starting dummy socket. Let God bless this socket!");
+
+    if (_inputStream) {
+        [_inputStream close];
+    }
     
-    _dummySocket = [[AsyncSocket alloc] initWithDelegate:self];
+    if (_outputStream) {
+        [_outputStream close];
+    }
     
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+   
     NSString *selfAddress = [[self selfAddress] stringByAppendingString:@".onion"];
     
-    NSError *error;
-    [_dummySocket connectToHost:selfAddress onPort:kPVTorHiddenServicePort error:&error];
+    CFStreamCreatePairWithSocketToHost (NULL, (__bridge CFStringRef)selfAddress, kPVTorHiddenServicePort, &readStream, &writeStream);
+    NSDictionary *proxySettings = @{(__bridge NSString *)kCFStreamPropertySOCKSProxyHost : @"127.0.0.1",
+                                    (__bridge NSString *)kCFStreamPropertySOCKSProxyPort : @(_proxyManager.SOCKSPort)};
+
+    CFWriteStreamSetProperty(writeStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
+    CFReadStreamSetProperty(readStream, kCFStreamPropertySOCKSProxy, (__bridge CFDictionaryRef)proxySettings);
     
-    if (error) {
-        NSLog(@"---- Error when starting dummy socket: %@",error);
-        self.dummySocketStarted = NO;
-    }
+    _inputStream = (__bridge NSInputStream *)readStream;
+    _outputStream = (__bridge NSOutputStream *)writeStream;
+    
+    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    _inputStream.delegate = self;
+    _outputStream.delegate = self;
+    
+    [_inputStream open];
+    [_outputStream open];
+}
+
+- (void)stopDummySocket {
+    [_inputStream close];
+    [_outputStream class];
 }
 
 - (void)startTorProxy {
