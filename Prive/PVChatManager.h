@@ -13,8 +13,19 @@
 
 #import "PVManagedDialog.h"
 
+
+typedef NS_ENUM(NSInteger, PVChatManagerConnectionStatusType) {
+    PVChatManagerConnectionStatusTypeNone,
+    PVChatManagerConnectionStatusTypeTorStarting,
+    PVChatManagerConnectionStatusTypeConnectingToIntroPoint,
+    PVChatManagerConnectionStatusTypeConnectingToRendezvousPoint,
+    PVChatManagerConnectionStatusTypeDone
+};
+
 extern NSString * const kPVChatManagerContactStatusNotificationName;
 extern NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey;
+
+extern NSString * const kPVChatManagerConnectionStatusChangeNotificationName;
 
 extern NSString * const kPVChatManagerDidConnectedNotificationName;
 
@@ -42,6 +53,8 @@ extern NSString * const kPVChatManagerDidConnectedNotificationName;
 @property (nonatomic, assign) tc_config_title modeTitle;
 
 @property (nonatomic, assign, readonly) BOOL connectedToTor;
+
+@property (atomic, assign) PVChatManagerConnectionStatusType connectionStatus;
 
 - (void)addBuddyWithAddress:(NSString *)address name:(NSString *)name;
 

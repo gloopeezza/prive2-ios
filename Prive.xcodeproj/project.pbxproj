@@ -106,6 +106,7 @@
 		F7AF02EC1830FB7300F95980 /* PVTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02EB1830FB7300F95980 /* PVTimelineViewController.m */; };
 		F7AF02F01831037700F95980 /* PVContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02EF1831037700F95980 /* PVContactCell.m */; };
 		F7AF02F318310C6F00F95980 /* PVIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02F218310C6F00F95980 /* PVIntroViewController.m */; };
+		F7D31EA6183A7215006700A6 /* PVTorLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D31EA5183A7215006700A6 /* PVTorLoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,8 @@
 		F7AF02F118310C6F00F95980 /* PVIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVIntroViewController.h; sourceTree = "<group>"; };
 		F7AF02F218310C6F00F95980 /* PVIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVIntroViewController.m; sourceTree = "<group>"; };
 		F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPAProxy.xcodeproj; path = External/CPAProxy/CPAProxy.xcodeproj; sourceTree = "<group>"; };
+		F7D31EA4183A7215006700A6 /* PVTorLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVTorLoadingView.h; sourceTree = "<group>"; };
+		F7D31EA5183A7215006700A6 /* PVTorLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVTorLoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +626,8 @@
 				F7ACF4A318339B4000222B16 /* PVDialogSectionHeaderView.m */,
 				F7150ED6183799AB00CBA1FA /* PVChatStatusView.h */,
 				F7150ED7183799AB00CBA1FA /* PVChatStatusView.m */,
+				F7D31EA4183A7215006700A6 /* PVTorLoadingView.h */,
+				F7D31EA5183A7215006700A6 /* PVTorLoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -864,6 +869,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D31EA6183A7215006700A6 /* PVTorLoadingView.m in Sources */,
 				F7A91BE6182A6C2A00073051 /* PVAppDelegate.m in Sources */,
 				F7AF02F318310C6F00F95980 /* PVIntroViewController.m in Sources */,
 				F7AF02C21830DB5800F95980 /* PVDialogViewController.m in Sources */,

@@ -23,6 +23,8 @@ static NSString * const kPVTorHiddenServiceDirPath = @"chat_service";
 static NSInteger kPVTorHiddenServicePort = 11009;
 static NSInteger kPVTorLocalServicePort = 11008;
 
+NSString * const kPVChatManagerConnectionStatusChangeNotificationName = @"kPVChatManagerConnectionStatusChangeNotificationName";
+
 NSString * const kPVChatManagerContactStatusNotificationName = @"kPVChatManagerContactStatusNotificationName";
 NSString * const kPVChatManagerContactStatusNotificationUserInfoContactKey = @"kPVChatManagerContactStatusNotificationUserInfoContactKey";
 NSString * const kPVChatManagerDidConnectedNotificationName = @"kPVChatManagerDidConnectedNotificationName";
@@ -31,9 +33,11 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 @interface PVChatManager () <TCCoreManagerDelegate, TCBuddyDelegate, AsyncSocketDelegate>
 
-@property (nonatomic, assign, readwrite) BOOL connectedToTor;
+@property (atomic, assign, readwrite) BOOL connectedToTor;
 
 @property (atomic, assign) BOOL dummySocketStarted;
+
+//@property (atomic, assign)
 
 @end
 
@@ -77,12 +81,16 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
         
         _proxyManager.didConnectedToIntroBlock = ^{
             [__weak__self startDummySocket];
+            __weak__self.connectionStatus = PVChatManagerConnectionStatusTypeConnectingToRendezvousPoint;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerConnectionStatusChangeNotificationName object:nil];
         };
         
         _proxyManager.didConnectedToRendezvousBlock = ^{
             [__weak__self startCoreChat];
             __weak__self.connectedToTor = YES;
+            __weak__self.connectionStatus = PVChatManagerConnectionStatusTypeDone;
             [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerDidConnectedNotificationName object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerConnectionStatusChangeNotificationName object:nil];
         };
         
         // TCConfig init
@@ -246,9 +254,16 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 }
 
 - (void)startTorProxy {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerConnectionStatusChangeNotificationName object:self];
+    self.connectionStatus = PVChatManagerConnectionStatusTypeTorStarting;
+    
+    
+    __weak typeof(self) __weak__self = self;
     [_proxyManager setupWithSuccess:^(NSString *socksHost, NSUInteger socksPort) {
         NSLog(@"Tor proxy successfully started at %@:%d",socksHost, socksPort);
         NSLog(@"Hidden service address: %@", [self selfAddress]);
+        __weak__self.connectionStatus = PVChatManagerConnectionStatusTypeConnectingToIntroPoint;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPVChatManagerConnectionStatusChangeNotificationName object:self];
     } failure:^(NSError *error) {
         NSLog(@"Tor start failure: %@", error);
     }];

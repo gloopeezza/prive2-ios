@@ -62,7 +62,7 @@
         
         UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
         sendMessageButton.frame = CGRectMake(20, backgroundAvatar.frame.size.height + _torAdressLabel.frame.size.height + 25, 280, 44);
-        [sendMessageButton setTitle:NSLocalizedString(@"send_message", @"") forState:UIControlStateNormal];
+        [sendMessageButton setTitle:@"Send Message" forState:UIControlStateNormal];
         [sendMessageButton setBackgroundImage:[UIImage sendMessageButtonImage] forState:UIControlStateNormal];
         [sendMessageButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
         
@@ -85,7 +85,7 @@
     _buddy = buddy;
     _dialog = _buddy.dialog;
     self.title = buddy.alias;
-    _torAdress.text = [NSString stringWithFormat:@"%@:\n%@",NSLocalizedString(@"torchat_id", nil),buddy.address];
+    _torAdress.text = [NSString stringWithFormat:@"%@:\n%@",@"My Prive Address",buddy.address];
     _torAdressLabel.text = [NSString stringWithFormat:@"%@",buddy.address];
     
     PVAvatar *avatar = [PVAvatar new];

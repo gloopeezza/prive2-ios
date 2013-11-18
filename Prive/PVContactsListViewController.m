@@ -16,12 +16,14 @@
 #import "PVContactCell.h"
 #import "PVAvatar.h"
 #import "UIViewController+PVChatStatusLeftItem.h"
+#import "PVTorLoadingView.h"
 
 static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBuddyListViewControllerCellReuseIdentifier";
 
 @interface PVContactsListViewController () <UIAlertViewDelegate>
 {
     NSArray *imageURLs;
+    PVTorLoadingView *_statusView;
 }
 
 @property (nonatomic, weak) UIAlertView *addBuddyAlertView;
@@ -53,13 +55,73 @@ static NSString * const kPVBuddyListViewControllerCellReuseIdentifier = @"kPVBud
     return self;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)connectionStatusChangeHandler:(NSNotification *)note {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateStatusView];
+    });
+}
+
+- (void)updateStatusView {
+    switch ([PVChatManager defaultManager].connectionStatus) {
+        case PVChatManagerConnectionStatusTypeNone:
+            
+            break;
+            
+        case PVChatManagerConnectionStatusTypeTorStarting:
+            _statusView.statusLabel.text = @"Connecting to Tor network...";
+            break;
+            
+        case PVChatManagerConnectionStatusTypeConnectingToIntroPoint:
+            _statusView.statusLabel.text = @"Connecting to Tor Introduction point...";
+            break;
+            
+        case PVChatManagerConnectionStatusTypeConnectingToRendezvousPoint:
+            _statusView.statusLabel.text = @"Connecting to Tor Rendezvous point...";
+            break;
+            
+        case PVChatManagerConnectionStatusTypeDone: {
+            _statusView.statusLabel.text = @"Successfuly connected to Tor!";
+            [self setLoading:NO animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+- (BOOL)hasContent {
+    return NO;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    _statusView = [[PVTorLoadingView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 240.0f, 48.0f)];
+    
+    self.loadingView = _statusView;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(connectionStatusChangeHandler:)
+                                                 name:kPVChatManagerConnectionStatusChangeNotificationName
+                                               object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onlineStatus:)
                                                  name:kPVChatManagerContactStatusNotificationName
                                                object:nil];
+    [self updateStatusView];
+    
+    if ([PVChatManager defaultManager].connectionStatus != PVChatManagerConnectionStatusTypeDone) {
+        [self setLoading:YES animated:YES];
+    } else {
+        [self setLoading:NO animated:NO];
+    }
 }
 
 - (void)dealloc {
