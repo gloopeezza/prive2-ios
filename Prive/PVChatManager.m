@@ -138,7 +138,7 @@ static NSString * const kPVClientProfileNameKey = @"kPVClientProfileNameKey";
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
     NSLog(@"---- Stream event: %d", eventCode);
-    if (eventCode == NSStreamEventEndEncountered) {
+    if (eventCode == NSStreamEventEndEncountered || eventCode == NSStreamEventErrorOccurred) {
         self.dummySocketStarted = NO;
         [self startDummySocket];
     }
