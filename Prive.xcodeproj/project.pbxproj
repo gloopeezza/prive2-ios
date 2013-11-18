@@ -107,6 +107,7 @@
 		F7AF02F01831037700F95980 /* PVContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02EF1831037700F95980 /* PVContactCell.m */; };
 		F7AF02F318310C6F00F95980 /* PVIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF02F218310C6F00F95980 /* PVIntroViewController.m */; };
 		F7D31EA6183A7215006700A6 /* PVTorLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D31EA5183A7215006700A6 /* PVTorLoadingView.m */; };
+		F7D31EA8183A81B8006700A6 /* timelinescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D31EA7183A81B8006700A6 /* timelinescreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +284,7 @@
 		F7BFD07E182B7CE9001DC10C /* CPAProxy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CPAProxy.xcodeproj; path = External/CPAProxy/CPAProxy.xcodeproj; sourceTree = "<group>"; };
 		F7D31EA4183A7215006700A6 /* PVTorLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVTorLoadingView.h; sourceTree = "<group>"; };
 		F7D31EA5183A7215006700A6 /* PVTorLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVTorLoadingView.m; sourceTree = "<group>"; };
+		F7D31EA7183A81B8006700A6 /* timelinescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelinescreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 		E5D8C8A61837835000407980 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F7D31EA7183A81B8006700A6 /* timelinescreen.png */,
 				E5D8C8A2183780FA00407980 /* Default-568h@2x.png */,
 				E5D8C8A1183780EB00407980 /* Default~iphone.png */,
 				E5D8C8A0183780DD00407980 /* Default.png */,
@@ -841,6 +844,7 @@
 				E513EE861833B39800576587 /* prive-background.png in Resources */,
 				F70C5E311832058D00BD468C /* tabbar-dialogs-normal@2x.png in Resources */,
 				F70C5E2C1832058D00BD468C /* tabbar-contacts-normal.png in Resources */,
+				F7D31EA8183A81B8006700A6 /* timelinescreen.png in Resources */,
 				F70C5E341832058D00BD468C /* tabbar-profile-normal.png in Resources */,
 				F70C5E2A1832058D00BD468C /* tabbar-contacts-highlighted.png in Resources */,
 				E518AB83183364A1007EDFBF /* nav-back-button@2x.png in Resources */,
